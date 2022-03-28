@@ -1,4 +1,4 @@
 package se.journer.journer.controller;
 
-public class QuestionController {
+public class CityController {
 }

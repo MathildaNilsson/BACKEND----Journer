@@ -1,2 +1,4 @@
-package se.journer.journer.Question;public class CityQuestion {
+package se.journer.journer.question;
+
+public class CityQuestion extends Question{
 }

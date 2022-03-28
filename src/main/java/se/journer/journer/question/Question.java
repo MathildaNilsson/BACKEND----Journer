@@ -1,2 +1,4 @@
-package se.journer.journer.Question;public class Question {
+package se.journer.journer.question;
+
+public class Question {
 }

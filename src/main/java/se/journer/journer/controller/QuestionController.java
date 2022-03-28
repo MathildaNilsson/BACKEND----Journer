@@ -1,2 +1,4 @@
-package se.journer.journer.controller;public class QuestionController {
+package se.journer.journer.controller;
+
+public class QuestionController {
 }

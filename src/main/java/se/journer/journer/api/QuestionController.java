@@ -14,7 +14,8 @@ public class QuestionController {
 
     QuestionService questionService;
 
-    public QuestionController() {
+    public QuestionController(QuestionService questionService) {
+        this.questionService = questionService;
     }
 
     @GetMapping("")

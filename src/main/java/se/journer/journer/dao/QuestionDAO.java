@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.UUID;
 
 public class QuestionDAO {
-    static List<Question> questions = new ArrayList<>();
+    static List<String> questions = new ArrayList<>();
     private static List<Question> DB =
             new ArrayList<>(List.of(
                     new Question(

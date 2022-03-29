@@ -16,6 +16,6 @@ public class QuestionService {
     }
 
     public List<Question> getQuestion() {
-        return questionDAO.getQuestion();
+        return (List<Question>) questionDAO.getQuestion();
     }
 }

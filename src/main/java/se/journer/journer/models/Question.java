@@ -4,13 +4,13 @@ package se.journer.journer.models;
 import javax.persistence.*;
 
 @Entity
-@Table(name="question")
+@Table(name="questions")
 public class Question {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String type;
-    private String Question;
+    private String question;
     private String correctAnswer;
    // private List<String> wrongAnswer;
 
@@ -23,7 +23,7 @@ public class Question {
     }
 
     public String getQuestion() {
-        return Question;
+        return question;
     }
 
     public String getCorrectAnswer() {
@@ -40,7 +40,7 @@ public class Question {
     }
 
     public void setQuestion(String question) {
-        Question = question;
+        this.question = question;
     }
 
     public void setCorrectAnswer(String correctAnswer) {

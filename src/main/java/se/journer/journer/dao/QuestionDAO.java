@@ -1,11 +1,10 @@
 package se.journer.journer.dao;
 
 import org.springframework.stereotype.Repository;
-import se.journer.journer.question.Question;
+import se.journer.journer.models.Question;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 @Repository
 public class QuestionDAO {

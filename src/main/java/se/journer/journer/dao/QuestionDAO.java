@@ -14,9 +14,7 @@ public class QuestionDAO {
     private static List<Question> DB =
             new ArrayList<>(List.of(
                     new Question(
-                            UUID.randomUUID(),
-                            "What is the capital of Assyria",
-                            "Right answer", questions)));
+                            )));
 
     public List<Question> getQuestion() {
         return DB;

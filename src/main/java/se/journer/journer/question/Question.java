@@ -1,22 +1,24 @@
 package se.journer.journer.question;
 
-import java.util.List;
-import java.util.UUID;
 
+import javax.persistence.*;
+import java.util.List;
+
+@Entity
+@Table(name="question")
 public class Question {
-    private UUID id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     private String Question;
     private String correctAnswer;
-    private List<String> wrongAnswer;
+   // private List<String> wrongAnswer;
 
-    public Question(UUID id, String question, String correctAnswer, List<String> wrongAnswer) {
-        this.id = id;
-        Question = question;
-        this.correctAnswer = correctAnswer;
-        this.wrongAnswer = wrongAnswer;
+
+    public Question() {
     }
 
-    public UUID getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -28,7 +30,7 @@ public class Question {
         return correctAnswer;
     }
 
-    public List<String> getWrongAnswer() {
-        return wrongAnswer;
-    }
+    //public List<String> getWrongAnswer() {
+    //    return wrongAnswer;
+    //}
 }

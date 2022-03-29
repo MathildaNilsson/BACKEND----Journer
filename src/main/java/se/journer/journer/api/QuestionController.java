@@ -3,7 +3,7 @@ package se.journer.journer.api;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import se.journer.journer.question.Question;
+import se.journer.journer.models.Question;
 import se.journer.journer.service.QuestionService;
 
 import java.util.List;

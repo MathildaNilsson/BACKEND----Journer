@@ -1,8 +1,7 @@
-package se.journer.journer.question;
+package se.journer.journer.models;
 
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name="question")

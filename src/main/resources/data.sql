@@ -18,18 +18,31 @@ SELECT * FROM questions;
 
 
 -- Initialize Cities
--- INSERT INTO cities(name,souvenir) VALUES
---                             ("Bangalore","Orient carpet"),
---                             ("Budapest","Rubiks cube"),
---                             ("Cape town","Bottle of whine"),
---                             ("Chicago","mug"),
---                             ("Dubai","hookah"),
---                             ("Havanna","Cuban cigarr"),
---                             ("Helsinki","Ice bear plushie"),
---                             ("Sao Paulo","Football jersey"),
---                             ("Singapore","Orchid parfume"),
---                             ("Tokyo","Cherry blossom");
+-- INSERT INTO cities(name) VALUES
+--                             ('Bangalore'),
+--                             ('Budapest'),
+--                             ('Cape town'),
+--                             ('Chicago'),
+--                             ('Dubai'),
+--                             ('Havanna'),
+--                             ('Helsinki'),
+--                             ('Sao Paulo'),
+--                             ('Singapore'),
+--                             ('Tokyo');
 
+
+-- Initialize Cities
+-- INSERT INTO cities(name, souvenir) VALUES
+--                              ('Bangalore','Orient carpet'),
+--                              ('Budapest','Rubiks cube'),
+--                              ('Cape town','Bottle of whine'),
+--                              ('Chicago','mug'),
+--                              ('Dubai','hookah'),
+--                              ('Havanna','Cuban cigarr'),
+--                              ('Helsinki','Ice bear plushie'),
+--                              ('Sao Paulo','Football jersey'),
+--                              ('Singapore','Orchid parfume'),
+--                              ('Tokyo','Cherry blossom');
 
 
 

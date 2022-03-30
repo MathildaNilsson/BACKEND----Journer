@@ -9,7 +9,6 @@ public class WrongAnswers {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String answer;
-    private Integer question;
 
     public WrongAnswers() {
     }
@@ -18,15 +17,8 @@ public class WrongAnswers {
         return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
     public String getAnswer() {
         return answer;
     }
 
-    public void setAnswer(String answer) {
-        this.answer = answer;
-    }
 }

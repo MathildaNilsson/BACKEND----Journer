@@ -1,4 +1,4 @@
---SELECT * FROM questions;
+SELECT * FROM question;
 
 -- Initialize Questions
 -- INSERT INTO questions(question,correct_answer,type) VALUES

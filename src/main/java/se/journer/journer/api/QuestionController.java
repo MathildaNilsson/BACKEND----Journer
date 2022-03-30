@@ -1,6 +1,7 @@
 package se.journer.journer.api;
 
 import org.springframework.web.bind.annotation.*;
+import se.journer.journer.models.questions.Answers;
 import se.journer.journer.models.questions.Question;
 import se.journer.journer.service.QuestionService;
 
@@ -21,8 +22,9 @@ public class QuestionController {
         return questionService.getQuestion();
     }
 
-    /*@GetMapping("/type/{type}")
-    public List<Question> getQuestionByType(@PathVariable("type") String type){
-        return questionService.getQuestionByType(type);
-    }*/
+    @GetMapping("/test/{id}")
+    public List<Answers> getAnswers(@PathVariable("id") Integer id){
+
+        return questionService.getAnswers(id);
+        }
 }

@@ -4,6 +4,8 @@ import org.springframework.stereotype.Repository;
 import se.journer.journer.models.questions.Question;
 import se.journer.journer.repository.QuestionRepository;
 
+import java.util.Optional;
+
 @Repository
 public class QuestionDAO {
 
@@ -15,5 +17,9 @@ public class QuestionDAO {
 
     public Iterable<Question> getQuestion() {
         return repository.findAll();
+    }
+
+    public Optional<Question> getQuestionByID(Integer id){
+        return repository.findById(id);
     }
 }

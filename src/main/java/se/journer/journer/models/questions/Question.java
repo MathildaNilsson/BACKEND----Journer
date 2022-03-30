@@ -5,17 +5,20 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name="questions")
+@Table(name="question")
 public class Question {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String type;
     private String question;
-    private String correctAnswer;
+
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "question", referencedColumnName = "id")
-    List<WrongAnswers> wrongAnswersList;
+    @JoinColumn(name = "question_id", referencedColumnName = "id")
+    List<Answers> answerList;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="category_id", referencedColumnName = "id")
+    private Category categoryId;
 
     public Question() {
     }
@@ -28,15 +31,7 @@ public class Question {
         return question;
     }
 
-    public String getCorrectAnswer() {
-        return correctAnswer;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public List<WrongAnswers> getWrongAnswersList() {
-        return wrongAnswersList;
+    public List<Answers> getAnswerList() {
+        return answerList;
     }
 }

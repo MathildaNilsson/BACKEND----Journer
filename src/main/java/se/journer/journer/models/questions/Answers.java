@@ -3,14 +3,15 @@ package se.journer.journer.models.questions;
 import javax.persistence.*;
 
 @Entity
-@Table(name="wrong_answers")
-public class WrongAnswers {
+@Table(name="answers")
+public class Answers {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String answer;
+    private boolean rightAnswer;
 
-    public WrongAnswers() {
+    public Answers() {
     }
 
     public Integer getId() {
@@ -21,4 +22,7 @@ public class WrongAnswers {
         return answer;
     }
 
+    public boolean isRightAnswer() {
+        return rightAnswer;
+    }
 }

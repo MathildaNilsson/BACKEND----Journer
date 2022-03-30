@@ -21,8 +21,8 @@ public class QuestionController {
         return questionService.getQuestion();
     }
 
-    @GetMapping("/type/{type}")
+    /*@GetMapping("/type/{type}")
     public List<Question> getQuestionByType(@PathVariable("type") String type){
         return questionService.getQuestionByType(type);
-    }
+    }*/
 }

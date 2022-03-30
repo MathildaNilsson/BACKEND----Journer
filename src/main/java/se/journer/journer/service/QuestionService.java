@@ -20,10 +20,10 @@ public class QuestionService {
         return (List<Question>) questionDAO.getQuestion();
     }
 
-    public List<Question> getQuestionByType(String type){
+   /* public List<Question> getQuestionByType(String type){
         return getQuestion().stream()
                 .filter(Question -> type.equalsIgnoreCase(Question.getType()))
                 .collect(Collectors.toList());
-    }
+    }*/
 
 }

@@ -5,11 +5,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import se.journer.journer.service.QuestionService;
 
 @Controller
-public class CityController {
+public class AppController {
 
     QuestionService questionService;
 
-    public CityController(QuestionService questionService) {
+    public AppController(QuestionService questionService) {
         this.questionService = questionService;
     }
 

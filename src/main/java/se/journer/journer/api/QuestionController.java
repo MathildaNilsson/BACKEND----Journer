@@ -1,8 +1,6 @@
 package se.journer.journer.api;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import se.journer.journer.models.Question;
 import se.journer.journer.service.QuestionService;
 
@@ -20,8 +18,11 @@ public class QuestionController {
 
     @GetMapping("")
     public List<Question> getQuestion(){
-
         return questionService.getQuestion();
     }
 
+    @GetMapping("/type")
+    public List<Question> getQuestionByType(@RequestParam("type") String type){
+        return questionService.getQuestionByType(type);
+    }
 }

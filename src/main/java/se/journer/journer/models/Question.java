@@ -1,7 +1,6 @@
 package se.journer.journer.models;
-
-
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="questions")
@@ -12,8 +11,10 @@ public class Question {
     private String type;
     private String question;
     private String correctAnswer;
-   // private List<String> wrongAnswer;
 
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "question", referencedColumnName = "id")
+    private List<WrongAnswers> wrongAnswersList;
 
     public Question() {
     }
@@ -30,28 +31,12 @@ public class Question {
         return correctAnswer;
     }
 
-    //public List<String> getWrongAnswer() {
-    //    return wrongAnswer;
-    //}
-
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public void setQuestion(String question) {
-        this.question = question;
-    }
-
-    public void setCorrectAnswer(String correctAnswer) {
-        this.correctAnswer = correctAnswer;
-    }
-
     public String getType() {
         return type;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public List<WrongAnswers> getWrongAnswersList() {
+        return wrongAnswersList;
     }
+
 }

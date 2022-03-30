@@ -9,7 +9,7 @@ import se.journer.journer.service.CityService;
 import java.util.List;
 
 @RestController
-@RequestMapping("")
+@RequestMapping("/city")
 public class CityController {
 
     CityService cityService;

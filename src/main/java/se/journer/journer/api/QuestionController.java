@@ -7,7 +7,7 @@ import se.journer.journer.service.QuestionService;
 import java.util.List;
 
 @RestController
-@RequestMapping("")
+@RequestMapping("/question")
 public class QuestionController {
 
     QuestionService questionService;

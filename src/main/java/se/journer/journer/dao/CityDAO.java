@@ -1,2 +1,5 @@
-package se.journer.journer.dao;public class CityDAO {
+package se.journer.journer.dao;
+
+public class CityDAO {
+
 }

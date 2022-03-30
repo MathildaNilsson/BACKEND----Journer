@@ -1,2 +1,6 @@
-package se.journer.journer.models.cities;public class Tokyo {
+package se.journer.journer.models.cities;
+
+public class Tokyo extends City {
+
+
 }

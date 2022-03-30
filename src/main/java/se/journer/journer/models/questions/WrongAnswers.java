@@ -1,4 +1,4 @@
-package se.journer.journer.models;
+package se.journer.journer.models.questions;
 
 import javax.persistence.*;
 

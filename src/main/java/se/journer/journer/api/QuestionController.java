@@ -1,7 +1,7 @@
 package se.journer.journer.api;
 
 import org.springframework.web.bind.annotation.*;
-import se.journer.journer.models.Question;
+import se.journer.journer.models.questions.Question;
 import se.journer.journer.service.QuestionService;
 
 import java.util.List;

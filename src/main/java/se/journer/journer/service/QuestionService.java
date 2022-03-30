@@ -2,7 +2,7 @@ package se.journer.journer.service;
 
 import org.springframework.stereotype.Service;
 import se.journer.journer.dao.QuestionDAO;
-import se.journer.journer.models.Question;
+import se.journer.journer.models.questions.Question;
 
 import java.util.List;
 import java.util.stream.Collectors;

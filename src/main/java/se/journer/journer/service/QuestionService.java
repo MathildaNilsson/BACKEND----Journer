@@ -32,11 +32,11 @@ public class QuestionService {
         return getQuestionById(id).getAnswerList();
     }
 
-   /* public Question getRandomQuestion(){
-        Optional<Question> randomQuestion = getQuestion().stream()
-                .findAny();
+    public Question getRandomQuestion(Integer id){
+        Optional<Question> randomQuestion = getQuestionByType(id).stream()
+                .skip((int) (getQuestionByType(id).size() * Math.random())).findAny();
         return randomQuestion.orElse(null);
-    }*/
+    }
 
     public List<Question> getQuestionByType(Integer categoryId) {
         List <Question> questions = (List<Question>) questionDAO.getQuestion();

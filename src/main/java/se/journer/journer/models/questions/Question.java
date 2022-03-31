@@ -35,7 +35,7 @@ public class Question {
         return answerList;
     }
 
-    public Category getCategoryId() {
-        return categoryId;
+    public Integer getCategoryId(){
+        return categoryId.getId();
     }
 }

@@ -3,6 +3,7 @@ package se.journer.journer.service;
 import org.springframework.stereotype.Service;
 import se.journer.journer.dao.QuestionDAO;
 import se.journer.journer.models.questions.Answers;
+import se.journer.journer.models.questions.Category;
 import se.journer.journer.models.questions.Question;
 
 import java.util.List;
@@ -29,6 +30,18 @@ public class QuestionService {
 
     public List<Answers> getAnswers(Integer id) {
         return getQuestionById(id).getAnswerList();
+    }
 
+   /* public Question getRandomQuestion(){
+        Optional<Question> randomQuestion = getQuestion().stream()
+                .findAny();
+        return randomQuestion.orElse(null);
+    }*/
+
+    public List<Question> getQuestionByType(Integer categoryId) {
+        List <Question> questions = (List<Question>) questionDAO.getQuestion();
+        return questions.stream()
+                .filter(question -> question.getCategoryId().equals(categoryId))
+                .collect(Collectors.toList());
     }
 }

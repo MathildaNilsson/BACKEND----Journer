@@ -26,5 +26,11 @@ public class QuestionController {
     public List<Answers> getAnswers(@PathVariable("id") Integer id){
 
         return questionService.getAnswers(id);
-        }
+    }
+
+    @GetMapping("/category/{categoryId}")
+    public List<Question> getQuestionByType(@PathVariable("categoryId") Integer categoryId){
+        return questionService.getQuestionByType(categoryId);
+    }
+
 }

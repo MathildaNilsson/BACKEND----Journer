@@ -12,4 +12,12 @@ public class Category {
 
     public Category() {
     }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public String getCategory() {
+        return category;
+    }
 }

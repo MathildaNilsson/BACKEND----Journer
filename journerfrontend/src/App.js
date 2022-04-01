@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import logo from './logo.svg';
 import './App.css';
 
@@ -20,6 +21,15 @@ function App() {
       </header>
     </div>
   );
+=======
+import "./App.css";
+import Test from "./components/Test";
+
+function App() {
+  return <div className="App">
+    <Test></Test>
+    </div>;
+>>>>>>> 440b352a74c6f8c81b3e1f00ca609880506f62eb
 }
 
 export default App;

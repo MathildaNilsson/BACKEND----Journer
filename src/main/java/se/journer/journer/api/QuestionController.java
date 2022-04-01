@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/question")
+@CrossOrigin
 public class QuestionController {
 
     QuestionService questionService;
@@ -22,7 +23,7 @@ public class QuestionController {
         return questionService.getQuestion();
     }
 
-    @GetMapping("/random/{id}")
+    @GetMapping("/answer/{id}")
     public List<Answer> getAnswers(@PathVariable("id") Integer id){
         return questionService.getAnswers(id);
     }
@@ -36,6 +37,7 @@ public class QuestionController {
     public Question getRandomQuestion(@PathVariable("categoryId") Integer id){
         return questionService.getRandomQuestion(id);
     }
+
     @GetMapping("/right/{id}")
     public Answer getRightAnswer(@PathVariable("id") int id){
         return questionService.getRightAnswer(id);

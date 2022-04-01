@@ -37,5 +37,9 @@ public class QuestionController {
     public Question getRandomQuestion(@PathVariable("categoryId") Integer id){
         return questionService.getRandomQuestion(id);
     }
+    @GetMapping("/right/{id}")
+    public Answers getRightAnswer(@PathVariable("id") int id){
+        return questionService.getRightAnswer(id);
+    }
 
 }

@@ -44,4 +44,10 @@ public class QuestionService {
                 .filter(question -> question.getCategoryId().equals(categoryId))
                 .collect(Collectors.toList());
     }
+
+    public Answers getRightAnswer(int id) {
+        Optional<Answers> rightAnswer = getAnswers(id).stream()
+                .filter(answers -> answers.isRightAnswer()).findAny();
+        return rightAnswer.orElse(null);
+    }
 }

@@ -5,7 +5,7 @@ const Test = () => {
 
   useEffect(() => {
     fetch("http://localhost:8080/question/")
-      .then((res) => res.json())
+      .then((response) => response.json())
       .then((data) => setdata(data));
   }, {});
 
@@ -15,7 +15,6 @@ const Test = () => {
         data.map((item) => (
           <tr>
             <th scope="row"> {item.id}</th>
-            <td>{item.id}</td>
             <td>{item.question}</td>
 
             {item.answerList && item.answerList.map((list) => <button>{list.answer}</button>)}

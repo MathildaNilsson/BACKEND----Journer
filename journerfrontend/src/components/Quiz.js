@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 const Quiz = () => {
   let [question, setquestion] = useState(null);
+  let [check, setcheck] = useState("");
 
   useEffect(() => {
     fetch("http://localhost:8080/question/random/5")
@@ -11,9 +12,9 @@ const Quiz = () => {
 
   const checkAnswer = (answer) =>{
     if(answer === true){
-console.log("TRUE");
+     setcheck("True");
     }else{
-console.log("FALSE") 
+     setcheck("False");
     }
   }
 
@@ -23,6 +24,8 @@ console.log("FALSE")
     <tr>
     {question && question.answerList.map((answer) => <div>{answer.answer} <button onClick={e => checkAnswer(answer.rightAnswer)} id={answer.id}> Click me</button></div>)}
     </tr>
+
+    <div>Svar: {check}</div>
   </div>
   );
 };

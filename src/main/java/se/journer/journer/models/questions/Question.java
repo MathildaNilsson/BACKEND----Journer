@@ -14,7 +14,7 @@ public class Question {
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "question_id", referencedColumnName = "id")
-    List<Answers> answerList;
+    List<Answer> answerList;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="category_id", referencedColumnName = "id")
@@ -31,7 +31,7 @@ public class Question {
         return question;
     }
 
-    public List<Answers> getAnswerList() {
+    public List<Answer> getAnswerList() {
         return answerList;
     }
 

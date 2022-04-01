@@ -1,7 +1,7 @@
 package se.journer.journer.api;
 
 import org.springframework.web.bind.annotation.*;
-import se.journer.journer.models.questions.Answers;
+import se.journer.journer.models.questions.Answer;
 import se.journer.journer.models.questions.Question;
 import se.journer.journer.service.QuestionService;
 
@@ -22,9 +22,8 @@ public class QuestionController {
         return questionService.getQuestion();
     }
 
-    @GetMapping("/test/{id}")
-    public List<Answers> getAnswers(@PathVariable("id") Integer id){
-
+    @GetMapping("/random/{id}")
+    public List<Answer> getAnswers(@PathVariable("id") Integer id){
         return questionService.getAnswers(id);
     }
 
@@ -38,7 +37,7 @@ public class QuestionController {
         return questionService.getRandomQuestion(id);
     }
     @GetMapping("/right/{id}")
-    public Answers getRightAnswer(@PathVariable("id") int id){
+    public Answer getRightAnswer(@PathVariable("id") int id){
         return questionService.getRightAnswer(id);
     }
 

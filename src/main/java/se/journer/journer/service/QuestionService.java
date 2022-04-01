@@ -2,8 +2,7 @@ package se.journer.journer.service;
 
 import org.springframework.stereotype.Service;
 import se.journer.journer.dao.QuestionDAO;
-import se.journer.journer.models.questions.Answers;
-import se.journer.journer.models.questions.Category;
+import se.journer.journer.models.questions.Answer;
 import se.journer.journer.models.questions.Question;
 
 import java.util.List;
@@ -28,7 +27,7 @@ public class QuestionService {
         return maybeQuestion.orElse(null);
     }
 
-    public List<Answers> getAnswers(Integer id) {
+    public List<Answer> getAnswers(Integer id) {
         return getQuestionById(id).getAnswerList();
     }
 
@@ -45,8 +44,8 @@ public class QuestionService {
                 .collect(Collectors.toList());
     }
 
-    public Answers getRightAnswer(int id) {
-        Optional<Answers> rightAnswer = getAnswers(id).stream()
+    public Answer getRightAnswer(int id) {
+        Optional<Answer> rightAnswer = getAnswers(id).stream()
                 .filter(answers -> answers.isRightAnswer()).findAny();
         return rightAnswer.orElse(null);
     }

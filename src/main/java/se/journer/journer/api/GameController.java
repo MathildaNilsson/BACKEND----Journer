@@ -14,8 +14,13 @@ public class GameController {
         this.gameService = gameService;
     }
 
-    @GetMapping("/getplayer/{name}")
-    public Player getPlayer(@PathVariable ("name") String name){
-        return gameService.getPlayer(name);
+    @PostMapping("/createplayer/{name}")
+    public void createPlayer(@PathVariable ("name") String name){
+        gameService.createPlayer(name);
+    }
+
+    @GetMapping("/getplayer")
+    public Player getPlayerByName(){
+        return gameService.getPlayerByName();
     }
 }

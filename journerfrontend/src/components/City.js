@@ -1,6 +1,5 @@
 const City = ({cityobj}) => {
 
-
   return(
     <>
     <h1>{cityobj && cityobj.name}</h1>

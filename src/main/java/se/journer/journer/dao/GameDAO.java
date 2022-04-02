@@ -6,8 +6,13 @@ import se.journer.journer.models.player.Player;
 @Repository
 public class GameDAO  {
     private int startMoney = 20000;
+    Player player;
 
-    public Player createPlayer(String name){
-        return new Player(name, startMoney);
+    public void createPlayer(String name){
+        this.player = new Player(name, startMoney);
+    }
+
+    public Player getPlayerByName() {
+        return player;
     }
 }

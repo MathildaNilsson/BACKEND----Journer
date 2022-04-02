@@ -12,7 +12,11 @@ public class GameService {
         this.gameDAO = gameDAO;
     }
 
-    public Player getPlayer(String name){
-        return  gameDAO.createPlayer(name);
+    public void createPlayer(String name){
+        gameDAO.createPlayer(name);
+    }
+
+    public Player getPlayerByName() {
+        return gameDAO.getPlayerByName();
     }
 }

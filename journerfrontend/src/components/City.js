@@ -1,8 +1,9 @@
-const City = () => {
+const City = ({cityobj}) => {
+
 
   return(
     <>
-    <h1>city</h1>
+    <h1>{cityobj && cityobj.name}</h1>
     <button id = "new-game" onClick={(e) => {e.preventDefault(); window.location.href = `/`;}}>Return</button>
     </>
   )

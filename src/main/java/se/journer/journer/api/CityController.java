@@ -1,8 +1,6 @@
 package se.journer.journer.api;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import se.journer.journer.models.cities.City;
 import se.journer.journer.service.CityService;
 
@@ -10,6 +8,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/city")
+@CrossOrigin
 public class CityController {
 
     CityService cityService;
@@ -22,4 +21,10 @@ public class CityController {
     public List<City> getCities(){
         return cityService.getCities();
     }
+
+    @GetMapping("/{name}")
+    public City getCityByName(@PathVariable("name") String name){
+        return cityService.getCityByName(name);
+    }
+
 }

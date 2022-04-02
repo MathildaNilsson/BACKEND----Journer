@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 
 const Startscreen = ({Name}) => {
   let [player, setplayer] = useState(null);
-  let [name, setname] = useState({name: ""});
+  let [name, setname] = useState("");
 
   const submitHandler = (e) => {
     e.preventDefault();
+    this.setname({value: e.target.value})
     Name(name);
   }
-
 
   useEffect(() => {
     fetch(`http://localhost:8080/game/getplayer/`)
@@ -18,15 +18,19 @@ const Startscreen = ({Name}) => {
 
   return(
     <>
+    <form>
      <input
-            type="name"
+            type="text"
             name="name"
             placeholder="name"
-            onChange={(e) => setname({ ...name, name: e.target.value })}
-            value={name.name}
+            onChange={(e) => setname(e.target.value)}
+            value={name}
           ></input>
-    <button id = "new-game" onSubmit={submitHandler} onClick={(e) => {e.preventDefault(); window.location.href = `/quiz`;}}>New Game</button>
+    <button id = "new-game" onSubmit={submitHandler} onClick={(e) => {e.preventDefault(); window.location.href = `/newgamescreen`;}}>New Game</button>
     <button>HighScore</button>
+    </form>
+
+    <div>{name}</div>
     </>
   )
  }

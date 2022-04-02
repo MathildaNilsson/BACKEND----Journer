@@ -4,7 +4,6 @@ import Startscreen  from "./Startscreen";
 const Quiz = () => {
   let [question, setquestion] = useState(null);
   let [check, setcheck] = useState("");
-  const [user, setUser] = useState({name:""});
 
   useEffect(() => {
     fetch("http://localhost:8080/question/random/5")
@@ -12,11 +11,6 @@ const Quiz = () => {
       .then((question) => setquestion(question));
   }, {});
 
-  const Name = (name) => {
-    setUser({
-      name: user.name
-    })
-  };
 
   const checkAnswer = (answer) =>{
     if(answer === true){
@@ -27,7 +21,6 @@ const Quiz = () => {
   }
 
   return (<div>
-    {user.name}
     {question && question.question}
     
     <tr>

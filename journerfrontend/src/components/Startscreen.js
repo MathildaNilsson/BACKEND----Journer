@@ -27,7 +27,18 @@ const Startscreen = ({Name}) => {
           ></input>
     <button id = "new-game" onSubmit={submitHandler} onClick={(e) => {e.preventDefault(); window.location.href = `/quiz`;}}>New Game</button>
     <button>HighScore</button>
-    </>
+
+
+
+    <div id ="temp">
+    <button id = "new-game" onClick={(e) => {e.preventDefault(); window.location.href = `/accomondations`;}}>Accomondations</button>
+    <button id = "new-game" onClick={(e) => {e.preventDefault(); window.location.href = `/attraction`;}}>Attraction</button>
+    <button id = "new-game" onClick={(e) => {e.preventDefault(); window.location.href = `/backpack`;}}>Backpack</button>
+    <button id = "new-game" onClick={(e) => {e.preventDefault(); window.location.href = `/city`;}}>City</button>
+    <button id = "new-game" onClick={(e) => {e.preventDefault(); window.location.href = `/shop`;}}>Shop</button>
+    <button id = "new-game" onClick={(e) => {e.preventDefault(); window.location.href = `/transportation`;}}>Transportation</button>
+    </div>
+        </>
   )
  }
 

@@ -35,6 +35,7 @@ const Quiz = () => {
     </tr>
 
     <div>Svar: {check}</div>
+    <button id = "new-game" onClick={(e) => {e.preventDefault(); window.location.href = `/`;}}>Return</button>
   </div>
   );
 };

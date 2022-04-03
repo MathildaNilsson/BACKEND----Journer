@@ -17,3 +17,9 @@ code {
   top: 50%;
   left: 40%;
 }
+
+#shop{
+  position: absolute;
+  top: 20%;
+  left: 45%;
+}

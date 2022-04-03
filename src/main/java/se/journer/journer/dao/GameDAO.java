@@ -32,4 +32,12 @@ public class GameDAO  {
     public int getPlayersCurrentEnergy() {
         return player.getEnergy();
     }
+
+    public void removeEnergy(int value) {
+        player.removeEnergy(value);
+    }
+
+    public void addEnergy(int value) {
+        player.addEnergy(value);
+    }
 }

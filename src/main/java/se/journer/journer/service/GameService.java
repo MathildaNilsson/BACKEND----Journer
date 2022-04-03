@@ -35,4 +35,12 @@ public class GameService {
     public int getPlayersCurrentEnergy() {
         return gameDAO.getPlayersCurrentEnergy();
     }
+
+    public void removeEnergy(int value) {
+        gameDAO.removeEnergy(value);
+    }
+
+    public void addEnergy(int value) {
+        gameDAO.addEnergy(value);
+    }
 }

@@ -43,5 +43,15 @@ public class GameController {
     public void addMoney(@PathVariable("value") int value){
         gameService.addMoney(value);
     }
+
+    @PostMapping("/removeenergy/{value}")
+    public void removeEnergy(@PathVariable("value") int value){
+        gameService.removeEnergy(value);
+    }
+
+    @PostMapping("/addenergy/{value}")
+    public void addEnergy(@PathVariable("value") int value){
+        gameService.addEnergy(value);
+    }
     
 }

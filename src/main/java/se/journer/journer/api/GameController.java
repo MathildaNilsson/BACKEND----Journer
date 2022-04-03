@@ -24,10 +24,14 @@ public class GameController {
         return gameService.getPlayerByName();
     }
 
-    @GetMapping("/getplayer/displaymoney/{name}")
-    public int getPlayersCurrentMoney(@PathVariable("name") String name){
+    @GetMapping("/displaymoney")
+    public int getPlayersCurrentMoney(){
         return gameService.getPlayersCurrentMoney();
     }
 
+    @PostMapping("/removemoney/{value}")
+    public void removeMoney(@PathVariable("value") int value){
+        gameService.removeMoney(value);
+    }
     
 }

@@ -23,4 +23,8 @@ public class GameService {
     public int getPlayersCurrentMoney() {
         return gameDAO.getPlayersCurrentMoney();
     }
+
+    public void removeMoney(int value) {
+        gameDAO.removeMoney(value);
+    }
 }

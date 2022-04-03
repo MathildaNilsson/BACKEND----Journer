@@ -19,4 +19,8 @@ public class GameDAO  {
     public int getPlayersCurrentMoney() {
         return player.getMoney();
     }
+
+    public void removeMoney(int value) {
+        player.removeMoney(value);
+    }
 }

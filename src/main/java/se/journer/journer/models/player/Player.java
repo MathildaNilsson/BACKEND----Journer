@@ -3,12 +3,23 @@ package se.journer.journer.models.player;
 public class Player {
     private String name;
     private int money;
+    private int energy;
     //Backpack
     //Visited cities?
 
-    public Player(String name, int money) {
+
+    public Player(String name, int money, int energy) {
         this.name = name;
         this.money = money;
+        this.energy = energy;
+    }
+
+    public int getEnergy() {
+        return energy;
+    }
+
+    public void setEnergy(int energy) {
+        this.energy = energy;
     }
 
     public String getName() {

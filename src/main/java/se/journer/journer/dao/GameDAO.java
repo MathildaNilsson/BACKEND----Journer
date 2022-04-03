@@ -2,8 +2,8 @@ package se.journer.journer.dao;
 
 import org.springframework.stereotype.Repository;
 import se.journer.journer.models.items.Item;
-import se.journer.journer.models.items.Pepperspray;
 import se.journer.journer.models.player.Player;
+import se.journer.journer.models.shop.Shop;
 
 import java.util.List;
 
@@ -12,9 +12,7 @@ public class GameDAO  {
     private int startMoney = 20000;
     private int startEnergy = 100;
     Player player;
-    Pepperspray pepperSpray;
-    private int peppersprayPrice = 250;
-
+    Shop shop = new Shop();
 
     public void createPlayer(String name){
         this.player = new Player(name, startMoney, startEnergy);
@@ -49,10 +47,18 @@ public class GameDAO  {
     }
 
     public void addPeppersprayToBackpack() {
-        player.addToBackpack(this.pepperSpray = new Pepperspray("Pepperspray", peppersprayPrice));
+        player.addToBackpack(shop.buyPepperspray());
     }
 
-    public List<Item> displayBackpack() {
-        return player.getBackpack();
+    public void addEnergyDrinkToBackpack() {
+        player.addToBackpack(shop.buyEnergyDrink());
+    }
+
+   public List<Item> displayBackpack() {
+       return player.getBackpack();
+   }
+
+    public List<Item> displayShop() {
+        return shop.getShopList();
     }
 }

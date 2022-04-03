@@ -2,7 +2,6 @@ package se.journer.journer.api;
 
 import org.springframework.web.bind.annotation.*;
 import se.journer.journer.models.items.Item;
-import se.journer.journer.models.items.Pepperspray;
 import se.journer.journer.models.player.Player;
 import se.journer.journer.service.GameService;
 
@@ -63,9 +62,19 @@ public class GameController {
         gameService.addPeppersprayToBackpack();
     }
 
+    @PostMapping("/addenergydrinktobackpack")
+    public void addEnergyDrinkToBackpack(){
+        gameService.addEnergyDrinkToBackpack();
+    }
+
     @GetMapping("/displaybackpack")
     public List<Item> displayBackpack(){
         return gameService.displayBackpack();
+    }
+
+    @GetMapping("/shop")
+    public List<Item> displayShop(){
+        return gameService.displayShop();
     }
     
 }

@@ -55,4 +55,12 @@ public class GameService {
     public List<Item> displayBackpack() {
         return gameDAO.displayBackpack();
     }
+
+    public void addEnergyDrinkToBackpack() {
+        gameDAO.addEnergyDrinkToBackpack();
+    }
+
+    public List<Item> displayShop() {
+        return gameDAO.displayShop();
+    }
 }

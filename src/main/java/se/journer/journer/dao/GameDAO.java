@@ -28,4 +28,8 @@ public class GameDAO  {
     public void addMoney(int value) {
         player.addMoney(value);
     }
+
+    public int getPlayersCurrentEnergy() {
+        return player.getEnergy();
+    }
 }

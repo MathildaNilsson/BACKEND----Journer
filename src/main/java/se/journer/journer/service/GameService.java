@@ -31,4 +31,8 @@ public class GameService {
     public void addMoney(int value) {
         gameDAO.addMoney(value);
     }
+
+    public int getPlayersCurrentEnergy() {
+        return gameDAO.getPlayersCurrentEnergy();
+    }
 }

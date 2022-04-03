@@ -29,6 +29,11 @@ public class GameController {
         return gameService.getPlayersCurrentMoney();
     }
 
+    @GetMapping("/displayenergy")
+    public int getPlayersCurrentEnergy(){
+        return gameService.getPlayersCurrentEnergy();
+    }
+
     @PostMapping("/removemoney/{value}")
     public void removeMoney(@PathVariable("value") int value){
         gameService.removeMoney(value);

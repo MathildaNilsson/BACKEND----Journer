@@ -45,4 +45,13 @@ public class Player {
     public void addMoney(int money){
         this.money += money;
     }
+
+    public void removeEnergy(int energy){
+        this.energy -= energy;
+    }
+
+    public void addEnergy(int energy){
+        this.energy += energy;
+    }
 }
+

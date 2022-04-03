@@ -15,4 +15,8 @@ public class GameDAO  {
     public Player getPlayerByName() {
         return player;
     }
+
+    public int getPlayersCurrentMoney() {
+        return player.getMoney();
+    }
 }

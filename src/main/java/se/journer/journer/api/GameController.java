@@ -23,4 +23,11 @@ public class GameController {
     public Player getPlayerByName(){
         return gameService.getPlayerByName();
     }
+
+    @GetMapping("/getplayer/displaymoney/{name}")
+    public int getPlayersCurrentMoney(@PathVariable("name") String name){
+        return gameService.getPlayersCurrentMoney();
+    }
+
+    
 }

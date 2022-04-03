@@ -2,7 +2,11 @@ package se.journer.journer.service;
 
 import org.springframework.stereotype.Service;
 import se.journer.journer.dao.GameDAO;
+import se.journer.journer.models.items.Item;
+import se.journer.journer.models.items.Pepperspray;
 import se.journer.journer.models.player.Player;
+
+import java.util.List;
 
 @Service
 public class GameService {
@@ -42,5 +46,13 @@ public class GameService {
 
     public void addEnergy(int value) {
         gameDAO.addEnergy(value);
+    }
+
+    public void addPeppersprayToBackpack() {
+        gameDAO.addPeppersprayToBackpack();
+    }
+
+    public List<Item> displayBackpack() {
+        return gameDAO.displayBackpack();
     }
 }

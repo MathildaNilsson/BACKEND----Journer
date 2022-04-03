@@ -1,10 +1,15 @@
 package se.journer.journer.models.player;
 
+import se.journer.journer.models.backpack.Backpack;
+import se.journer.journer.models.items.Item;
+
+import java.util.List;
+
 public class Player {
     private String name;
     private int money;
     private int energy;
-    //Backpack
+    Backpack backpack;
     //Visited cities?
 
 
@@ -12,6 +17,7 @@ public class Player {
         this.name = name;
         this.money = money;
         this.energy = energy;
+        this.backpack = new Backpack();
     }
 
     public int getEnergy() {
@@ -52,6 +58,14 @@ public class Player {
 
     public void addEnergy(int energy){
         this.energy += energy;
+    }
+
+    public void addToBackpack(Item item){
+        this.backpack.addToBackpack(item);
+    }
+
+    public List<Item> getBackpack() {
+        return backpack.getBackpackList();
     }
 }
 

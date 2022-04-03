@@ -1,8 +1,12 @@
 package se.journer.journer.api;
 
 import org.springframework.web.bind.annotation.*;
+import se.journer.journer.models.items.Item;
+import se.journer.journer.models.items.Pepperspray;
 import se.journer.journer.models.player.Player;
 import se.journer.journer.service.GameService;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/game")
@@ -52,6 +56,16 @@ public class GameController {
     @PostMapping("/addenergy/{value}")
     public void addEnergy(@PathVariable("value") int value){
         gameService.addEnergy(value);
+    }
+
+    @PostMapping("/addpepperspraytobackpack")
+    public void addPeppersprayToBackpack(){
+        gameService.addPeppersprayToBackpack();
+    }
+
+    @GetMapping("/displaybackpack")
+    public List<Item> displayBackpack(){
+        return gameService.displayBackpack();
     }
     
 }

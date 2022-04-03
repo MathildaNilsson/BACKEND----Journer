@@ -7,7 +7,6 @@ const Startscreen = ({Name}) => {
   const submitHandler = (e) => {
     e.preventDefault();
     this.setname({value: e.target.value})
-    Name(name);
   }
 
   useEffect(() => {

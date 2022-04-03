@@ -2,9 +2,9 @@ package se.journer.journer.models.items;
 
 public class Item {
     private String name;
-    private String price;
+    private int price;
 
-    public Item(String name, String price) {
+    public Item(String name, int price) {
         this.name = name;
         this.price = price;
     }
@@ -13,7 +13,7 @@ public class Item {
         return name;
     }
 
-    public String getPrice() {
+    public int getPrice() {
         return price;
     }
 }

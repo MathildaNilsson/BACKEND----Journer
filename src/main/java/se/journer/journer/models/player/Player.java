@@ -30,4 +30,8 @@ public class Player {
     public void removeMoney(int money){
         this.money -= money;
     }
+
+    public void addMoney(int money){
+        this.money += money;
+    }
 }

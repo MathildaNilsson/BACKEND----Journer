@@ -23,4 +23,8 @@ public class GameDAO  {
     public void removeMoney(int value) {
         player.removeMoney(value);
     }
+
+    public void addMoney(int value) {
+        player.addMoney(value);
+    }
 }

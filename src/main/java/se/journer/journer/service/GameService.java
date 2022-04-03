@@ -27,4 +27,8 @@ public class GameService {
     public void removeMoney(int value) {
         gameDAO.removeMoney(value);
     }
+
+    public void addMoney(int value) {
+        gameDAO.addMoney(value);
+    }
 }

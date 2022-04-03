@@ -33,5 +33,10 @@ public class GameController {
     public void removeMoney(@PathVariable("value") int value){
         gameService.removeMoney(value);
     }
+
+    @PostMapping("/addmoney/{value}")
+    public void addMoney(@PathVariable("value") int value){
+        gameService.addMoney(value);
+    }
     
 }

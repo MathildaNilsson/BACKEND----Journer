@@ -76,5 +76,12 @@ public class GameController {
     public List<Item> displayShop(){
         return gameService.displayShop();
     }
+
+    //Temp method, Use this to populate backpack while testing http://localhost:8080/game/initiateplayer
+    @PostMapping("/initiateplayer")
+    public void initiatePlayerItems(){
+        addEnergyDrinkToBackpack();
+        addPeppersprayToBackpack();
+    }
     
 }

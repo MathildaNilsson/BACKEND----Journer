@@ -23,3 +23,7 @@ code {
   top: 20%;
   left: 45%;
 }
+
+#display-player-stats{
+  float: left;
+}

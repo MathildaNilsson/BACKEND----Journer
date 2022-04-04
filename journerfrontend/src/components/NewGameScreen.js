@@ -1,15 +1,7 @@
-import { useEffect, useState } from "react";
-import { Table, Button } from "react-bootstrap";
+import { Button } from "react-bootstrap";
+import DisplayPlayer from "./DisplayPlayer";
 
 const NewGameScreen = () => {
-  let [player, setPlayer] = useState(null);
-
-  // Use effect to get player from database for display on screen
-  useEffect(() => {
-    fetch("http://localhost:8080/game/getplayer")
-      .then((response) => response.json())
-      .then((player) => setPlayer(player));
-  }, {});
 
   // Sets the current city in db with the incoming name cityName from button eventlistener. Copy and change fetch string to value you want to change
   const setCurrentCity = (cityName) => {
@@ -18,27 +10,19 @@ const NewGameScreen = () => {
     }).then((response) => response.json());
   };
 
+  const removeMoney = (money) =>{
+    fetch(`http://localhost:8080/game/removemoney/${money}`, {
+      method: "POST",
+    }).then((response) => response.json());
+  };
+
   return (
     <>
       <h1>New game screen</h1>
-      <div id="display-player-stats">
-        <Table striped bordered hover>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Money</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>{player && player.name}</td>
-              <td>{player && player.money}:-</td>
-            </tr>
-          </tbody>
-        </Table>
-      </div>
+      <DisplayPlayer/>
       <Button
         onClick={(e) => {
+          removeMoney(12000);
           setCurrentCity("chicago");
           e.preventDefault();
           window.location.href = `/City`;
@@ -46,19 +30,23 @@ const NewGameScreen = () => {
       >
         Chicago
       </Button>
+      12000:-
       <br />
       <Button
         onClick={(e) => {
           setCurrentCity("bangalore");
+          removeMoney(10000);
           e.preventDefault();
           window.location.href = `/City`;
         }}
       >
         Bangalore
       </Button>
+      10000:-
       <br />
       <Button
         onClick={(e) => {
+          removeMoney(15000);
           setCurrentCity("tokyo");
           e.preventDefault();
           window.location.href = `/City`;
@@ -66,6 +54,7 @@ const NewGameScreen = () => {
       >
         Tokyo
       </Button>
+      15000:-
       <br />
       <button
         id="new-game"

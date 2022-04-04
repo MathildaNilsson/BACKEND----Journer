@@ -9,6 +9,7 @@ import se.journer.journer.repository.CityRepository;
 public class CityDAO {
 
     CityRepository cityRepository;
+    City currentCity;
 
     public CityDAO(CityRepository cityRepository) {
         this.cityRepository = cityRepository;
@@ -16,5 +17,13 @@ public class CityDAO {
 
     public Iterable<City> getCities() {
         return cityRepository.findAll();
+    }
+
+    public void setCurrentCity(City currentCity) {
+        this.currentCity = currentCity;
+    }
+
+    public City getCurrentCity() {
+        return currentCity;
     }
 }

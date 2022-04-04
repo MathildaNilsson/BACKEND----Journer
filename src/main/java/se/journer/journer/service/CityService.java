@@ -28,4 +28,12 @@ public class CityService {
                 .findAny();
         return cityByName.orElse(null);
     }
+
+    public void setCurrentCity(City currentCity) {
+        cityDAO.setCurrentCity(currentCity);
+    }
+
+    public City getCurrentCity() {
+        return cityDAO.getCurrentCity();
+    }
 }

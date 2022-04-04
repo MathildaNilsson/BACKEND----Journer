@@ -27,4 +27,15 @@ public class CityController {
         return cityService.getCityByName(name);
     }
 
+    @PostMapping("/setCurrentCity/{city}")
+    public void setCurrentCity(@PathVariable("city") String city){
+        City currentCity =  getCityByName(city);
+        cityService.setCurrentCity(currentCity);
+    }
+
+    @GetMapping("/getCurrentCity")
+    public City getCurrentCity(){
+        return cityService.getCurrentCity();
+    }
+
 }

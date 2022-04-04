@@ -14,22 +14,13 @@ import { useEffect, useState} from "react";
 
 function App() {
 
-  let [city, setcity] = useState(null);
-  let cityName = "bangalore"
-
-  useEffect(() => {
-    fetch(`http://localhost:8080/city/${cityName}`)
-      .then((response) => response.json())
-      .then((city) => setcity(city));
-  }, {});
-
   return <div className="App">
    <BrowserRouter>
     <Routes>
       <Route path="/" element={<Startscreen/>}/>
       <Route path="/quiz" element={<Quiz/>}/>
       <Route path ="/newgamescreen" element={<NewGameScreen/>}/>
-      <Route path ="/city" element={<City cityobj={city}/>}/>
+      <Route path ="/city" element={<City/>}/>
       <Route path="/accomondations" element={<Accomondations/>}/>
       <Route path="/attraction" element={<Attraction/>}/>
       <Route path="/backpack" element={<Backpack/>}/>

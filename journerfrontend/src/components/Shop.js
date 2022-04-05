@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
-import DisplayPlayer from "./DisplayPlayer";
 
-const Shop = () => {
+const Shop = (props) => {
   let [data, setdata] = useState(null);
 
   useEffect(() => {
@@ -11,30 +10,34 @@ const Shop = () => {
       .then((data) => setdata(data));
   }, {});
 
-  const buyItem = (item) =>{
-    
+  const buyItem = (item) => {
     item = item.toLowerCase();
     fetch(`http://localhost:8080/game/add${item}tobackpack`, {
+      method: "POST",
+    });
+  };
 
-    method: "POST",
-})}
-
-  return(
-    <>
-    <DisplayPlayer />
-    <h1>SHOP</h1>
-    <div id = "shop">
+  return (
+    <div id="shop">
+      <h1>SHOP</h1>
+      Souvenir: {props.souvenir}
       {data &&
         data.map((item) => (
           <tr>
             <th scope="row">{item.name}</th>
-            <td>{item.price}:- <Button onClick={() => {window.location.reload();buyItem(item.name)}}>Buy</Button></td>
+            <td>
+              {item.price}:-{" "}
+              <Button
+                onClick={() => {
+                  buyItem(item.name);
+                }}
+              >
+                Buy
+              </Button>
+            </td>
           </tr>
         ))}
     </div>
-    
-    <button id = "new-game" onClick={(e) => {e.preventDefault(); window.location.href = `/`;}}>Return</button>
-    </>
-  )
-}
+  );
+};
 export default Shop;

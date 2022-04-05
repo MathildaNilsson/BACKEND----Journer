@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import DisplayPlayer from "./DisplayPlayer";
+import { Button } from "react-bootstrap";
 const City = ({}) => {
   let [city, setCity] = useState(null);
 
@@ -13,7 +14,9 @@ const City = ({}) => {
     <>
     <DisplayPlayer/>
     <h1>{city && city.name}</h1>
-    <button id = "new-game" onClick={(e) => {e.preventDefault(); window.location.href = `/`;}}>Return</button>
+    <p>{city && city.cityInfo}</p>
+    <Button onClick={(e) => {e.preventDefault(); window.location.href = `/shop`;}}>Shop</Button>
+    <button id = "return" onClick={(e) => {e.preventDefault(); window.location.href = `/`;}}>Return</button>
     </>
   )
 }

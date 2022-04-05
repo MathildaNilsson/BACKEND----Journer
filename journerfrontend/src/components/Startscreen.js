@@ -72,7 +72,7 @@ const Startscreen = ({ Name }) => {
         >
           Attraction
         </button>
-        <button
+        {/* <button
           id="new-game"
           onClick={(e) => {
             e.preventDefault();
@@ -80,7 +80,7 @@ const Startscreen = ({ Name }) => {
           }}
         >
           Backpack
-        </button>
+        </button> */}
         <button
           id="new-game"
           onClick={(e) => {
@@ -90,7 +90,7 @@ const Startscreen = ({ Name }) => {
         >
           City
         </button>
-        <button
+        {/* <button
           id="new-game"
           onClick={(e) => {
             e.preventDefault();
@@ -98,7 +98,7 @@ const Startscreen = ({ Name }) => {
           }}
         >
           Shop
-        </button>
+        </button> */}
         <button
           id="new-game"
           onClick={(e) => {

@@ -14,7 +14,6 @@ const Shop = () => {
   const buyItem = (item) =>{
     
     item = item.toLowerCase();
-    console.log(`http://localhost:8080/game/add${item}tobackpack`)
     fetch(`http://localhost:8080/game/add${item}tobackpack`, {
 
     method: "POST",

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Table, Button, Offcanvas } from "react-bootstrap";
+import Backpack from "./Backpack";
 
 const DisplayPlayer = () => {
   let [player, setPlayer] = useState(null);
@@ -45,25 +46,7 @@ const DisplayPlayer = () => {
             <Offcanvas.Title>Backpack</Offcanvas.Title>
           </Offcanvas.Header>
           <Offcanvas.Body>
-            {player &&
-              player.backpack.map((list) => (
-                <Table striped bordered hover>
-                  <thead>
-                    <tr>
-                      <th>Amount</th>
-                      <th>Name</th>
-                      <th>cost</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>{}</td>
-                      <td>{list.name}</td>
-                      <td>{list.price}</td>
-                    </tr>
-                  </tbody>
-                </Table>
-              ))}
+            <Backpack />
           </Offcanvas.Body>
         </Offcanvas>
       </div>

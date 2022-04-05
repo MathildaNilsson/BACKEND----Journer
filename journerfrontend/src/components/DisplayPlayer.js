@@ -10,7 +10,6 @@ const DisplayPlayer = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  // Use effect to get player from database for display on screen
   useEffect(() => {
     fetch("http://localhost:8080/game/getplayer")
       .then((response) => response.json())

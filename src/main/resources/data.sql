@@ -1,4 +1,4 @@
-SELECT * FROM question;
+--SELECT * FROM question;
 
 -- Initialize Cities
 -- INSERT INTO cities(name) VALUES
@@ -26,6 +26,20 @@ SELECT * FROM question;
 --                              ('Sao Paulo','Football jersey'),
 --                              ('Singapore','Orchid parfume'),
 --                              ('Tokyo','Cherry blossom');
+
+
+-- Initialize Cities with name, souvenir and info
+-- INSERT INTO cities(name, souvenir, city_info) VALUES
+--                              ('Bangalore','Orient carpet', 'Bangalore, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque rhoncus sem vel urna malesuada lobortis. Nam fringilla, felis a hendrerit pharetra, ex ex pretium elit, sit amet egestas metus lorem eu elit. '),
+--                              ('Budapest','Rubiks cube', 'Budapest, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque rhoncus sem vel urna malesuada lobortis. Nam fringilla, felis a hendrerit pharetra, ex ex pretium elit, sit amet egestas metus lorem eu elit. '),
+--                              ('Cape town','Bottle of whine', 'Cape town, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque rhoncus sem vel urna malesuada lobortis. Nam fringilla, felis a hendrerit pharetra, ex ex pretium elit, sit amet egestas metus lorem eu elit. '),
+--                              ('Chicago','Mug', 'Chicago, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque rhoncus sem vel urna malesuada lobortis. Nam fringilla, felis a hendrerit pharetra, ex ex pretium elit, sit amet egestas metus lorem eu elit. '),
+--                              ('Dubai','Hookah', 'Dubai, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque rhoncus sem vel urna malesuada lobortis. Nam fringilla, felis a hendrerit pharetra, ex ex pretium elit, sit amet egestas metus lorem eu elit. '),
+--                              ('Havanna','Cuban cigarr', 'Havanna, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque rhoncus sem vel urna malesuada lobortis. Nam fringilla, felis a hendrerit pharetra, ex ex pretium elit, sit amet egestas metus lorem eu elit. '),
+--                              ('Helsinki','Ice bear plushie', 'Helsinki, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque rhoncus sem vel urna malesuada lobortis. Nam fringilla, felis a hendrerit pharetra, ex ex pretium elit, sit amet egestas metus lorem eu elit. '),
+--                              ('Sao Paulo','Football jersey', 'Sao Paulo, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque rhoncus sem vel urna malesuada lobortis. Nam fringilla, felis a hendrerit pharetra, ex ex pretium elit, sit amet egestas metus lorem eu elit. '),
+--                              ('Singapore','Orchid parfume', 'Singapore, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque rhoncus sem vel urna malesuada lobortis. Nam fringilla, felis a hendrerit pharetra, ex ex pretium elit, sit amet egestas metus lorem eu elit. '),
+--                              ('Tokyo','Cherry blossom', 'Tokyo, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque rhoncus sem vel urna malesuada lobortis. Nam fringilla, felis a hendrerit pharetra, ex ex pretium elit, sit amet egestas metus lorem eu elit. ');
 
  --INSERT INTO category(category) VALUES
  --                                   ('Bangalore'),

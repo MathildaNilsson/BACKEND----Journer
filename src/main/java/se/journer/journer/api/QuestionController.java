@@ -33,6 +33,12 @@ public class QuestionController {
         return questionService.getQuestionByType(categoryId);
     }
 
+    @GetMapping("/categoryname/{categoryName}")
+    public List<Question> getQuestionByType(@PathVariable("categoryName") String categoryName){
+        return questionService.getQuestionByName(categoryName);
+    }
+
+
     @GetMapping("/random/{categoryId}")
     public Question getRandomQuestion(@PathVariable("categoryId") Integer id){
         return questionService.getRandomQuestion(id);

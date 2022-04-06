@@ -38,4 +38,8 @@ public class Question {
     public Integer getCategoryId(){
         return categoryId.getId();
     }
+
+    public String getCategoryName(){
+        return categoryId.getCategory();
+    }
 }

@@ -44,6 +44,13 @@ public class QuestionService {
                 .collect(Collectors.toList());
     }
 
+    public List<Question> getQuestionByName(String categoryName) {
+        List <Question> questions = (List<Question>) questionDAO.getQuestion();
+        return questions.stream()
+                .filter(question -> question.getCategoryName().equalsIgnoreCase(categoryName))
+                .collect(Collectors.toList());
+    }
+
     public Answer getRightAnswer(int id) {
         Optional<Answer> rightAnswer = getAnswers(id).stream()
                 .filter(answers -> answers.isRightAnswer()).findAny();

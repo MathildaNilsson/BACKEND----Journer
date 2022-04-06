@@ -41,7 +41,8 @@
 --                              ('Singapore','Orchid parfume', 'Utbudet i Singapore är i det närmaste oändligt, och enklast tar man sig runt med tunnelbanan. Här finns tempel, moskéer och museer och på Sentosa Island finns allt för naturälskaren, från härliga stränder till populära nöjesparker som Universal Studios.'),
 --                              ('Tokyo','Cherry blossom', 'I Tokyo kan alla förväntningar och förhoppningar besannas – ät sushi, sjung karaoke, beskåda sumobrottning eller besök en av de knäppa temarestauranger som finns att välja bland. Välkommen till en trendig stad i ständig förändring!');
 
- --INSERT INTO category(category) VALUES
+--  INSERT INTO category(category) VALUES
+-- ('Bangalore palace');
  --                                   ('Bangalore'),
  --                                   ('Budapest'),
  --                                  ('Cape town'),
@@ -55,6 +56,7 @@
 
 
 --  INSERT INTO question(question,category_id) VALUES
+-- ('Vad som helst', 11);
 --                                                 ('Hur många invånare har kapstaden?',3),
 --                                                 ('Vilket statsskick har Singapore?',9),
 --                                                 ('Vilket smeknamn brukar Bangalore gå under?',1),
@@ -68,7 +70,10 @@
 --                                                 ('Vilket år grundades Dubai?',5);
 
 
---  INSERT INTO answers(answer,right_answer,question_id) VALUES
+--   INSERT INTO answers(answer,right_answer,question_id) VALUES
+-- ('Ja', true, 11),
+-- ('Nej', false, 11),
+-- ('Kanske', false, 11);
 --                                                           ('3.7 miljoner',true,1),
 --                                                           ('1.5 miljoner',false,1),
 --                                                           ('2.8 miljoner',false,1),

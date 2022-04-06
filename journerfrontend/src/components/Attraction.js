@@ -17,24 +17,17 @@ const Attraction = (props) => {
       {question.question}
     </div>)}
 
-   <div>
-     hahaha
-   
-   </div>
-    
-    
-
 
     <Button variant="primary">
-        
+        {props.city.attractionList[0].name}
       </Button>
 
       <Button variant="primary" >
-      
+      {props.city.attractionList[1].name}
       </Button>
 
       <Button variant="primary" >
-      
+      {props.city.attractionList[2].name}
       </Button>
 
 

@@ -2,6 +2,7 @@ package se.journer.journer.service;
 
 import org.springframework.stereotype.Service;
 import se.journer.journer.dao.CityDAO;
+import se.journer.journer.models.attraction.Attraction;
 import se.journer.journer.models.cities.City;
 import se.journer.journer.models.questions.Question;
 

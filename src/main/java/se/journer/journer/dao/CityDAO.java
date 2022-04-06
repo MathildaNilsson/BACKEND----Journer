@@ -1,9 +1,12 @@
 package se.journer.journer.dao;
 
 import org.springframework.stereotype.Repository;
+import se.journer.journer.models.attraction.Attraction;
 import se.journer.journer.models.cities.City;
 import se.journer.journer.models.questions.Question;
 import se.journer.journer.repository.CityRepository;
+
+import java.util.List;
 
 @Repository
 public class CityDAO {

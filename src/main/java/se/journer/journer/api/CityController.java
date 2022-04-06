@@ -1,6 +1,7 @@
 package se.journer.journer.api;
 
 import org.springframework.web.bind.annotation.*;
+import se.journer.journer.models.attraction.Attraction;
 import se.journer.journer.models.cities.City;
 import se.journer.journer.service.CityService;
 

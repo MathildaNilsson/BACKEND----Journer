@@ -1,10 +1,10 @@
 package se.journer.journer.models.cities;
 
 import se.journer.journer.models.attraction.Attraction;
-import se.journer.journer.models.questions.Answer;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Optional;
 
 @Entity
 @Table(name = "cities")
@@ -22,7 +22,7 @@ public class City {
     //transport
     //questions
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "city_id", referencedColumnName = "id")
     List<Attraction> attractionList;
 

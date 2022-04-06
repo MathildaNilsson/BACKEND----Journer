@@ -59,7 +59,7 @@ const City = ({}) => {
           <Offcanvas.Title>Sevärdheter</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
-          
+          <Attraction city = {city && city}/>
         </Offcanvas.Body>
       </Offcanvas>
     </>

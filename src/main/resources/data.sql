@@ -102,6 +102,39 @@
 --                                                           ('1798',false,11),
 --                                                           ('1878',false,11);
 
+-- INSERT INTO Attraction(name, city_id) VALUES
+--                                           ('Bangalore palace',1),
+--                                           ('Lalbagh Botanical garden',1),
+--                                           ('ISKCON Temple',1),
+--                                           ('Szechenyibadet',2),
+--                                           ('Budaslottet',2),
+--                                           ('Sankt Stefan basilika',2),
+--                                           ('Robben island',3),
+--                                           ('Cape point',3),
+--                                           ('Taffelberget',3),
+--                                           ('Cloud gate',4),
+--                                           ('Willis tower',4),
+--                                           ('Millenium Park',4),
+--                                           ('Burj khalifa',5),
+--                                           ('dubai miracle garden',5),
+--                                           ('dubai aquarium and underwater zoo',5),
+--                                           ('El Morro',6),
+--                                           ('Fusterlandia',6),
+--                                           ('Fabrica De Arte Cubano',6),
+--                                           ('Uspenskijkatedralen',7),
+--                                           ('Sveaborg',7),
+--                                           ('Tempelplatsens kyrka',7),
+--                                           ('Katedralen I Sao Paulo',8),
+--                                           ('Pinakoteket museum',8),
+--                                           ('Avenida paulista',8),
+--                                           ('Sentosa island',9),
+--                                           ('Marina bay sands',9),
+--                                           ('Singapore zoo',9),
+--                                           ('Shibuya',10),
+--                                           ('Sensoji templet',10),
+--                                           ('Shinjuku Gyoen National Garden',10);
+
+
 
 
 

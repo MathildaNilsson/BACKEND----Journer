@@ -23,7 +23,7 @@ public class City {
     //questions
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "attraction_id", referencedColumnName = "id")
+    @JoinColumn(name = "city_id", referencedColumnName = "id")
     List<Attraction> attractionList;
 
     public City() {

@@ -17,10 +17,11 @@ const City = ({}) => {
   const handleShow2 = () => setShow2(true);
 
   useEffect(() => {
-    fetch(`http://localhost:8080/city/getcurrentcity`)
+    fetch("http://localhost:8080/city/getcurrentcity")
       .then((response) => response.json())
       .then((city) => setCity(city));
-  });
+      
+  },[]);
 
   return (
     <>

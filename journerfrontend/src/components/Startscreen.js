@@ -15,6 +15,12 @@ const Startscreen = ({ Name }) => {
       .then((response) => response.json());
   };
 
+  const setCurrentCity = () => {
+    fetch(`http://localhost:8080/city/setcurrentcity/dubai`, {
+      method: "POST",
+    }).then((response) => response.json());
+  };
+
   return (
     <>
       <form>
@@ -28,6 +34,7 @@ const Startscreen = ({ Name }) => {
           id="new-game"
           onClick={(e) => {
             getInputValue();
+            setCurrentCity();
             e.preventDefault();
             window.location.href = `/newgamescreen`;
           }}

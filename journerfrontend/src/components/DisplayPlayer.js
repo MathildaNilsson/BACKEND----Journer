@@ -14,7 +14,7 @@ const DisplayPlayer = () => {
     fetch("http://localhost:8080/game/getplayer")
       .then((response) => response.json())
       .then((player) => setPlayer(player));
-  });
+  },[]);
   return (
     <>
       <div id="display-player-stats">

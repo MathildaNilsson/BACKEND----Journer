@@ -20,7 +20,7 @@ const City = ({}) => {
     fetch(`http://localhost:8080/city/getcurrentcity`)
       .then((response) => response.json())
       .then((city) => setCity(city));
-  }, {});
+  });
 
   return (
     <>
@@ -40,8 +40,7 @@ const City = ({}) => {
         Return
       </button>
 
-      <Button variant="primary" onClick={handleShow2
-          }>
+      <Button variant="primary" onClick={handleShow2}>
         Sevärdheter
       </Button>
 
@@ -50,7 +49,7 @@ const City = ({}) => {
           <Offcanvas.Title>Shop</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
-          <Shop souvenir = {city && city.souvenir}/>
+          <Shop souvenir={city && city.souvenir} />
         </Offcanvas.Body>
       </Offcanvas>
 
@@ -59,7 +58,7 @@ const City = ({}) => {
           <Offcanvas.Title>Sevärdheter</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
-          <Attraction city = {city && city}/>
+          <Attraction city={city && city} />
         </Offcanvas.Body>
       </Offcanvas>
     </>

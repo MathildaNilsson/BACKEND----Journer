@@ -5,12 +5,6 @@ const Startscreen = ({ Name }) => {
   let [player, setplayer] = useState(null);
   let [name, setname] = useState("");
 
-  useEffect(() => {
-    fetch(`http://localhost:8080/game/createplayer/test`)
-      .then((response) => response.json())
-      .then((player) => setplayer(player));
-  }, {});
-
   const getInputValue = () => {
     var inputVal = document.getElementById("input-name").value;
     fetch(`http://localhost:8080/game/createplayer/${inputVal}`, {

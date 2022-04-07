@@ -13,6 +13,7 @@ import java.util.List;
 public class CityController {
 
     CityService cityService;
+    int i = 0;
 
     public CityController(CityService cityService) {
         this.cityService = cityService;

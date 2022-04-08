@@ -1,4 +1,28 @@
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import React, { Component } from 'react';
+import './App.css';
+import Home from './components/Home'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import ClientList from './api/ClientList';
+import ClientEdit from "./api/ClientEdit";
+
+class App extends Component {
+  render() {
+    return (
+        <Router>
+          <Switch>
+            <Route path='/' exact={true} component={Home}/>
+            <Route path='/clients' exact={true} component={ClientList}/>
+            <Route path='/clients/:id' component={ClientEdit}/>
+          </Switch>
+        </Router>
+    )
+  }
+}
+
+export default App;
+
+
+/* import {BrowserRouter, Route, Routes} from "react-router-dom";
 import "./App.css";
 import Test from "./components/Test";
 import Quiz from "./components/Quiz"
@@ -31,4 +55,4 @@ function App() {
     </div>;
 }
 
-export default App;
+export default App; */

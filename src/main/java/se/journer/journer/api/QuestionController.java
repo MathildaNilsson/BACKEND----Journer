@@ -35,6 +35,7 @@ public class QuestionController {
 
     @GetMapping("/categoryname/{categoryName}")
     public List<Question> getQuestionByType(@PathVariable("categoryName") String categoryName){
+        System.out.println("##################" + questionService.getQuestionByName(categoryName));
         return questionService.getQuestionByName(categoryName);
     }
 

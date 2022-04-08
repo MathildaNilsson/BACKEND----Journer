@@ -3,6 +3,7 @@ import DisplayPlayer from "./DisplayPlayer";
 import { Button, Offcanvas } from "react-bootstrap";
 import Shop from "./Shop";
 import Attraction from "./Attraction";
+import Quiz from "./Quiz";
 
 const City = ({}) => {
   let [city, setCity] = useState(null);
@@ -15,6 +16,10 @@ const City = ({}) => {
   const [show2, setShow2] = useState(false);
   const handleClose2 = () => setShow2(false);
   const handleShow2 = () => setShow2(true);
+
+  const [show3, setShow3] = useState(false);
+  const handleClose3 = () => setShow3(false);
+  const handleShow3 = () => setShow3(true);
 
   useEffect(() => {
     fetch("http://localhost:8080/city/getcurrentcity")
@@ -45,6 +50,8 @@ const City = ({}) => {
         Sevärdheter
       </Button>
 
+      <Button variant="primary" onClick={handleShow3}>Stadsfråga</Button>
+
       <Offcanvas placement="end" show={show} onHide={handleClose}>
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>Shop</Offcanvas.Title>
@@ -60,6 +67,15 @@ const City = ({}) => {
         </Offcanvas.Header>
         <Offcanvas.Body>
           <Attraction city={city && city} />
+        </Offcanvas.Body>
+      </Offcanvas>
+
+      <Offcanvas placement="end" show={show3} onHide={handleClose3}>
+        <Offcanvas.Header closeButton>
+          <Offcanvas.Title>Quiz</Offcanvas.Title>
+        </Offcanvas.Header>
+        <Offcanvas.Body>
+          <Quiz city={city && city}/>
         </Offcanvas.Body>
       </Offcanvas>
     </>

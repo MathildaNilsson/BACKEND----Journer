@@ -21,6 +21,7 @@ const NewGameScreen = () => {
       <h1>New game screen</h1>
       <DisplayPlayer/>
       <Button
+      class="btn btn-secondary btn-lg"
         onClick={(e) => {
           removeMoney(12000);
           setCurrentCity("chicago");
@@ -33,6 +34,7 @@ const NewGameScreen = () => {
       12000:-
       <br />
       <Button
+      class="btn btn-secondary btn-lg"
         onClick={(e) => {
           setCurrentCity("bangalore");
           removeMoney(10000);
@@ -45,6 +47,7 @@ const NewGameScreen = () => {
       10000:-
       <br />
       <Button
+      class="btn btn-secondary btn-lg"
         onClick={(e) => {
           removeMoney(15000);
           setCurrentCity("tokyo");

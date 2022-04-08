@@ -33,7 +33,7 @@ const DisplayPlayer = () => {
               <td>{player && player.money}:-</td>
               <td>{player && player.energy}</td>
               <td>
-                <Button variant="primary" onClick={handleShow}>
+                <Button class="btn btn-secondary btn-lg" variant="primary" onClick={handleShow}>
                   Backpack
                 </Button>
               </td>

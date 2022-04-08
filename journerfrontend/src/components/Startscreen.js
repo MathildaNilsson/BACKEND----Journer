@@ -30,6 +30,7 @@ const Startscreen = ({ Name }) => {
           id="input-name"
         ></input>
         <Button
+        class="btn btn-secondary btn-lg"
           variant="primary"
           id="new-game"
           onClick={(e) => {
@@ -41,7 +42,7 @@ const Startscreen = ({ Name }) => {
         >
           New Game
         </Button>{" "}
-        <Button variant="primary">HighScore</Button>
+        <Button class="btn btn-secondary btn-lg" variant="primary">HighScore</Button>
       </form>
 
       <div id="temp">

@@ -106,17 +106,7 @@ constructor(props) {
   this.state = {cities: []};
 }
 
-    async handleSubmit(event) {
-      event.preventDefault();
-  
-      await fetch('city/getcitybyname/chicago', {
-          method: 'POST',
-          headers: {
-              'Accept': 'application/json',
-              'Content-Type': 'application/json'
-          },
-      });
-  }
+
 
     componentDidMount() {
         fetch('/game/shop/')

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Button } from "react-bootstrap";
-import DisplayPlayer from "./DisplayPlayer";
 
 class NewGameScreen extends Component {
   render() {
@@ -8,19 +7,21 @@ class NewGameScreen extends Component {
 
     const NewGameScreen = () => {
 
+      const removeMoney = (money) =>{
+        fetch(`http://localhost:8080/game/removemoney/${money}`, {
+          method: "POST",
+        }).then((response) => response.json());
+      };
 
       return (
         <div className="container-bg">
           <h1>New game screen</h1>
-      <DisplayPlayer/>
       <Button
       class="btn btn-secondary btn-lg"
-        onClick={(e) => {
-          //removeMoney(12000);
+        onClick={() => {
+          removeMoney(12000);
           //setCurrentCity("chicago");
-          this.handleSubmit();
-          e.preventDefault();
-          window.location.href = `/City`;
+          this.handleSubmit("chicago");
         }}
       >
         Chicago
@@ -32,8 +33,7 @@ class NewGameScreen extends Component {
         onClick={(e) => {
           //setCurrentCity("bangalore");
           //removeMoney(10000);
-          e.preventDefault();
-          window.location.href = `/City`;
+          this.handleSubmit("bangalore");
         }}
       >
         Bangalore
@@ -45,14 +45,20 @@ class NewGameScreen extends Component {
         onClick={(e) => {
           //removeMoney(15000);
           //setCurrentCity("tokyo");
-          e.preventDefault();
-          window.location.href = `/City`;
+          this.handleSubmit("tokyo");
         }}
       >
         Tokyo
       </Button>
       15000:-
       <br />
+
+       <Button onClick={(e) => {
+          window.location.href = `/City`;
+        }}> 
+         Res
+       </Button>
+
       <button
         id="new-game"
         onClick={(e) => {
@@ -69,9 +75,9 @@ class NewGameScreen extends Component {
     return <NewGameScreen />;
   }
   
-  async handleSubmit() {
-
-    await fetch('city/setcurrentcity/chicago', {
+  async handleSubmit(city) {
+     
+    await fetch('city/setcurrentcity/' + city, {
         method: 'POST',
         headers: {
             'Accept': 'application/json',

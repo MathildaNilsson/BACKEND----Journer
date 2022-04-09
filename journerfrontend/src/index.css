@@ -11,6 +11,10 @@ h1,h2,h3,p{
   color:black;
 }
 
+.container-bg{
+  background-color: #fff;
+}
+
 body {
 	background:transparent;
 	min-height:100%; 	
@@ -47,5 +51,6 @@ code {
 }
 
 #display-player-stats{
+  background-color: #fff;
   float: left;
 }

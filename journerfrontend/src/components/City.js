@@ -12,9 +12,10 @@ class City extends Component {
   render() {
     
     const {shops: shop} = this.state;
+    const {cities: city} = this.state;
 
       const City = () => {
-      let [city, setCity] = useState(null);
+      //let [city, setCity] = useState(null);
       const [show, setShow] = useState(false);
       const handleClose = () => setShow(false);
       const handleShow = () => setShow(true);
@@ -27,12 +28,12 @@ class City extends Component {
       const handleClose3 = () => setShow3(false);
       const handleShow3 = () => setShow3(true);
 
-      useEffect(() => {
+/*       useEffect(() => {
         fetch("http://localhost:8080/city/getcurrentcity")
           .then((response) => response.json())
           .then((city) => setCity(city));
           
-      },[]);
+      },[]); */
 
 
       
@@ -40,8 +41,8 @@ class City extends Component {
         <div className="container-bg">
     
     <DisplayPlayer />
-      <h1>{city && city.name}</h1>
-      <p>{city && city.cityInfo}</p>
+      <h1>{city.name}</h1>
+      <p>{city.cityInfo}</p>
       <Button variant="primary" onClick={handleShow}>
         Shop
       </Button>
@@ -66,7 +67,7 @@ class City extends Component {
           <Offcanvas.Title>Shop</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
-          <Shop souvenir={city && city.souvenir} cityShop = {shop} />
+          <Shop souvenir={city.souvenir} cityShop = {shop} />
         </Offcanvas.Body>
       </Offcanvas>
 
@@ -75,7 +76,7 @@ class City extends Component {
           <Offcanvas.Title>Sevärdheter</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
-          <Attraction city={city && city} />
+          <Attraction city={city} />
         </Offcanvas.Body>
       </Offcanvas>
 
@@ -84,7 +85,7 @@ class City extends Component {
           <Offcanvas.Title>Quiz</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
-          <Quiz city={city && city}/>
+          <Quiz city={city}/>
         </Offcanvas.Body>
       </Offcanvas>
 
@@ -100,10 +101,10 @@ class City extends Component {
     );
 }
 
-    constructor(props) {
-        super(props);
-        this.state = {};
-    }
+constructor(props) {
+  super(props);
+  this.state = {cities: []};
+}
 
     async handleSubmit(event) {
       event.preventDefault();
@@ -121,6 +122,12 @@ class City extends Component {
         fetch('/game/shop/')
             .then(response => response.json())
             .then(shop => this.setState({shops: shop}));
+    }
+
+    componentDidMount() {
+      fetch('/city/getcurrentcity/')
+        .then((response) => response.json())
+        .then(city => this.setState({cities: city}));
     }
 
 }

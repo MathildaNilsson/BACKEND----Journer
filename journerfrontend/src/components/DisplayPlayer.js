@@ -1,22 +1,25 @@
 import { useEffect, useState } from "react";
 import { Table, Button, Offcanvas } from "react-bootstrap";
 import Backpack from "./Backpack";
+import React, { Component } from 'react';
 
-const DisplayPlayer = () => {
-  let [player, setPlayer] = useState(null);
+class DisplayPlayer extends Component {
 
-  //Offcanvas variables
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  render() {
+    
+    const {players: player, isLoading} = this.state;
+    if (isLoading) {
+        return <p>Loading...</p>;
+    }
+/* 
+    const questionList = questions.map(question => {
+      return(<div>{question.question}</div>)
+      
+    }); */
 
-  useEffect(() => {
-    fetch("http://localhost:8080/game/getplayer")
-      .then((response) => response.json())
-      .then((player) => setPlayer(player));
-  },[]);
-  return (
-    <>
+    return (
+        <div className="container-bg">
+<>
       <div id="display-player-stats">
         <Table striped bordered hover>
           <thead>
@@ -29,27 +32,40 @@ const DisplayPlayer = () => {
           </thead>
           <tbody>
             <tr>
-              <td>{player && player.name}</td>
-              <td>{player && player.money}:-</td>
-              <td>{player && player.energy}</td>
+              <td>{player.name}</td>
+              <td>{player.money}:-</td>
+              <td>{player.energy}</td>
               <td>
-                <Button class="btn btn-secondary btn-lg" variant="primary" onClick={handleShow}>
+{/*                 <Button class="btn btn-secondary btn-lg" variant="primary" onClick={handleShow}>
                   Backpack
-                </Button>
+                </Button> */}
               </td>
             </tr>
           </tbody>
         </Table>
-        <Offcanvas show={show} onHide={handleClose}>
+{/*         <Offcanvas show={show} onHide={handleClose}>
           <Offcanvas.Header closeButton>
             <Offcanvas.Title>Backpack</Offcanvas.Title>
           </Offcanvas.Header>
           <Offcanvas.Body>
             <Backpack />
           </Offcanvas.Body>
-        </Offcanvas>
+        </Offcanvas> */}
       </div>
     </>
-  );
-};
-export default DisplayPlayer;
+        </div>
+    );
+}
+
+    constructor(props) {
+        super(props);
+        this.state = {players: []};
+    }
+
+    componentDidMount() {
+        fetch('/game/getplayer/')
+            .then(response => response.json())
+            .then(player => this.setState({players: player}));
+    }
+}
+ export default DisplayPlayer;

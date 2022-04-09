@@ -33,6 +33,8 @@ class City extends Component {
           .then((city) => setCity(city));
           
       },[]);
+
+
       
       return(
         <div className="container-bg">
@@ -100,8 +102,20 @@ class City extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {players: []};
+        this.state = {};
     }
+
+    async handleSubmit(event) {
+      event.preventDefault();
+  
+      await fetch('city/getcitybyname/chicago', {
+          method: 'POST',
+          headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+          },
+      });
+  }
 
     componentDidMount() {
         fetch('/game/shop/')

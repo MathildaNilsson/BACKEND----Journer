@@ -1,43 +1,36 @@
 import { useEffect, useState } from "react";
-import { Table, Button, Offcanvas } from "react-bootstrap";
-import Backpack from "./Backpack";
-import React, { Component } from 'react';
 import DisplayPlayer from "./DisplayPlayer";
+import { Button, Offcanvas } from "react-bootstrap";
 import Shop from "./Shop";
 import Attraction from "./Attraction";
 import Quiz from "./Quiz";
 
-class City extends Component {
+const City = ({}) => {
+  let [city, setCity] = useState(null);
 
-  render() {
-    
-    const {shops: shop} = this.state;
+  //Offcanvas variables
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
-      const City = () => {
-      let [city, setCity] = useState(null);
-      const [show, setShow] = useState(false);
-      const handleClose = () => setShow(false);
-      const handleShow = () => setShow(true);
+  const [show2, setShow2] = useState(false);
+  const handleClose2 = () => setShow2(false);
+  const handleShow2 = () => setShow2(true);
 
-      const [show2, setShow2] = useState(false);
-      const handleClose2 = () => setShow2(false);
-      const handleShow2 = () => setShow2(true);
-    
-      const [show3, setShow3] = useState(false);
-      const handleClose3 = () => setShow3(false);
-      const handleShow3 = () => setShow3(true);
+  const [show3, setShow3] = useState(false);
+  const handleClose3 = () => setShow3(false);
+  const handleShow3 = () => setShow3(true);
 
-      useEffect(() => {
-        fetch("http://localhost:8080/city/getcurrentcity")
-          .then((response) => response.json())
-          .then((city) => setCity(city));
-          
-      },[]);
+  useEffect(() => {
+    fetch("http://localhost:8080/city/getcurrentcity")
+      .then((response) => response.json())
+      .then((city) => setCity(city));
       
-      return(
-        <div className="container-bg">
-    
-    <DisplayPlayer />
+  },[]);
+
+  return (
+    <>
+      <DisplayPlayer />
       <h1>{city && city.name}</h1>
       <p>{city && city.cityInfo}</p>
       <Button variant="primary" onClick={handleShow}>
@@ -64,7 +57,7 @@ class City extends Component {
           <Offcanvas.Title>Shop</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
-          <Shop souvenir={city && city.souvenir} cityShop = {shop} />
+          <Shop souvenir={city && city.souvenir} />
         </Offcanvas.Body>
       </Offcanvas>
 
@@ -85,29 +78,7 @@ class City extends Component {
           <Quiz city={city && city}/>
         </Offcanvas.Body>
       </Offcanvas>
-
-        </div>
-
-
-      )}
-    
-    return (
-
-      <City/>
-      
-    );
-}
-
-    constructor(props) {
-        super(props);
-        this.state = {players: []};
-    }
-
-    componentDidMount() {
-        fetch('/game/shop/')
-            .then(response => response.json())
-            .then(shop => this.setState({shops: shop}));
-    }
-
-}
- export default City;
+    </>
+  );
+};
+export default City;

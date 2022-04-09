@@ -7,19 +7,15 @@ class DisplayPlayer extends Component {
 
   render() {
     
-    const {players: player, isLoading} = this.state;
-    if (isLoading) {
-        return <p>Loading...</p>;
-    }
-/* 
-    const questionList = questions.map(question => {
-      return(<div>{question.question}</div>)
-      
-    }); */
-
-    return (
+    const {players: player} = this.state;
+    
+    
+      const DisplayPlayer = () => {
+      const [show, setShow] = useState(false);
+      const handleClose = () => setShow(false);
+      const handleShow = () => setShow(true);
+      return(
         <div className="container-bg">
-<>
       <div id="display-player-stats">
         <Table striped bordered hover>
           <thead>
@@ -36,24 +32,33 @@ class DisplayPlayer extends Component {
               <td>{player.money}:-</td>
               <td>{player.energy}</td>
               <td>
-{/*                 <Button class="btn btn-secondary btn-lg" variant="primary" onClick={handleShow}>
+                 <Button class="btn btn-secondary btn-lg" variant="primary" onClick={handleShow}>
                   Backpack
-                </Button> */}
+                </Button> 
               </td>
             </tr>
           </tbody>
         </Table>
-{/*         <Offcanvas show={show} onHide={handleClose}>
-          <Offcanvas.Header closeButton>
-            <Offcanvas.Title>Backpack</Offcanvas.Title>
-          </Offcanvas.Header>
-          <Offcanvas.Body>
-            <Backpack />
-          </Offcanvas.Body>
-        </Offcanvas> */}
       </div>
-    </>
+    
+
+    <Offcanvas show={show} onHide={handleClose}>
+      <Offcanvas.Header closeButton>
+        <Offcanvas.Title>Backpack</Offcanvas.Title>
+      </Offcanvas.Header>
+      <Offcanvas.Body>
+        <Backpack />
+      </Offcanvas.Body>
+    </Offcanvas>
         </div>
+
+
+      )}
+    
+    return (
+
+      <DisplayPlayer/>
+      
     );
 }
 

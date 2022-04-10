@@ -1,5 +1,5 @@
 -- -- SELECT * FROM question;
--- 
+--
 -- INSERT INTO cities(name, souvenir, city_info) VALUES
 --                              ('Bangalore','Orient carpet', 'Välkommen till Bangalore! Även känd som Trädgårdsstaden & Vakternas stad, centrum för den indiska IT-industring där man kan finna företagsparken Electronics City. Med en befolkningsmängd på över 11 miljoner så kommer du aldrig känna dig ensam!'),
 --                              ('Budapest','Rubiks cube', 'Budapest, även kallad Donaus Pärla, var från början två städer. Buda på den kuperade sidan av Donau, och Pest den flacka delen på högra sidan av floden. Här väntar en weekend fylld av god mat, kultur och spännande shopping.'),
@@ -11,20 +11,6 @@
 --                              ('Sao Paulo','Football jersey', 'Sao Paulo, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque rhoncus sem vel urna malesuada lobortis. Nam fringilla, felis a hendrerit pharetra, ex ex pretium elit, sit amet egestas metus lorem eu elit. '),
 --                              ('Singapore','Orchid parfume', 'Utbudet i Singapore är i det närmaste oändligt, och enklast tar man sig runt med tunnelbanan. Här finns tempel, moskéer och museer och på Sentosa Island finns allt för naturälskaren, från härliga stränder till populära nöjesparker som Universal Studios.'),
 --                              ('Tokyo','Cherry blossom', 'I Tokyo kan alla förväntningar och förhoppningar besannas – ät sushi, sjung karaoke, beskåda sumobrottning eller besök en av de knäppa temarestauranger som finns att välja bland. Välkommen till en trendig stad i ständig förändring!');
---
---  INSERT INTO category(category) VALUES
---
---                                    ('Bangalore'),
---                                    ('Budapest'),
---                                   ('Cape town'),
---                                    ('Chicago'),
---                                       ('Dubai'),
---                                       ('Havanna'),
---                                       ('Helsinki'),
---                                       ('Sao Paulo'),
---                                       ('Singapore'),
---                                       ('Tokyo'),
--- ('Bangalore palace');
 --
 -- INSERT INTO category(category, sub_category) VALUES
 --                                                  ('Bangalore','city'),

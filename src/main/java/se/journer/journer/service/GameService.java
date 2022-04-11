@@ -1,10 +1,12 @@
 package se.journer.journer.service;
 
+import com.sun.jdi.connect.Transport;
 import org.springframework.stereotype.Service;
 import se.journer.journer.dao.GameDAO;
 import se.journer.journer.models.items.Item;
 import se.journer.journer.models.items.Pepperspray;
 import se.journer.journer.models.player.Player;
+import se.journer.journer.models.transportation.Transportation;
 
 import java.util.List;
 
@@ -62,5 +64,9 @@ public class GameService {
 
     public List<Item> displayShop() {
         return gameDAO.displayShop();
+    }
+
+    public List<Transportation> displayStation() {
+        return gameDAO.displayStation();
     }
 }

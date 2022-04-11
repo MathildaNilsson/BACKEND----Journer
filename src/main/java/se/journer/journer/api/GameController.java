@@ -1,8 +1,10 @@
 package se.journer.journer.api;
 
+import com.sun.jdi.connect.Transport;
 import org.springframework.web.bind.annotation.*;
 import se.journer.journer.models.items.Item;
 import se.journer.journer.models.player.Player;
+import se.journer.journer.models.transportation.Transportation;
 import se.journer.journer.service.GameService;
 
 import java.util.List;
@@ -75,6 +77,11 @@ public class GameController {
     @GetMapping("/shop")
     public List<Item> displayShop(){
         return gameService.displayShop();
+    }
+
+    @GetMapping("/station")
+    public List<Transportation> displayStation(){
+        return gameService.displayStation();
     }
 
     //Temp method, Use this to populate backpack while testing http://localhost:8080/game/initiateplayer

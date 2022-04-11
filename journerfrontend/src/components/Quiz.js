@@ -7,8 +7,8 @@ const Quiz = (props) => {
 /*   let [category, setCategory] = useState(null); */
  
 
-  /* useEffect(() => {
-    fetch(`http://localhost:8080/question/categoryid/dubai`)
+/*   useEffect(() => {
+    fetch(`http://localhost:8080/question/categoryid/`+ props.city.name)
       .then((response) => response.json()) 
       .then((category) => setCategory(category));
   }, {}); */
@@ -43,13 +43,13 @@ const Quiz = (props) => {
     }
   }
 
-  return (<div>
-    {question && question.question}
+  return (<div className = "container-bg">
+    {props.city.name}
+    
+    {question && question.question} 
 
     {/* {category} */}
 
-    {props.city.name}
-    
     <tr>
     {question && question.answerList.map((answer) => <div>{answer.answer} <button onClick={e => checkAnswer(answer.rightAnswer)} id={answer.id}> Click me</button></div>)}
     </tr>

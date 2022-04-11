@@ -45,4 +45,10 @@ public class CityService {
         List<City> shuffledCities = cities.subList(0,3);
         return shuffledCities;
     }
+
+    public City getRandomCity() {
+        Optional<City> randomQuestion = getCities().stream()
+                .skip((int) (getCities().size() * Math.random())).findAny();
+        return randomQuestion.orElse(null);
+    }
 }

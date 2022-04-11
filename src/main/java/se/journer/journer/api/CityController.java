@@ -29,6 +29,11 @@ public class CityController {
         return cityService.getRandomCities();
     }
 
+    @GetMapping("/random/city")
+    public City getRandomCity(){
+        return cityService.getRandomCity();
+    }
+
 
     @GetMapping("/{name}")
     public City getCityByName(@PathVariable("name") String name){

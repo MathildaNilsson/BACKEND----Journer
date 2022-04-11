@@ -24,6 +24,12 @@ public class CityController {
         return cityService.getCities();
     }
 
+    @GetMapping("/random/cities")
+    public List<City> getRandomCities(){
+        return cityService.getRandomCities();
+    }
+
+
     @GetMapping("/{name}")
     public City getCityByName(@PathVariable("name") String name){
         return cityService.getCityByName(name);

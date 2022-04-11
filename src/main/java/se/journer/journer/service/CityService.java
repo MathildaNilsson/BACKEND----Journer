@@ -6,6 +6,7 @@ import se.journer.journer.models.attraction.Attraction;
 import se.journer.journer.models.cities.City;
 import se.journer.journer.models.questions.Question;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -36,5 +37,12 @@ public class CityService {
 
     public City getCurrentCity() {
         return cityDAO.getCurrentCity();
+    }
+
+    public List<City> getRandomCities() {
+        List<City> cities = (List<City>) cityDAO.getCities();
+        Collections.shuffle(cities);
+        List<City> shuffledCities = cities.subList(0,3);
+        return shuffledCities;
     }
 }

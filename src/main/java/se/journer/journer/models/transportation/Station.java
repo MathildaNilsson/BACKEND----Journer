@@ -18,9 +18,9 @@ public class Station {
     }
 
     public void openStation(){
-        transportList.add(new Airplane("Airplane", airplanePrice, energyToGainAirplane));
-        transportList.add(new Train("Train", trainPrice, energyToGainTrain));
-        transportList.add(new Bus("Bus", busPrice, energyToGainBus));
+        transportList.add(new Airplane("Flyg", airplanePrice, energyToGainAirplane));
+        transportList.add(new Train("Tåg", trainPrice, energyToGainTrain));
+        transportList.add(new Bus("Buss", busPrice, energyToGainBus));
     }
 
     public int getAirplanePrice() {

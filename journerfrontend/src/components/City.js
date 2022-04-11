@@ -1,21 +1,18 @@
-import { useEffect, useState } from "react";
-import { Table, Button, Offcanvas } from "react-bootstrap";
-import Backpack from "./Backpack";
-import React, { Component } from 'react';
+import { useState } from "react";
+import { Button, Offcanvas } from "react-bootstrap";
+import React, { Component } from "react";
 import DisplayPlayer from "./DisplayPlayer";
 import Shop from "./Shop";
 import Attraction from "./Attraction";
 import Quiz from "./Quiz";
 
 class City extends Component {
-
   render() {
-    
-    const {shops: shop} = this.state;
-    const {cities: city} = this.state;
+    const { shops: shop } = this.state;
+    const { cities: city } = this.state;
+    const { attractions: attraction } = this.state;
 
-      const City = () => {
-      //let [city, setCity] = useState(null);
+    const City = () => {
       const [show, setShow] = useState(false);
       const handleClose = () => setShow(false);
       const handleShow = () => setShow(true);
@@ -23,102 +20,85 @@ class City extends Component {
       const [show2, setShow2] = useState(false);
       const handleClose2 = () => setShow2(false);
       const handleShow2 = () => setShow2(true);
-    
+
       const [show3, setShow3] = useState(false);
       const handleClose3 = () => setShow3(false);
       const handleShow3 = () => setShow3(true);
 
-/*       useEffect(() => {
-        fetch("http://localhost:8080/city/getcurrentcity")
-          .then((response) => response.json())
-          .then((city) => setCity(city));
-          
-      },[]); */
-
-
-      
-      return(
+      return (
         <div className="container-bg">
-    
-    <DisplayPlayer />
-      <h1>{city.name}</h1>
-      <p>{city.cityInfo}</p>
-      <Button variant="primary" onClick={handleShow}>
-        Shop
-      </Button>
-      <button
-        id="return"
-        onClick={(e) => {
-          e.preventDefault();
-          window.location.href = `/`;
-        }}
-      >
-        Return
-      </button>
+          <DisplayPlayer />
+          <h1>{city.name}</h1>
+          <p>{city.cityInfo}</p>
+          <Button variant="primary" onClick={handleShow}>
+            Shop
+          </Button>
+          <button
+            id="return"
+            onClick={(e) => {
+              e.preventDefault();
+              window.location.href = `/`;
+            }}
+          >
+            Return
+          </button>
 
-      <Button variant="primary" onClick={handleShow2}>
-        Sevärdheter
-      </Button>
+          <Button variant="primary" onClick={handleShow2}>
+            Sevärdheter
+          </Button>
 
-      <Button variant="primary" onClick={handleShow3}>Stadsfråga</Button>
+          <Button variant="primary" onClick={handleShow3}>
+            Stadsfråga
+          </Button>
 
-      <Offcanvas placement="end" show={show} onHide={handleClose}>
-        <Offcanvas.Header closeButton>
-          <Offcanvas.Title>Shop</Offcanvas.Title>
-        </Offcanvas.Header>
-        <Offcanvas.Body>
-          <Shop souvenir={city.souvenir} cityShop = {shop} />
-        </Offcanvas.Body>
-      </Offcanvas>
+          <Offcanvas placement="end" show={show} onHide={handleClose}>
+            <Offcanvas.Header closeButton>
+              <Offcanvas.Title>Shop</Offcanvas.Title>
+            </Offcanvas.Header>
+            <Offcanvas.Body>
+              <Shop souvenir={city.souvenir} cityShop={shop} />
+            </Offcanvas.Body>
+          </Offcanvas>
 
-      <Offcanvas placement="top" show={show2} onHide={handleClose2}>
-        <Offcanvas.Header closeButton>
-          <Offcanvas.Title>Sevärdheter</Offcanvas.Title>
-        </Offcanvas.Header>
-        <Offcanvas.Body>
-          <Attraction city={city} />
-        </Offcanvas.Body>
-      </Offcanvas>
+          <Offcanvas placement="top" show={show2} onHide={handleClose2}>
+            <Offcanvas.Header closeButton>
+              <Offcanvas.Title>Sevärdheter</Offcanvas.Title>
+            </Offcanvas.Header>
+            <Offcanvas.Body>
+              <Attraction city={city} attraction={attraction} />
+            </Offcanvas.Body>
+          </Offcanvas>
 
-      <Offcanvas placement="end" show={show3} onHide={handleClose3}>
-        <Offcanvas.Header closeButton>
-          <Offcanvas.Title>Quiz</Offcanvas.Title>
-        </Offcanvas.Header>
-        <Offcanvas.Body>
-          <Quiz city={city}/>
-        </Offcanvas.Body>
-      </Offcanvas>
-
+          <Offcanvas placement="end" show={show3} onHide={handleClose3}>
+            <Offcanvas.Header closeButton>
+              <Offcanvas.Title>Quiz</Offcanvas.Title>
+            </Offcanvas.Header>
+            <Offcanvas.Body>
+              <Quiz city={city} />
+            </Offcanvas.Body>
+          </Offcanvas>
         </div>
+      );
+    };
 
+    return <City />;
+  }
 
-      )}
-    
-    return (
+  constructor(props) {
+    super(props);
+    this.state = { cities: [] };
+  }
 
-      <City/>
-      
-    );
+  componentDidMount() {
+    fetch("/city/getcurrentcity/")
+      .then((response) => response.json())
+      .then((city) => this.setState({ cities: city }));
+      fetch("/game/shop/")
+      .then((response) => response.json())
+      .then((shop) => this.setState({ shops: shop }));
+      fetch("question/attractionsbycityname/chicago")
+      .then((response) => response.json())
+      .then((attraction) => this.setState({ attractions: attraction }));
+  }
 }
-
-constructor(props) {
-  super(props);
-  this.state = {cities: []};
-}
-
-
-
-    componentDidMount() {
-        fetch('/game/shop/')
-            .then(response => response.json())
-            .then(shop => this.setState({shops: shop}));
-    }
-
-    componentDidMount() {
-      fetch('/city/getcurrentcity/')
-        .then((response) => response.json())
-        .then(city => this.setState({cities: city}));
-    }
-
-}
- export default City;
+export default City;

@@ -9,6 +9,7 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String category;
+    private String subCategory;
 
     public Category() {
     }
@@ -19,5 +20,9 @@ public class Category {
 
     public String getCategory() {
         return category;
+    }
+
+    public String getSubCategory() {
+        return subCategory;
     }
 }

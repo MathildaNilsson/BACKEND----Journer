@@ -42,4 +42,8 @@ public class Question {
     public String getCategoryName(){
         return categoryId.getCategory();
     }
+
+    public String getSubCategory(){
+        return categoryId.getSubCategory();
+    }
 }

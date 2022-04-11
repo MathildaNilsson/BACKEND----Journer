@@ -70,4 +70,11 @@ public class QuestionService {
         return cat.getId();
     }
 
+    public List<Question> getAttractionsByCityName(String city) {
+        List<Question> questions = (List<Question>) questionDAO.getQuestion();
+
+        return questions.stream()
+                .filter(question -> question.getSubCategory().equalsIgnoreCase(city))
+                .collect(Collectors.toList());
+    }
 }

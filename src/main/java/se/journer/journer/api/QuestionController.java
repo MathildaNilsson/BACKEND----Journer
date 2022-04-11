@@ -12,46 +12,51 @@ import java.util.List;
 @CrossOrigin
 public class QuestionController {
 
-    QuestionService questionService;
+    QuestionService service;
 
     public QuestionController(QuestionService questionService) {
-        this.questionService = questionService;
+        this.service = questionService;
     }
 
     @GetMapping("")
     public List<Question> getQuestion(){
-        return questionService.getQuestion();
+        return service.getQuestion();
     }
 
     @GetMapping("/answer/{id}")
     public List<Answer> getAnswers(@PathVariable("id") Integer id){
-        return questionService.getAnswers(id);
+        return service.getAnswers(id);
     }
 
     @GetMapping("/category/{categoryId}")
     public List<Question> getQuestionByType(@PathVariable("categoryId") Integer categoryId){
-        return questionService.getQuestionByType(categoryId);
+        return service.getQuestionByType(categoryId);
     }
 
     @GetMapping("/categoryname/{categoryName}")
     public List<Question> getQuestionByType(@PathVariable("categoryName") String categoryName){
-        System.out.println("##################" + questionService.getQuestionByName(categoryName));
-        return questionService.getQuestionByName(categoryName);
+        System.out.println("##################" + service.getQuestionByName(categoryName));
+        return service.getQuestionByName(categoryName);
     }
 
     @GetMapping("/categoryid/{categoryName}")
     public Integer getCategoryIdByCategoryName(@PathVariable("categoryName") String categoryName){
-        return questionService.getCategoryIdByName(categoryName);
+        return service.getCategoryIdByName(categoryName);
     }
 
     @GetMapping("/random/{categoryId}")
     public Question getRandomQuestion(@PathVariable("categoryId") Integer id){
-        return questionService.getRandomQuestion(id);
+        return service.getRandomQuestion(id);
     }
 
     @GetMapping("/right/{id}")
     public Answer getRightAnswer(@PathVariable("id") int id){
-        return questionService.getRightAnswer(id);
+        return service.getRightAnswer(id);
+    }
+
+    @GetMapping("/attractionsbycityname/{city}")
+    public List<Question> getAttractionsByCityName(@PathVariable String city){
+        return service.getAttractionsByCityName(city);
     }
 
 }

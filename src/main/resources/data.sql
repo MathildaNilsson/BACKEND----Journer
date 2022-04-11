@@ -1,4 +1,4 @@
--- -- SELECT * FROM question;
+ SELECT * FROM question;
 --
 -- INSERT INTO cities(name, souvenir, city_info) VALUES
 --                              ('Bangalore','Orient carpet', 'Välkommen till Bangalore! Även känd som Trädgårdsstaden & Vakternas stad, centrum för den indiska IT-industring där man kan finna företagsparken Electronics City. Med en befolkningsmängd på över 11 miljoner så kommer du aldrig känna dig ensam!'),

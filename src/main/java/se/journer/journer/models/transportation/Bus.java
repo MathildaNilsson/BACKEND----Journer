@@ -1,8 +1,8 @@
 package se.journer.journer.models.transportation;
 
-public class Busstation extends Transportation{
+public class Bus extends Transportation{
 
-    public Busstation(String name, int price, int energyToGain) {
+    public Bus(String name, int price, int energyToGain) {
         super(name, price, energyToGain);
     }
 }

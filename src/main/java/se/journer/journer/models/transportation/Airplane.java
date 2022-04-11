@@ -1,8 +1,8 @@
 package se.journer.journer.models.transportation;
 
-public class Airport extends Transportation{
+public class Airplane extends Transportation{
 
-    public Airport(String name, int price, int energyToGain) {
+    public Airplane(String name, int price, int energyToGain) {
         super(name, price, energyToGain);
     }
 }

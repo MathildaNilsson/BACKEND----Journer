@@ -1,9 +1,12 @@
 package se.journer.journer.dao;
 
+import com.sun.jdi.connect.Transport;
 import org.springframework.stereotype.Repository;
 import se.journer.journer.models.items.Item;
 import se.journer.journer.models.player.Player;
 import se.journer.journer.models.shop.Shop;
+import se.journer.journer.models.transportation.Station;
+import se.journer.journer.models.transportation.Transportation;
 
 import java.util.List;
 
@@ -13,6 +16,7 @@ public class GameDAO  {
     private int startEnergy = 100;
     Player player;
     Shop shop = new Shop();
+    Station station = new Station();
 
     public void createPlayer(String name){
         this.player = new Player(name, startMoney, startEnergy);
@@ -60,5 +64,9 @@ public class GameDAO  {
 
     public List<Item> displayShop() {
         return shop.getShopList();
+    }
+
+    public List<Transportation> displayStation() {
+        return station.getTransportList();
     }
 }

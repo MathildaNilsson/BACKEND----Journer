@@ -2,9 +2,40 @@ import { useState } from "react";
 import { Button } from "react-bootstrap";
 
 const Attraction = (props) => {
+  const [test, setTest] = useState(4);
   const [showQuestions, setShowQuestions] = useState(false);
-  const onClick = () => {
+  const onClick = (number) => {
+    randomizeQuestion(number);
+
     setShowQuestions(true);
+  };
+
+  const randomizeQuestion = (number) => {
+    if (number === 0) {
+      //number = Math.floor(Math.random() * 3);
+      setTest(number);
+    } else if (number === 1) {
+      number += 2;
+      //number = Math.floor((Math.random() * 3)+3);
+      setTest(number);
+    } else if (number === 2) {
+      number += 4;
+      //number = Math.floor((Math.random() * 3)+6);
+      setTest(number);
+    }
+    return number;
+  };
+
+  const addMoney = (money) => {
+    fetch(`http://localhost:8080/game/addmoney/${money}`, {
+      method: "POST",
+    }).then((response) => response.json());
+  };
+
+  const removeEnergy = (energy) => {
+    fetch(`http://localhost:8080/game/removeenergy/${energy}`, {
+      method: "POST",
+    }).then((response) => response.json());
   };
 
   const [showAttractions, setShowAttractions] = useState(true);
@@ -14,31 +45,42 @@ const Attraction = (props) => {
 
   const checkAnswer = (answer) => {
     if (answer === true) {
+      removeEnergy(5);
+      addMoney(5);
       alert("rätt");
     } else {
+      removeEnergy(5);
       alert("fel");
     }
   };
 
   const Questions = (props) => (
     <div>
- <h1>{props.attraction[0].question}</h1>
-{/*       <span>
-        {props.attraction.map((answer) => (
-          <Button onClick={(e) => checkAnswer(answer.rightAnswer)}>
+      <h1>{props.attraction[test].question}</h1>
+      <h1>{props.attraction[test].id}</h1>
+      {showQuestion(props.attraction[test])}
+    </div>
+  );
+
+  const showQuestion = (props) => {
+    return (<span>
+        {props.answerList.map((answer) => (
+          <Button onClick={(e) => 
+          checkAnswer(answer.rightAnswer
+          
+          )}>
             {answer.answer}
           </Button>
         ))}
-      </span> */}
-    </div>
-  );
+      </span>)
+  }
 
   const AttractionButtons = (props) => (
     <div>
       <Button
         variant="primary"
         onClick={(e) => {
-          onClick();
+          onClick(0);
           onClick2();
         }}
       >
@@ -48,7 +90,7 @@ const Attraction = (props) => {
       <Button
         variant="primary"
         onClick={(e) => {
-          onClick();
+          onClick(1);
           onClick2();
         }}
       >
@@ -58,7 +100,7 @@ const Attraction = (props) => {
       <Button
         variant="primary"
         onClick={(e) => {
-          onClick();
+          onClick(2);
           onClick2();
         }}
       >
@@ -89,7 +131,5 @@ const Attraction = (props) => {
     </div>
   );
 };
-
-
 
 export default Attraction;

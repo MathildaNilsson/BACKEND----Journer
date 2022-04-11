@@ -6,6 +6,7 @@ const Transportation = (props) => {
 
   let [station, setStation] = useState("");
   let [randomCity, setRandomCity] = useState("");
+  let [randomCity2, setRandomCity2] = useState("");
 
   const setCurrentCity = (cityName) => {
     fetch(`/city/setcurrentcity/${cityName}`, {
@@ -20,9 +21,15 @@ const Transportation = (props) => {
   }, {});
 
   useEffect(() => {
-    fetch(`/city/random/cities`)
+    fetch(`/city/random/city`)
       .then((response) => response.json())
       .then((randomCity) => setRandomCity(randomCity));
+  }, {});
+
+  useEffect(() => {
+    fetch(`/city/random/city`)
+      .then((response) => response.json())
+      .then((randomCity2) => setRandomCity2(randomCity2));
   }, {});
 
   const removeMoney = (money) =>{
@@ -53,33 +60,23 @@ const Transportation = (props) => {
             </tr>
           </thead>
           <tbody>
-            
-          {randomCity && randomCity.map((random) => (
-            <tr>
-            <td>
-              <tr>Flyg</tr>
-              </td>
-              <td>
-              <tr>1500</tr>
-              </td>
-              <td>
-              <tr>100</tr>
-              </td>
-              <td>{random.name}</td>
-              
+             {station && station.map((transport) => (
+               <tr>
+              <td>{transport.name}</td>
+              <td>{transport.price}:-</td>
+              <td>{transport.energyToGain}</td>
+              <td>{randomCity && randomCity.name}</td>
               <td>
                  <Button class="btn btn-secondary btn-lg" variant="primary" onClick={() => {
-                  removeMoney("10");
-                  addEnergy("10");
-                  setCurrentCity("chicago");
+                  removeMoney(transport.price);
+                  addEnergy(transport.energyToGain);
+                  setCurrentCity(randomCity.name);
                 }}>
                   Choose
                 </Button> 
-              
               </td>
               </tr>
-            
-            ))}
+             ))}
           </tbody>
         </Table>
       </div>

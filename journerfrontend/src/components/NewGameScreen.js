@@ -15,7 +15,9 @@ class NewGameScreen extends Component {
 
       return (
         <div className="container-bg">
-          <h1>New game screen</h1>
+          <h1>Välkommen till Journer</h1>
+          <p>Ditt mål är att besöka så många städer som möjligt, du börjar med 20,000 i reskassa</p>
+          <p>Välj din första destination:</p>
       <Button
       class="btn btn-secondary btn-lg"
         onClick={() => {

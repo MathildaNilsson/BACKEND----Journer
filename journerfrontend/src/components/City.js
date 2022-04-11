@@ -13,6 +13,7 @@ class City extends Component {
     const City = () => {
 
       let [attraction, setAttraction] = useState(null);
+      let [category, setCategory] = useState(null);
 
       useEffect(() => {
         fetch("question/attractionsbycityname/"+city.name)
@@ -20,6 +21,12 @@ class City extends Component {
           .then((attraction) => setAttraction(attraction));
           
       },[]);
+
+      useEffect(() => {
+        fetch(`question/categoryid/${city.name}`)
+          .then((response) => response.json()) 
+          .then((category) => setCategory(category));
+      }, []);
 
       const [show, setShow] = useState(false);
       const handleClose = () => setShow(false);
@@ -77,12 +84,12 @@ class City extends Component {
             </Offcanvas.Body>
           </Offcanvas>
 
-          <Offcanvas placement="end" show={show3} onHide={handleClose3}>
+          <Offcanvas className="container-bg" placement="end" show={show3} onHide={handleClose3}>
             <Offcanvas.Header closeButton>
               <Offcanvas.Title>Quiz</Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
-              <Quiz city={city} />
+              <Quiz city={city} category={category}/>
             </Offcanvas.Body>
           </Offcanvas>
         </div>

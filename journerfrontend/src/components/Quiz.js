@@ -4,17 +4,17 @@ import Startscreen  from "./Startscreen";
 const Quiz = (props) => {
   let [question, setquestion] = useState(null);
   let [check, setcheck] = useState("");
-  let [category, setCategory] = useState(null);
+/*   let [category, setCategory] = useState(null); */
  
 
-  useEffect(() => {
+  /* useEffect(() => {
     fetch(`http://localhost:8080/question/categoryid/dubai`)
       .then((response) => response.json()) 
       .then((category) => setCategory(category));
-  }, {});
+  }, {}); */
 
   useEffect(() => {
-    fetch(`http://localhost:8080/question/random/5`)
+    fetch(`http://localhost:8080/question/random/${props.category}`)
       .then((response) => response.json())
       .then((question) => setquestion(question));
   }, {});
@@ -46,7 +46,7 @@ const Quiz = (props) => {
   return (<div>
     {question && question.question}
 
-    {category}
+    {/* {category} */}
 
     {props.city.name}
     

@@ -5,6 +5,7 @@ import DisplayPlayer from "./DisplayPlayer";
 import Shop from "./Shop";
 import Attraction from "./Attraction";
 import Quiz from "./Quiz";
+import Transportation from "./Transportation";
 
 class City extends Component {
   render() {
@@ -40,6 +41,10 @@ class City extends Component {
       const handleClose3 = () => setShow3(false);
       const handleShow3 = () => setShow3(true);
 
+      const [show4, setShow4] = useState(false);
+      const handleClose4 = () => setShow4(false);
+      const handleShow4 = () => setShow4(true);
+
       return (
         <div className="container-bg">
           <DisplayPlayer />
@@ -66,6 +71,10 @@ class City extends Component {
             Stadsfråga
           </Button>
 
+          <Button variant="primary" onClick={handleShow4}>
+            Res vidare
+          </Button>
+
           <Offcanvas placement="end" show={show} onHide={handleClose}>
             <Offcanvas.Header closeButton>
               <Offcanvas.Title>Shop</Offcanvas.Title>
@@ -90,6 +99,15 @@ class City extends Component {
             </Offcanvas.Header>
             <Offcanvas.Body>
               <Quiz city={city} category={category}/>
+            </Offcanvas.Body>
+          </Offcanvas>
+
+          <Offcanvas placement="end" show={show4} onHide={handleClose4}>
+            <Offcanvas.Header closeButton>
+              <Offcanvas.Title>Res visare</Offcanvas.Title>
+            </Offcanvas.Header>
+            <Offcanvas.Body>
+              <Transportation  city={city} />
             </Offcanvas.Body>
           </Offcanvas>
         </div>

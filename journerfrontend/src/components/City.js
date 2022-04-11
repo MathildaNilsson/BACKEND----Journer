@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button, Offcanvas } from "react-bootstrap";
 import React, { Component } from "react";
 import DisplayPlayer from "./DisplayPlayer";
@@ -10,9 +10,17 @@ class City extends Component {
   render() {
     const { shops: shop } = this.state;
     const { cities: city } = this.state;
-    const { attractions: attraction } = this.state;
-
     const City = () => {
+
+      let [attraction, setAttraction] = useState(null);
+
+      useEffect(() => {
+        fetch("question/attractionsbycityname/"+city.name)
+          .then((response) => response.json())
+          .then((attraction) => setAttraction(attraction));
+          
+      },[]);
+
       const [show, setShow] = useState(false);
       const handleClose = () => setShow(false);
       const handleShow = () => setShow(true);
@@ -93,12 +101,10 @@ class City extends Component {
     fetch("/city/getcurrentcity/")
       .then((response) => response.json())
       .then((city) => this.setState({ cities: city }));
-      fetch("/game/shop/")
+    fetch("/game/shop/")
       .then((response) => response.json())
       .then((shop) => this.setState({ shops: shop }));
-      fetch("question/attractionsbycityname/chicago")
-      .then((response) => response.json())
-      .then((attraction) => this.setState({ attractions: attraction }));
   }
+
 }
 export default City;

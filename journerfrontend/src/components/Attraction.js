@@ -89,4 +89,7 @@ const Attraction = (props) => {
     </div>
   );
 };
+
+
+
 export default Attraction;

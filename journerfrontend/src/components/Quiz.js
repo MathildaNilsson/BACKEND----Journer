@@ -4,14 +4,7 @@ import Startscreen  from "./Startscreen";
 const Quiz = (props) => {
   let [question, setquestion] = useState(null);
   let [check, setcheck] = useState("");
-/*   let [category, setCategory] = useState(null); */
- 
 
-/*   useEffect(() => {
-    fetch(`http://localhost:8080/question/categoryid/`+ props.city.name)
-      .then((response) => response.json()) 
-      .then((category) => setCategory(category));
-  }, {}); */
 
   useEffect(() => {
     fetch(`http://localhost:8080/question/random/${props.category}`)
@@ -44,11 +37,8 @@ const Quiz = (props) => {
   }
 
   return (<div className = "container-bg">
-    {props.city.name}
     
     {question && question.question} 
-
-    {/* {category} */}
 
     <tr>
     {question && question.answerList.map((answer) => <div>{answer.answer} <button onClick={e => checkAnswer(answer.rightAnswer)} id={answer.id}> Click me</button></div>)}

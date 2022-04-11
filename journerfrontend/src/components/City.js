@@ -86,7 +86,7 @@ class City extends Component {
 
           <Offcanvas className="container-bg" placement="end" show={show3} onHide={handleClose3}>
             <Offcanvas.Header closeButton>
-              <Offcanvas.Title>Quiz</Offcanvas.Title>
+              <Offcanvas.Title>{city.name}</Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
               <Quiz city={city} category={category}/>

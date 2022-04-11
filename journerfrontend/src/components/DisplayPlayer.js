@@ -72,5 +72,11 @@ class DisplayPlayer extends Component {
             .then(response => response.json())
             .then(player => this.setState({players: player}));
     }
+
+    componentDidUpdate() {
+        fetch('/game/getplayer/')
+        .then(response => response.json())
+            .then(player => this.setState({players: player}));
+    }
 }
  export default DisplayPlayer;

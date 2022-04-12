@@ -54,6 +54,10 @@ public class GameService {
         gameDAO.addPeppersprayToBackpack();
     }
 
+    public void addSouvenirToBackpack(String souvenirName) {
+        gameDAO.addSouvenirToBackpack(souvenirName);
+    }
+
     public List<Item> displayBackpack() {
         return gameDAO.displayBackpack();
     }

@@ -3,6 +3,7 @@ package se.journer.journer.models.shop;
 import se.journer.journer.models.items.EnergyDrink;
 import se.journer.journer.models.items.Item;
 import se.journer.journer.models.items.Pepperspray;
+import se.journer.journer.models.items.Souvenir;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.List;
 public class Shop {
     private int peppersprayPrice = 250;
     private int energyDrinkPrice = 250;
+    private int souvenirPrice = 1000;
     private int energyByDrink = 35;
     private List<Item> shopList;
 
@@ -24,6 +26,10 @@ public class Shop {
 
     public EnergyDrink buyEnergyDrink(){
         return new EnergyDrink("Energydrink", energyDrinkPrice, energyByDrink);
+    }
+
+    public Souvenir buySouvenir(String souvenirName){
+        return new Souvenir(souvenirName, souvenirPrice);
     }
 
     public void stockShop(){

@@ -58,6 +58,10 @@ public class GameDAO  {
         player.addToBackpack(shop.buyEnergyDrink());
     }
 
+    public void addSouvenirToBackpack(String souvenirName) {
+        player.addToBackpack(shop.buySouvenir(souvenirName));
+    }
+
    public List<Item> displayBackpack() {
        return player.getBackpack();
    }

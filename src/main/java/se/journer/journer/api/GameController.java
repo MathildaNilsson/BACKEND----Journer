@@ -69,6 +69,11 @@ public class GameController {
         gameService.addEnergyDrinkToBackpack();
     }
 
+    @PostMapping("/addsouvenirtobackpack/{souvenirName}")
+    public void addSouvenirToBackpack(@PathVariable("souvenirName") String souvenirName){
+        gameService.addSouvenirToBackpack(souvenirName);
+    }
+
     @GetMapping("/displaybackpack")
     public List<Item> displayBackpack(){
         return gameService.displayBackpack();

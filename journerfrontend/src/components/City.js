@@ -75,6 +75,13 @@ class City extends Component {
             Res vidare
           </Button>
 
+          <Button varitant="primary" onClick={(e) => {
+              e.preventDefault();
+              window.location.href = `/endgamescreen`;
+            }} >
+            Exit game
+          </Button>
+
           <Offcanvas placement="end" show={show} onHide={handleClose}>
             <Offcanvas.Header closeButton>
               <Offcanvas.Title>Shop</Offcanvas.Title>

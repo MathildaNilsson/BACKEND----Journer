@@ -6,7 +6,7 @@ const Backpack = () => {
     fetch("http://localhost:8080/game/getplayer")
       .then((response) => response.json())
       .then((player) => setPlayer(player));
-  }, {});
+  }, []);
   return (
     <>
       <h1>backpack</h1>

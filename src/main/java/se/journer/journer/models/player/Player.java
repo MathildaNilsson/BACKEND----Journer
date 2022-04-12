@@ -67,5 +67,9 @@ public class Player {
     public List<Item> getBackpack() {
         return backpack.getBackpackList();
     }
+
+    public void removeFromBackpack(String item){
+        this.backpack.removeFromBackpack(item);
+    }
 }
 

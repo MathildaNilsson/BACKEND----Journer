@@ -73,4 +73,8 @@ public class GameDAO  {
     public List<Transportation> displayStation() {
         return station.getTransportList();
     }
+
+    public void removeItemFromBackPack(String item) {
+        player.removeFromBackpack(item);
+    }
 }

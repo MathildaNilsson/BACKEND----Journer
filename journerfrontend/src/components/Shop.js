@@ -9,10 +9,23 @@ const Shop = (props) => {
     });
   }; 
 
+  const buySouvenir = (name) => {
+    fetch(`http://localhost:8080/game/addsouvenirtobackpack/${name}`, {
+      method: "POST",
+    });
+  }; 
+
   return (
     <div className="container-bg">
       <h1>SHOP</h1>
       Souvenir: {props.souvenir}
+      <Button
+                onClick={() => {
+                  buySouvenir(props.souvenir);
+                }}
+              >
+                Buy
+              </Button>
       {props.cityShop.map((item) => (
           <tr>
             <th scope="row">{item.name}</th>

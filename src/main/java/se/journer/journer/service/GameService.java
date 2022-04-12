@@ -69,4 +69,8 @@ public class GameService {
     public List<Transportation> displayStation() {
         return gameDAO.displayStation();
     }
+
+    public void removeItemFromBackpack(String item) {
+        gameDAO.removeItemFromBackPack(item);
+    }
 }

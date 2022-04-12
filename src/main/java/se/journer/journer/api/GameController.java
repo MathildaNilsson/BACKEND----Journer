@@ -74,6 +74,12 @@ public class GameController {
         return gameService.displayBackpack();
     }
 
+    @PostMapping("/removeitemfrombackpack/{item}")
+    public void removeItemFromBackpack(@PathVariable("item") String item){
+        gameService.removeItemFromBackpack(item);
+    }
+
+
     @GetMapping("/shop")
     public List<Item> displayShop(){
         return gameService.displayShop();

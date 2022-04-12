@@ -23,4 +23,13 @@ public class Backpack {
     public void addToBackpack(Item item){
         this.backpackList.add(item);
     }
+
+    public void removeFromBackpack(String item){
+        for(Item thing : backpackList){
+            if(thing.getName().equalsIgnoreCase(item)){
+                backpackList.remove(thing);
+                break;
+            }
+        }
+    }
 }

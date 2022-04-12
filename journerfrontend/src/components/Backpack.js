@@ -1,35 +1,80 @@
 import { useEffect, useState } from "react";
-import { Table } from "react-bootstrap";
-const Backpack = () => {
-  let [player, setPlayer] = useState(null);
-  useEffect(() => {
-    fetch("http://localhost:8080/game/getplayer")
-      .then((response) => response.json())
-      .then((player) => setPlayer(player));
-  }, []);
+import { Table, Button } from "react-bootstrap";
+const Backpack = (props) => {
+  let drinks = props.player.backpack.filter((drink) => drink.name === "Energydrink");
+
+  const removeItem = (item) => {
+    fetch(`/game/removeitemfrombackpack/${item}`, {
+      method: "POST",
+    }).then((response) => response.json());
+    window.location.reload(false)
+    alert("Tack för att du drack upp mig, här har du 40 i energi!");
+  };
+  
   return (
+    
     <>
-      <h1>backpack</h1>
-      {player &&
-        player.backpack.map((list) => (
+    {console.log(drinks)}
+      <h1>Ryggsäck</h1>
+      {drinks.map((test) => (
           <Table striped bordered hover>
             <thead>
               <tr>
-                <th>Amount</th>
-                <th>Name</th>
-                <th>cost</th>
+                <th>Namn</th>
+                <th>Energi</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>{}</td>
-                <td>{list.name}</td>
-                <td>{list.price}</td>
+                <td>{test.name}</td>
+                <td>{test.energy}</td>
+                <td><Button onClick={() => {removeItem(test.name)}}>Use</Button></td>
               </tr>
             </tbody>
           </Table>
         ))}
+
+ {/* {player &&
+        player.backpack.map((list) => (
+          <Table striped bordered hover>
+            <thead>
+              <tr>
+                <th>Namn</th>
+                <th>Energi</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{list.name}</td>
+                <td>{list.energy}</td>
+                <td><Button onClick={() => {removeItem(list.name)}}>Use</Button></td>
+              </tr>
+            </tbody>
+          </Table>
+          ))}
+
+ {player &&
+        player.backpack.map((list) => (
+          <Table striped bordered hover>
+            <thead>
+              <tr>
+                <th>Namn</th>
+                <th>Energi</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{list.name}</td>
+                <td>{list.energy}</td>
+                <td><Button onClick={() => {removeItem(list.name)}}>Use</Button></td>
+              </tr>
+            </tbody>
+          </Table>
+          ))} */}
     </>
   );
-};
+        };
 export default Backpack;

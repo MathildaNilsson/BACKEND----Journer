@@ -47,7 +47,7 @@ class DisplayPlayer extends Component {
         <Offcanvas.Title>Backpack</Offcanvas.Title>
       </Offcanvas.Header>
       <Offcanvas.Body>
-        <Backpack />
+        <Backpack player={player}/>
       </Offcanvas.Body>
     </Offcanvas>
         </div>

@@ -73,14 +73,14 @@ class DisplayPlayer extends Component {
             .then(player => this.setState({players: player}));
     }
 
-    componentDidUpdate(prevProps, prevState) {
+   /* componentDidUpdate(prevProps, prevState) {
       console.log("Tuturu2");
-      if (prevProps.player !== this.player) {
+      if ((prevProps.player.money !== this.player.money) || this.player ==null) {
         console.log("pokemons state has changed.");
         fetch("/game/getplayer/")
           .then((response) => response.json())
           .then((player) => this.setState({ players: player }));
       }
-    }
+    }*/
 }
  export default DisplayPlayer;

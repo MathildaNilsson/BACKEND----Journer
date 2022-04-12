@@ -128,7 +128,7 @@ class City extends Component {
       .then((city) => this.setState({ cities: city }));
     fetch("/game/shop/")
       .then((response) => response.json())
-      .then((shop) => this.setState({ shops: shop }));
+      .then((shop) => this.setState({ shops: shop })); 
   }
 
 }

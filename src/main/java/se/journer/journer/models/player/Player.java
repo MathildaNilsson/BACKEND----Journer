@@ -10,7 +10,7 @@ public class Player {
     private int money;
     private int energy;
     Backpack backpack;
-    //Visited cities?
+    private int completedCities;
 
 
     public Player(String name, int money, int energy) {
@@ -70,6 +70,19 @@ public class Player {
 
     public void removeFromBackpack(String item){
         this.backpack.removeFromBackpack(item);
+    }
+
+    public void countCompletedCities() {
+        for(Item item : backpack.getBackpackList()){
+            if((!item.getName().equalsIgnoreCase("Energydrink") || (!item.getName().equalsIgnoreCase("Pepperspray")))){
+                completedCities += 1;
+            }
+        }
+        this.completedCities = completedCities;
+    }
+
+    public int getCompletedCities() {
+        return completedCities;
     }
 }
 

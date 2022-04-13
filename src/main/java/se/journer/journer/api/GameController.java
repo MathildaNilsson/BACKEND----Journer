@@ -29,6 +29,11 @@ public class GameController {
         return gameService.getPlayerByName();
     }
 
+    @GetMapping("/countcities")
+    public void countCities(){
+        getPlayerByName().countCompletedCities();
+    }
+
     @GetMapping("/displaymoney")
     public int getPlayersCurrentMoney(){
         return gameService.getPlayersCurrentMoney();

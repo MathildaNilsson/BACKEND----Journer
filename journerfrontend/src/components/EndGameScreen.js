@@ -6,25 +6,16 @@ class EndGameScreen extends Component {
 
     const test = () => {
       fetch(`/highscore`, {
-        method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name: player.name,
-        money: player.money,
-        completedCities : player.completedCities})
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+
+        body: JSON.stringify({
+          name: player.name,
+          money: player.money,
+          completedCities: player.completedCities,
+        }),
       }).then((response) => response.json());
     };
-
-/*     const requestOptions = {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name: player.name,
-        money: player.money,
-        completedCities : player.completedCities/2})
-  };
-  fetch('/highstgcore', requestOptions)
-      .then(response => response.json())
-      .then(data => this.setState({ postId: data.id }),[]); */
-
 
     return (
       <div className="container">
@@ -37,9 +28,7 @@ class EndGameScreen extends Component {
             <div>{item.name} </div>
           ))}
         </div>
-        <button onClick={(e) => 
-          test()}> spara Highscore
-          </button>
+        <button onClick={(e) => test()}> spara Highscore</button>
       </div>
     );
   }

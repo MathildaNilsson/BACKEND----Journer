@@ -1,9 +1,11 @@
 package se.journer.journer.models.player;
 
 import se.journer.journer.models.backpack.Backpack;
+import se.journer.journer.models.cities.City;
 import se.journer.journer.models.items.Item;
 
 import java.util.List;
+import java.util.Optional;
 
 public class Player {
     private String name;
@@ -74,10 +76,11 @@ public class Player {
 
     public void countCompletedCities() {
         for(Item item : backpack.getBackpackList()){
-            if((!item.getName().equalsIgnoreCase("Energydrink") || (!item.getName().equalsIgnoreCase("Pepperspray")))){
+            if( (!item.getName().equalsIgnoreCase("Energydrink")) && (!item.getName().equalsIgnoreCase("Pepperspray")) ){
                 completedCities += 1;
             }
         }
+
         this.completedCities = completedCities;
     }
 

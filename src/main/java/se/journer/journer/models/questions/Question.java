@@ -46,4 +46,20 @@ public class Question {
     public String getSubCategory(){
         return categoryId.getSubCategory();
     }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setQuestion(String question) {
+        this.question = question;
+    }
+
+    public void setAnswerList(List<Answer> answerList) {
+        this.answerList = answerList;
+    }
+
+    public void setCategoryId(Category categoryId) {
+        this.categoryId = categoryId;
+    }
 }

@@ -20,11 +20,18 @@ const Transportation = (props) => {
     if(money > playerMoney){
       alert("För lite pengar mannen");
 
-     //energy +++ playerEnergy >= 100
-    }else{
-     addEnergy(energy);
+    }else if(energy +++ playerEnergy > 100){
+      let energyToFill = 100 - playerEnergy;
+      console.log(energyToFill);
+
+     addEnergy(energyToFill);
      removeMoney(money);
      setCurrentCity(city);
+    }else{
+      addEnergy(energy -1);
+     removeMoney(money);
+     setCurrentCity(city);
+
     }
   }
 
@@ -72,17 +79,17 @@ const Transportation = (props) => {
 
   return(
     <div className = "container-bg">
-    <h1>Vart vill du resa nu?</h1>
+    <h1>Dagens avgångar:</h1>
 
     <div id="display-player-stats">
         <Table striped bordered hover>
           <thead>
             <tr>
               <th>Transport</th>
-              <th>Price</th>
-              <th>Given Energy</th>
-              <th>City</th>
-              <th>Choose</th>
+              <th>Pris</th>
+              <th>Energi</th>
+              <th>Stad</th>
+              <th>Val</th>
             </tr>
           </thead>
           <tbody>
@@ -90,13 +97,13 @@ const Transportation = (props) => {
                <tr>
               <td>{transport.name}</td>
               <td>{transport.price}:-</td>
-              <td>{transport.energyToGain}</td>
+              <td>+ {transport.energyToGain}</td>
               <td>{randomCity2 && randomCity2.name}</td>
               <td>
                  <Button class="btn btn-secondary btn-lg" variant="primary" onClick={() => {
                   checkMoney(transport.energyToGain, transport.price, randomCity2.name);
                 }}>
-                  Choose
+                  Välj
                 </Button> 
               </td>
               </tr>
@@ -104,8 +111,6 @@ const Transportation = (props) => {
           </tbody>
         </Table>
       </div>
-
-    <button id = "new-game" onClick={(e) => {e.preventDefault(); window.location.href = `/City`;}}>Tillbaka till {props.city.name}</button>
     <Button className="travel-btn"  onClick = {(e) => {e.preventDefault(); window.location.href = `/City`;}}>Res
               </Button>
     </div>

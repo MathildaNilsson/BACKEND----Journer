@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Button, Offcanvas } from "react-bootstrap";
+import { Button, Offcanvas, Modal } from "react-bootstrap";
 import React, { Component } from "react";
 import DisplayPlayer from "./DisplayPlayer";
 import Shop from "./Shop";
@@ -102,12 +102,56 @@ class City extends Component {
 
           <Offcanvas className="container-bg" placement="end" show={show3} onHide={handleClose3}>
             <Offcanvas.Header closeButton>
-              <Offcanvas.Title>{city.name}</Offcanvas.Title>
+              <Offcanvas.Title></Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
               <Quiz city={city} category={category}/>
             </Offcanvas.Body>
           </Offcanvas>
+
+          <Button variant="primary" onClick={handleShow3}>
+        Test quiz
+      </Button>
+
+      <Modal
+        show={show3}
+        onHide={handleClose3}
+        backdrop="static"
+        keyboard={false}
+      >
+        <Modal.Header closeButton>
+          <Modal.Title className="container-bg">Stadsfråga</Modal.Title>
+        </Modal.Header>
+        <Modal.Body className="container-bg">
+        <Quiz city={city} category={category}/>
+        </Modal.Body>
+        <Modal.Footer>
+        </Modal.Footer>
+      </Modal>
+
+
+          <Button variant="primary" onClick={handleShow}>
+        Test shop
+      </Button>
+
+      <Modal
+        show={show}
+        onHide={handleClose}
+        backdrop="static"
+        keyboard={false}
+      >
+        <Modal.Header closeButton>
+          <Modal.Title className="container-bg">Modal title</Modal.Title>
+        </Modal.Header>
+        <Modal.Body className="container-bg">
+        <Shop souvenir={city.souvenir} cityShop={shop} />
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
 
           <Offcanvas placement="end" show={show4} onHide={handleClose4}>
             <Offcanvas.Header closeButton>

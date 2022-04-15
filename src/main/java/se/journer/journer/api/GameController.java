@@ -2,6 +2,7 @@ package se.journer.journer.api;
 
 import com.sun.jdi.connect.Transport;
 import org.springframework.web.bind.annotation.*;
+import se.journer.journer.models.accommodation.Accommodation;
 import se.journer.journer.models.items.Item;
 import se.journer.journer.models.player.Player;
 import se.journer.journer.models.transportation.Transportation;
@@ -98,6 +99,11 @@ public class GameController {
     @GetMapping("/station")
     public List<Transportation> displayStation(){
         return gameService.displayStation();
+    }
+
+    @GetMapping("/accommodation")
+    public List<Accommodation> displayAccommodation(){
+        return gameService.displayAccommodation();
     }
 
     //Temp method, Use this to populate backpack while testing http://localhost:8080/game/initiateplayer

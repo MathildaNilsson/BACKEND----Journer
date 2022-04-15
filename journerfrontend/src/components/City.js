@@ -6,6 +6,7 @@ import Shop from "./Shop";
 import Attraction from "./Attraction";
 import Quiz from "./Quiz";
 import Transportation from "./Transportation";
+import Accomondations from "./Accomondations";
 
 class City extends Component {
   render() {
@@ -43,14 +44,16 @@ class City extends Component {
       const handleClose4 = () => setShow4(false);
       const handleShow4 = () => setShow4(true);
 
+      const [show5, setShow5] = useState(false);
+      const handleClose5 = () => setShow5(false);
+      const handleShow5 = () => setShow5(true);
+
       return (
         <div className="container-bg">
           <DisplayPlayer />
           <h1>{city.name}</h1>
           <p>{city.cityInfo}</p>
-          <Button variant="primary" onClick={handleShow}>
-            Shop
-          </Button>
+        
           <button
             id="return"
             onClick={(e) => {
@@ -83,16 +86,7 @@ class City extends Component {
             Exit game
           </Button>
 
-          <Offcanvas placement="end" show={show} onHide={handleClose}>
-            <Offcanvas.Header closeButton>
-              <Offcanvas.Title>Shop</Offcanvas.Title>
-            </Offcanvas.Header>
-            <Offcanvas.Body>
-              <Shop souvenir={city.souvenir} cityShop={shop} />
-            </Offcanvas.Body>
-          </Offcanvas>
-
-          <Offcanvas placement="top" show={show2} onHide={handleClose2}>
+          <Offcanvas placement="end" show={show2} onHide={handleClose2}>
             <Offcanvas.Header closeButton>
               <Offcanvas.Title>Sevärdheter</Offcanvas.Title>
             </Offcanvas.Header>
@@ -100,24 +94,6 @@ class City extends Component {
               <Attraction city={city} attraction={attraction} />
             </Offcanvas.Body>
           </Offcanvas>
-
-          <Offcanvas
-            className="container-bg"
-            placement="end"
-            show={show3}
-            onHide={handleClose3}
-          >
-            <Offcanvas.Header closeButton>
-              <Offcanvas.Title></Offcanvas.Title>
-            </Offcanvas.Header>
-            <Offcanvas.Body>
-              <Quiz city={city} category={category} />
-            </Offcanvas.Body>
-          </Offcanvas>
-
-          <Button variant="primary" onClick={handleShow3}>
-        Test quiz
-      </Button>
 
       <Modal
         show={show3}
@@ -135,9 +111,27 @@ class City extends Component {
         </Modal.Footer>
       </Modal>
 
+          <Button variant="primary" onClick={handleShow5}>
+        Boende
+      </Button>
+      <Modal
+        show={show5}
+        onHide={handleClose5}
+        backdrop="static"
+        keyboard={false}
+      >
+        <Modal.Header closeButton>
+          <Modal.Title className="container-bg">Boende</Modal.Title>
+        </Modal.Header>
+        <Modal.Body className="container-bg">
+        <Accomondations/>
+        </Modal.Body>
+        <Modal.Footer>
+        </Modal.Footer>
+      </Modal>
 
-          <Button variant="primary" onClick={handleShow}>
-        Test shop
+      <Button variant="primary" onClick={handleShow}>
+        Shop
       </Button>
 
       <Modal
@@ -147,15 +141,12 @@ class City extends Component {
         keyboard={false}
       >
         <Modal.Header closeButton>
-          <Modal.Title className="container-bg">Modal title</Modal.Title>
+          <Modal.Title className="container-bg"></Modal.Title>
         </Modal.Header>
         <Modal.Body className="container-bg">
         <Shop souvenir={city.souvenir} cityShop={shop} />
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
         </Modal.Footer>
       </Modal>
 

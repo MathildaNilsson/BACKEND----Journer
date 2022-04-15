@@ -2,6 +2,8 @@ package se.journer.journer.dao;
 
 import com.sun.jdi.connect.Transport;
 import org.springframework.stereotype.Repository;
+import se.journer.journer.models.accommodation.Accommodation;
+import se.journer.journer.models.accommodation.BookAccommodation;
 import se.journer.journer.models.items.Item;
 import se.journer.journer.models.player.Player;
 import se.journer.journer.models.shop.Shop;
@@ -17,6 +19,7 @@ public class GameDAO  {
     Player player;
     Shop shop = new Shop();
     Station station = new Station();
+    BookAccommodation accommodation = new BookAccommodation();
 
     public void createPlayer(String name){
         this.player = new Player(name, startMoney, startEnergy);
@@ -76,5 +79,9 @@ public class GameDAO  {
 
     public void removeItemFromBackPack(String item) {
         player.removeFromBackpack(item);
+    }
+
+    public List<Accommodation> displayAccommodation() {
+        return accommodation.getAccommodationList();
     }
 }

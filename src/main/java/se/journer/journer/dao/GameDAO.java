@@ -14,7 +14,7 @@ import java.util.List;
 
 @Repository
 public class GameDAO  {
-    private int startMoney = 20000;
+    private int startMoney = 15000;
     private int startEnergy = 100;
     Player player;
     Shop shop = new Shop();

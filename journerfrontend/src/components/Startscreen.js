@@ -1,141 +1,105 @@
-import React, { Component } from 'react';
-import { Button, Container, Table } from 'reactstrap';
+import React, { Component } from "react";
+import { Button, Offcanvas, Container, Table } from "react-bootstrap";
+import { useState } from "react";
 
-class Questions extends Component {
-
-/* const setCurrentCity = (cityName) => {
-  fetch(`http://localhost:8080/city/setcurrentcity/${cityName}`, {
-    method: "POST",
-  }).then((response) => response.json());
-}; */
-
+class Startscreen extends Component {
   async handleSubmit(event) {
-
-/*     const {item} = this.state; */
-
-    await fetch('game/createplayer/' + event, {
-        method: 'POST',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-/*         body: JSON.stringify(item), */
-    }).then((response) => response.json());;
-    //this.props.history.push('game/createplayer/' + inputVal);
-}
+    await fetch("game/createplayer/" + event, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    }).then((response) => response.json());
+  }
 
   render() {
-    const {questions, isLoading} = this.state;
+    const { highscores: highscore } = this.state;
+    const Startscreen = () => {
+      const [show, setShow] = useState(false);
+      const handleClose = () => setShow(false);
+      const handleShow = () => setShow(true);
 
-    if (isLoading) {
-        return <p>Loading...</p>;
-    }
-
-    const questionList = questions.map(question => {
-      return(<div>{question.question}</div>)
-      
-    });
-
-    return (
+      return (
         <div className="container-bg">
+          <Container fluid>
+            <form>
+              <input type="text" placeholder="name" id="input-name"></input>
+              <Button
+                className="btn btn-secondary btn-lg"
+                variant="primary"
+                id="new-game"
+                onClick={(e) => {
+                  this.handleSubmit(
+                    document.getElementById("input-name").value
+                  );
 
-            <Container fluid>
-                <form>
-          <input
-            type="text"
-            placeholder="name"
-            id="input-name"
-          ></input>
-          <Button
-          className="btn btn-secondary btn-lg"
-            variant="primary"
-            id="new-game"
-            onClick={(e) => {
-              this.handleSubmit(document.getElementById("input-name").value);
+                  window.location.href = `/newgamescreen`;
+                }}
+              >
+                New Game
+              </Button>{" "}
+              <Button
+                variant="primary"
+                className="btn btn-secondary btn-lg"
+                onClick={handleShow}
+              >
+                Highscore
+              </Button>
+            </form>
+          </Container>
 
-              window.location.href = `/newgamescreen`;
-            }}
+          <Offcanvas
+            className="container-bg"
+            placement="top"
+            show={show}
+            onHide={handleClose}
           >
-            New Game
-          </Button>{" "}
-          <Button className="btn btn-secondary btn-lg" variant="primary">HighScore</Button>
-        </form>
-  
-        <div id="temp">
-          <button
-            id="new-game"
-            onClick={(e) => {
-              e.preventDefault();
-              window.location.href = `/accomondations`;
-            }}
-          >
-            Accomondations
-          </button>
-          <button
-            id="new-game"
-            onClick={(e) => {
-              e.preventDefault();
-              window.location.href = `/attraction`;
-            }}
-          >
-            Attraction
-          </button>
-          <button
-            id="new-game"
-            onClick={(e) => {
-              e.preventDefault();
-              window.location.href = `/city`;
-            }}
-          >
-            City
-          </button>
-          <button
-            id="new-game"
-            onClick={(e) => {
-              e.preventDefault();
-              window.location.href = `/transportation`;
-            }}
-          >
-            Transportation
-          </button>
+            <Offcanvas.Header closeButton>
+              <Offcanvas.Title>Highscore</Offcanvas.Title>
+            </Offcanvas.Header>
+            <Offcanvas.Body>
+              <Table striped bordered hover>
+                <thead>
+                  <tr>
+                    <th>Namn</th>
+                    <th>Pengar</th>
+                    <th>Klarade städer</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {highscore?.map((player) => (
+                    <tr>
+                      <td>{player.name}</td>
+                      <td>{player.money}</td>
+                      <td>{player.completedCities}</td>
+                      </tr>
+                  ))}
+
+                  <tr>
+                    <td>test</td>
+                    <td>test</td>
+                  </tr>
+                </tbody>
+              </Table>
+            </Offcanvas.Body>
+          </Offcanvas>
         </div>
-            </Container>
-            
-        
-        </div>
-    );
+      );
+    };
+
+    return <Startscreen />;
+  }
+
+  constructor(props) {
+    super(props);
+    this.state = { highscores: [] };
+  }
+
+  componentDidMount() {
+    fetch("/highscore")
+      .then((response) => response.json())
+      .then((highscore) => this.setState({ highscores: highscore }));
+  }
 }
-
-    constructor(props) {
-        super(props);
-        this.state = {questions: []};
-/*         this.remove = this.remove.bind(this); */
-    }
-
-    componentDidMount() {
-        fetch('/question/')
-            .then(response => response.json())
-            .then(data => this.setState({questions: data}));
-    }
-
-/*     async componentDidMount() {
-      if (this.props.match.params.id !== 'new') {
-          const client = await (await fetch(`/clients/${this.props.match.params.id}`)).json();
-          this.setState({item: client});
-      }
-  } */
-
-    /* async remove(id) {
-      await fetch(`/question/${id}`, {
-          method: 'DELETE',
-          headers: {
-              'Accept': 'application/json',
-              'Content-Type': 'application/json'
-          }
-      }).then(() => {
-          let updatedClients = [...this.state.questions].filter(i => i.id !== id);
-          this.setState({clients: updatedClients});
-      });
-  } */
-}
-export default Questions;
+export default Startscreen;

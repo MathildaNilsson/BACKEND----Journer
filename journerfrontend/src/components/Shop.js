@@ -1,6 +1,8 @@
 import { Button, Table } from "react-bootstrap";
+import { useState, useEffect } from "react";
 
 const Shop = (props) => {
+  let [playerMoney, setPlayerMoney] = useState("");
 
   const buyItem = (item) => {
     item = item.toLowerCase();
@@ -25,6 +27,30 @@ const Shop = (props) => {
     }).then((response) => response.json());
   };
 
+  useEffect(() => {
+    fetch(`/game/displaymoney`)
+      .then((response) => response.json())
+      .then((playerMoney) => setPlayerMoney(playerMoney));
+  }, {});
+
+  const checkMoneySouvenir = (money, item) =>{
+    if(money > playerMoney){
+      alert("För lite pengar mannen");
+    }else{
+     removeMoney(money);
+     buySouvenir(item);
+    }
+  };
+
+  const checkMoneyItem = (money, item) =>{
+    if(money > playerMoney){
+      alert("För lite pengar mannen");
+    }else{
+     removeMoney(money);
+     buyItem(item);
+    }
+  };
+
   return (
     <div className="container-bg">
       <h1>SHOP</h1>
@@ -41,8 +67,7 @@ const Shop = (props) => {
               <tr>
                 <td>{props.souvenir}</td>
                 <th>{1000} :-</th>
-                <td><Button onClick={() => {buySouvenir(props.souvenir);
-          removeMoney(1000);}}>Köp</Button></td>
+                <td><Button onClick={() => {checkMoneySouvenir(1000, props.souvenir);}}>Köp</Button></td>
               </tr>
             </tbody>
           </Table>
@@ -61,8 +86,7 @@ const Shop = (props) => {
               <tr>
                 <td>{item.name}</td>
                 <th>{item.price} :-</th>
-                <td><Button onClick={() => {buyItem(item.name);
-                removeMoney(item.price);}}>Köp</Button></td>
+                <td><Button onClick={() => {checkMoneyItem(item.price, item.name);}}>Köp</Button></td>
               </tr>
             </tbody>
           </Table>

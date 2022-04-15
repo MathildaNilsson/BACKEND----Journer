@@ -38,7 +38,7 @@ const Quiz = (props) => {
 
   return (
    <div className = "container-bg">
-    
+     
     <h1>{question && question.question}</h1>
     
     <Table striped bordered hover>

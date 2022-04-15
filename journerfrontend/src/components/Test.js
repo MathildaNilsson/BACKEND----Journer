@@ -17,10 +17,9 @@ const Test = () => {
             <th scope="row"> {item.id}</th>
             <td>{item.question}</td>
 
-            {item.answerList && item.answerList.map((list) => <button>{list.answer}</button>)}
+            {item.answerList &&
+              item.answerList.map((list) => <button>{list.answer}</button>)}
           </tr>
-
-
         ))}
     </div>
   );

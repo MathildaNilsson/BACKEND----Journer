@@ -12,20 +12,18 @@ class City extends Component {
     const { shops: shop } = this.state;
     const { cities: city } = this.state;
     const City = () => {
-
       let [attraction, setAttraction] = useState(null);
       let [category, setCategory] = useState(null);
 
       useEffect(() => {
-        fetch("question/attractionsbycityname/"+city.name)
+        fetch("question/attractionsbycityname/" + city.name)
           .then((response) => response.json())
           .then((attraction) => setAttraction(attraction));
-          
-      },[]);
+      }, []);
 
       useEffect(() => {
         fetch(`question/categoryid/${city.name}`)
-          .then((response) => response.json()) 
+          .then((response) => response.json())
           .then((category) => setCategory(category));
       }, []);
 
@@ -75,10 +73,13 @@ class City extends Component {
             Res vidare
           </Button>
 
-          <Button varitant="primary" onClick={(e) => {
+          <Button
+            varitant="primary"
+            onClick={(e) => {
               e.preventDefault();
               window.location.href = `/endgamescreen`;
-            }} >
+            }}
+          >
             Exit game
           </Button>
 
@@ -100,12 +101,17 @@ class City extends Component {
             </Offcanvas.Body>
           </Offcanvas>
 
-          <Offcanvas className="container-bg" placement="end" show={show3} onHide={handleClose3}>
+          <Offcanvas
+            className="container-bg"
+            placement="end"
+            show={show3}
+            onHide={handleClose3}
+          >
             <Offcanvas.Header closeButton>
               <Offcanvas.Title>{city.name}</Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
-              <Quiz city={city} category={category}/>
+              <Quiz city={city} category={category} />
             </Offcanvas.Body>
           </Offcanvas>
 
@@ -114,7 +120,7 @@ class City extends Component {
               <Offcanvas.Title>Res visare</Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
-              <Transportation  city={city} />
+              <Transportation city={city} />
             </Offcanvas.Body>
           </Offcanvas>
         </div>
@@ -135,8 +141,7 @@ class City extends Component {
       .then((city) => this.setState({ cities: city }));
     fetch("/game/shop/")
       .then((response) => response.json())
-      .then((shop) => this.setState({ shops: shop })); 
+      .then((shop) => this.setState({ shops: shop }));
   }
-
 }
 export default City;

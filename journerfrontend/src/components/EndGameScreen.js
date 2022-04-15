@@ -1,4 +1,3 @@
-import { Button } from "bootstrap";
 import { Component } from "react";
 class EndGameScreen extends Component {
   render() {

@@ -73,7 +73,7 @@ class Startscreen extends Component {
                       <td>{player.name}</td>
                       <td>{player.money}</td>
                       <td>{player.completedCities}</td>
-                      </tr>
+                    </tr>
                   ))}
 
                   <tr>

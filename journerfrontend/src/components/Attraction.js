@@ -63,17 +63,16 @@ const Attraction = (props) => {
   );
 
   const showQuestion = (props) => {
-    return (<span>
+    return (
+      <span>
         {props.answerList.map((answer) => (
-          <Button onClick={(e) => 
-          checkAnswer(answer.rightAnswer
-          
-          )}>
+          <Button onClick={(e) => checkAnswer(answer.rightAnswer)}>
             {answer.answer}
           </Button>
         ))}
-      </span>)
-  }
+      </span>
+    );
+  };
 
   const AttractionButtons = (props) => (
     <div>

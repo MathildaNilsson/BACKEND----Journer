@@ -3,6 +3,8 @@ import { Button, Table } from "react-bootstrap";
 
 const Accomondations = () => {
   let [accommodation, setAccommodation] = useState("");
+  let [playerEnergy, setPlayerEnergy] = useState("");
+  let [playerMoney, setPlayerMoney] = useState("");
 
   useEffect(() => {
     fetch(`/game/accommodation`)
@@ -10,18 +12,61 @@ const Accomondations = () => {
       .then((accommodation) => setAccommodation(accommodation));
   }, {});
 
+  useEffect(() => {
+    fetch(`/game/displayenergy`)
+      .then((response) => response.json())
+      .then((playerEnergy) => setPlayerEnergy(playerEnergy));
+  }, {});
+
+  useEffect(() => {
+    fetch(`/game/displaymoney`)
+      .then((response) => response.json())
+      .then((playerMoney) => setPlayerMoney(playerMoney));
+  }, {});
+
+
+  const addEnergy = (energyToAdd) => {
+    fetch(`/game/addenergy/${energyToAdd}`, {
+      method: "POST",
+    }).then((response) => response.json());
+  };
+
+  const removeMoney = (moneyToRemove) => {
+    fetch(`/game/removemoney/${moneyToRemove}`, {
+      method: "POST",
+    }).then((response) => response.json());
+  };
+
+  const checkMoney = (energy, money) => {
+    if (money > playerMoney) {
+      alert("För lite pengar mannen");
+    } else if (energy +++ playerEnergy > 100) {
+      let energyToFill = 100 - playerEnergy;
+      addEnergy(energyToFill);
+      removeMoney(money);
+      window.location.reload(false);
+      alert(`Hoppas du sovit gott, du har nu ${playerEnergy} i energi` );
+    } else {
+      addEnergy(energy - 1);
+      removeMoney(money);
+      window.location.reload(false);
+      alert(`Hoppas du sovit gott, du har nu ${playerEnergy} i energi` );
+    }
+  };
+
+
   return (
     <>
-      <h1>Accomondations</h1>
+    <h1>Boende alternativ</h1>
 
       <div id="display-player-stats">
         <Table striped bordered hover>
           <thead>
             <tr>
               <th>Typ av boende</th>
-              <th>Pris</th>
+              <th>Kostnad</th>
               <th>Energi</th>
-              <th>Val</th>
+              <th>Gör ditt val</th>
             </tr>
           </thead>
           <tbody>
@@ -32,7 +77,12 @@ const Accomondations = () => {
                   <td>{stay.price}:-</td>
                   <td>+ {stay.energyToGain}</td>
                   <td>
-                    <Button
+                    <Button onClick={() => {
+                        checkMoney(
+                          stay.energyToGain,
+                          stay.price
+                        );
+                      }}
                       class="btn btn-secondary btn-lg"
                       variant="primary"
                     >

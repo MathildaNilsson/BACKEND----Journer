@@ -121,7 +121,7 @@ class City extends Component {
         keyboard={false}
       >
         <Modal.Header closeButton>
-          <Modal.Title className="container-bg">Boende</Modal.Title>
+          <Modal.Title className="container-bg"></Modal.Title>
         </Modal.Header>
         <Modal.Body className="container-bg">
         <Accomondations/>

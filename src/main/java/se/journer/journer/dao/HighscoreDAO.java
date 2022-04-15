@@ -1,5 +1,6 @@
 package se.journer.journer.dao;
 
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Repository;
 import se.journer.journer.models.highscore.Highscore;
 import se.journer.journer.repository.HighscoreRepository;
@@ -14,7 +15,7 @@ public class HighscoreDAO {
     }
 
     public Iterable<Highscore> getHighscore() {
-        return repository.findAll();
+        return repository.findAll(Sort.by(Sort.Direction.DESC,"completedCities").and(Sort.by(Sort.Direction.DESC,"money")));
     }
 
     public Highscore saveHighscore(Highscore highscore){

@@ -1,16 +1,16 @@
 SELECT * FROM question;
 --
 -- INSERT INTO cities(name, souvenir, city_info) VALUES
---                              ('Bangalore','Orient carpet från Bangalore', 'Välkommen till Bangalore! Även känd som Trädgårdsstaden & Vakternas stad, centrum för den indiska IT-industring där man kan finna företagsparken Electronics City. Med en befolkningsmängd på över 11 miljoner så kommer du aldrig känna dig ensam!'),
---                              ('Budapest','Rubiks kub från Budapest', 'Budapest, även kallad Donaus Pärla, var från början två städer. Buda på den kuperade sidan av Donau, och Pest den flacka delen på högra sidan av floden. Här väntar en weekend fylld av god mat, kultur och spännande shopping.'),
---                              ('Cape town','En flaska vin från Kapstaden', 'I Kapstaden finns mycket att upptäcka; världsberömda vindistrikt, vita stränder, bra golf och storslagen natur. Här finns med andra ord allt som brukar finnas i en storstad -plus en hel del till.'),
---                              ('Chicago','Mugg från Chicago', 'Vackert belägen vid Michigansjön ligger Chicago, eller "The Windy City" som staden också kallas. Mitt i Chicago finner du några av världens högsta byggnader, Sears Tower och John Hancock Building, med över 100 våningar och fantastisk utsikt.'),
---                              ('Dubai','Hookah från Dubai', 'Dubai lockar året runt med sitt solsäkra klimat, sina svepande stränder och sin sköna blandning av kultur, sevärdheter, shopping och lyx. Här finns spännande restauranger med menyer från hela världen och shopping för både fyndjägare och fönstershoppare'),
---                              ('Havanna','Kubansk cigarr från Havanna', 'Något av det första som slår en under en resa till Havanna är den fantastiska arkitekturen. Med sin speciella charm, sina fina gamla torg och bedagade -men vackra- kolonialbyggnader finns La Ciudád Vieja (gamla stan) med på Unescos världsarvslista.'),
---                              ('Helsingfors','Polar bear plushie från Helsingfors', 'Huvudstråket i Helsingfors är Esplanaden, med trivsamma caféer, ett myllrande folkliv och en vacker park, ritad av den tyska arkitekten Carl Ludvig Engel. Parken stod klar år 1840 och blev snabbt en oas för stadens herrskapsfamiljer.'),
---                              ('Sao Paulo','Fotbollströja från Sao Paulo', 'Sao Paulo utgör det största kulturella centret i Latinamerika med mängder av museum, teatrar, nattklubbar, barer, restauranter, nöjesfält och shower. Staden är enorm, men med hjälp av en guidebok och information från dem som kan Sao Paulo blir upplevelsen garanterat överväldigande i positiv betydelse.'),
---                              ('Singapore','Orchid parfym från Singapore', 'Utbudet i Singapore är i det närmaste oändligt, och enklast tar man sig runt med tunnelbanan. Här finns tempel, moskéer och museer och på Sentosa Island finns allt för naturälskaren, från härliga stränder till populära nöjesparker som Universal Studios.'),
---                              ('Tokyo','Cherry blossom från Tokyo', 'I Tokyo kan alla förväntningar och förhoppningar besannas – ät sushi, sjung karaoke, beskåda sumobrottning eller besök en av de knäppa temarestauranger som finns att välja bland. Välkommen till en trendig stad i ständig förändring!');
+--                               ('Bangalore','Orient carpet från Bangalore', 'Välkommen till Bangalore! Även känd som Trädgårdsstaden & Vakternas stad, centrum för den indiska IT-industring där man kan finna företagsparken Electronics City. Med en befolkningsmängd på över 11 miljoner så kommer du aldrig känna dig ensam!'),
+--                               ('Budapest','Rubiks kub från Budapest', 'Budapest, även kallad Donaus Pärla, var från början två städer. Buda på den kuperade sidan av Donau, och Pest den flacka delen på högra sidan av floden. Här väntar en weekend fylld av god mat, kultur och spännande shopping.'),
+--                               ('Cape town','En flaska vin från Kapstaden', 'I Kapstaden finns mycket att upptäcka; världsberömda vindistrikt, vita stränder, bra golf och storslagen natur. Här finns med andra ord allt som brukar finnas i en storstad -plus en hel del till.'),
+--                               ('Chicago','Mugg från Chicago', 'Vackert belägen vid Michigansjön ligger Chicago, eller "The Windy City" som staden också kallas. Mitt i Chicago finner du några av världens högsta byggnader, Sears Tower och John Hancock Building, med över 100 våningar och fantastisk utsikt.'),
+--                               ('Dubai','Hookah från Dubai', 'Dubai lockar året runt med sitt solsäkra klimat, sina svepande stränder och sin sköna blandning av kultur, sevärdheter, shopping och lyx. Här finns spännande restauranger med menyer från hela världen och shopping för både fyndjägare och fönstershoppare'),
+--                               ('Havanna','Kubansk cigarr från Havanna', 'Något av det första som slår en under en resa till Havanna är den fantastiska arkitekturen. Med sin speciella charm, sina fina gamla torg och bedagade -men vackra- kolonialbyggnader finns La Ciudád Vieja (gamla stan) med på Unescos världsarvslista.'),
+--                               ('Helsingfors','Polar bear plushie från Helsingfors', 'Huvudstråket i Helsingfors är Esplanaden, med trivsamma caféer, ett myllrande folkliv och en vacker park, ritad av den tyska arkitekten Carl Ludvig Engel. Parken stod klar år 1840 och blev snabbt en oas för stadens herrskapsfamiljer.'),
+--                               ('Sao Paulo','Fotbollströja från Sao Paulo', 'Sao Paulo utgör det största kulturella centret i Latinamerika med mängder av museum, teatrar, nöjesfält och shower. Staden är enorm, men med hjälp av en guidebok om Sao Paulo blir upplevelsen garanterat överväldigande i positiv betydelse.'),
+--                               ('Singapore','Orchid parfym från Singapore', 'Utbudet i Singapore är i det närmaste oändligt, och enklast tar man sig runt med tunnelbanan. Här finns tempel, moskéer och museer och på Sentosa Island finns allt för naturälskaren, från härliga stränder till populära nöjesparker som Universal Studios.'),
+--                               ('Tokyo','Cherry blossom från Tokyo', 'I Tokyo kan alla förväntningar och förhoppningar besannas – ät sushi, sjung karaoke, beskåda sumobrottning eller besök en av de knäppa temarestauranger som finns att välja bland. Välkommen till en trendig stad i ständig förändring!');
 --
 -- INSERT INTO category(category, sub_category) VALUES
 --                                                  ('Bangalore','city'),
@@ -90,7 +90,7 @@ SELECT * FROM question;
 --                                                 ('Vilken är IATA förkortningen på Singapores största flygplats',9),
 --                                                 ('Vilken toppdomän använder Singapore?',9),
 --                                                 ('Vilken är den största sporten i Singapore?',9),
---                                                 ('Vilket landsnummer använder Singapore?,9),
+--                                                 ('Vilket landsnummer använder Singapore?',9),
 --                                                 ('Vilken är den högsta punkten i Singapore?',9),
 --                                                 ('När firar man nationaldag i Singapore?',9),
 --                                                 ('Vad är Singapore känt som?',9),
@@ -153,10 +153,10 @@ SELECT * FROM question;
 --                                                 ('När stod bygget klart?',11),
 --                                                 ('Hur många rum finns det i palatset?',11),
 --                                                 ('I vilken stil är palatset byggt?',11),
---                                                 ('Vem äger palatset idag?',11),
-
-
-
+--                                                 ('Vem äger palatset idag?',11);
+--
+--
+--
 --
 -- INSERT INTO Attraction(name, city_id) VALUES
 --                                           ('Bangalore palace',1),
@@ -280,7 +280,6 @@ SELECT * FROM question;
 --                                                ('Fråga 3' ,39);
 --
 --   INSERT INTO answers(answer,right_answer,question_id) VALUES
---
 --                                                           ('3.7 miljoner',true,1),
 --                                                           ('1.5 miljoner',false,1),
 --                                                           ('2.8 miljoner',false,1),
@@ -578,7 +577,7 @@ SELECT * FROM question;
 --                                                          ('Pramoda Devi Wadiyar',true ,99),
 --                                                          ('Rev. J. Garrett',false ,99),
 --                                                          ('John Edwards',false ,99);
---
+-- --
 -- INSERT INTO answers(answer,right_answer,question_id) VALUES
 --                                                          ('svar 1',true ,12),
 --                                                          ('svar 2',false ,12),

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Offcanvas, Container, Table } from "react-bootstrap";
+import { Button, Container, Table } from "react-bootstrap";
 import { useState } from "react";
 
 class Startscreen extends Component {
@@ -39,51 +39,28 @@ class Startscreen extends Component {
               >
                 New Game
               </Button>{" "}
-              <Button
-                variant="primary"
-                className="btn btn-secondary btn-lg"
-                onClick={handleShow}
-              >
-                Highscore
-              </Button>
             </form>
           </Container>
 
-          <Offcanvas
-            className="container-bg"
-            placement="top"
-            show={show}
-            onHide={handleClose}
-          >
-            <Offcanvas.Header closeButton>
-              <Offcanvas.Title>Highscore</Offcanvas.Title>
-            </Offcanvas.Header>
-            <Offcanvas.Body>
+          
               <Table striped bordered hover>
                 <thead>
                   <tr>
                     <th>Namn</th>
-                    <th>Pengar</th>
-                    <th>Klarade städer</th>
+                    <th>Completed cities</th>
+                    <th>Money</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {highscore?.map((player) => (
+                  {highscore?.slice(0,5).map((player) => (
                     <tr>
                       <td>{player.name}</td>
-                      <td>{player.money}</td>
                       <td>{player.completedCities}</td>
-                    </tr>
+                      <td>{player.money}</td>
+                      </tr>
                   ))}
-
-                  <tr>
-                    <td>test</td>
-                    <td>test</td>
-                  </tr>
                 </tbody>
               </Table>
-            </Offcanvas.Body>
-          </Offcanvas>
         </div>
       );
     };

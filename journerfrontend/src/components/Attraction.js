@@ -2,9 +2,8 @@ import { useState } from "react";
 import { Button } from "react-bootstrap";
 
 const Attraction = (props) => {
-  const [questionNr, setQuestionNr] = useState(4);
+  const [questionNr, setQuestionNr] = useState(0);
   const [showQuestions, setShowQuestions] = useState(false);
-  
   const onClick = (number) => {
     randomizeQuestion(number);
 
@@ -58,22 +57,31 @@ const Attraction = (props) => {
   const Questions = (props) => (
     <div>
       <h1>{props.attraction[questionNr].question}</h1>
-      <h1>{props.attraction[questionNr].id}</h1>
       {showQuestion(props.attraction[questionNr])}
     </div>
   );
 
   const checkQuestion = () => {
     if(questionNr >= 2){
+        setQuestionNr(1)
         setShowAttractions(true)
         setShowQuestions(false)
+        
     }
+  }
+
+  const shuffleArray = (props) => {
+    
+    return props.answerList
+  .map(value => ({ value, sort: Math.random() }))
+  .sort((a, b) => a.sort - b.sort)
+  .map(({ value }) => value)
   }
 
   const showQuestion = (props) => {
       return (
         <span>
-          {props.answerList.map((answer) => (
+          {shuffleArray(props).map((answer) => (
             <Button onClick={(e) =>(
              checkAnswer(answer.rightAnswer),
              setQuestionNr((prevState) => prevState +1 ),
@@ -124,9 +132,7 @@ const Attraction = (props) => {
 
   return (
     <div className="container-bg">
-      <h1>attraction</h1>
       <div>
-        {props.city.name}
         {showQuestions ? <Questions attraction={props.attraction} /> : null}
         {showAttractions ? <AttractionButtons city={props.city} /> : null}
       </div>

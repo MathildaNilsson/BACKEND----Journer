@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Button, Container, Table } from "react-bootstrap";
-import { useState } from "react";
 
 class Startscreen extends Component {
   async handleSubmit(event) {
@@ -16,9 +15,6 @@ class Startscreen extends Component {
   render() {
     const { highscores: highscore } = this.state;
     const Startscreen = () => {
-      const [show, setShow] = useState(false);
-      const handleClose = () => setShow(false);
-      const handleShow = () => setShow(true);
 
       return (
         <div className="container-bg">
@@ -42,7 +38,6 @@ class Startscreen extends Component {
             </form>
           </Container>
 
-          
               <Table striped bordered hover>
                 <thead>
                   <tr>

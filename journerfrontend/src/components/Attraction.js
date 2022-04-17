@@ -2,8 +2,9 @@ import { useState } from "react";
 import { Button } from "react-bootstrap";
 
 const Attraction = (props) => {
-  const [test, setTest] = useState(4);
+  const [questionNr, setQuestionNr] = useState(4);
   const [showQuestions, setShowQuestions] = useState(false);
+  
   const onClick = (number) => {
     randomizeQuestion(number);
 
@@ -13,15 +14,15 @@ const Attraction = (props) => {
   const randomizeQuestion = (number) => {
     if (number === 0) {
       //number = Math.floor(Math.random() * 3);
-      setTest(number);
+      setQuestionNr(number);
     } else if (number === 1) {
       number += 2;
       //number = Math.floor((Math.random() * 3)+3);
-      setTest(number);
+      setQuestionNr(number);
     } else if (number === 2) {
       number += 4;
       //number = Math.floor((Math.random() * 3)+6);
-      setTest(number);
+      setQuestionNr(number);
     }
     return number;
   };
@@ -56,22 +57,35 @@ const Attraction = (props) => {
 
   const Questions = (props) => (
     <div>
-      <h1>{props.attraction[test].question}</h1>
-      <h1>{props.attraction[test].id}</h1>
-      {showQuestion(props.attraction[test])}
+      <h1>{props.attraction[questionNr].question}</h1>
+      <h1>{props.attraction[questionNr].id}</h1>
+      {showQuestion(props.attraction[questionNr])}
     </div>
   );
 
+  const checkQuestion = () => {
+    if(questionNr >= 2){
+        setShowAttractions(true)
+        setShowQuestions(false)
+    }
+  }
+
   const showQuestion = (props) => {
-    return (
-      <span>
-        {props.answerList.map((answer) => (
-          <Button onClick={(e) => checkAnswer(answer.rightAnswer)}>
-            {answer.answer}
-          </Button>
-        ))}
-      </span>
-    );
+      return (
+        <span>
+          {props.answerList.map((answer) => (
+            <Button onClick={(e) =>(
+             checkAnswer(answer.rightAnswer),
+             setQuestionNr((prevState) => prevState +1 ),
+            checkQuestion()
+             
+            )
+             }>
+              {answer.answer}
+            </Button>
+          ))}
+        </span>
+      );
   };
 
   const AttractionButtons = (props) => (
@@ -117,16 +131,6 @@ const Attraction = (props) => {
         {showAttractions ? <AttractionButtons city={props.city} /> : null}
       </div>
       <div></div>
-
-      {/*       <button
-        id="new-game"
-        onClick={(e) => {
-          e.preventDefault();
-          window.location.href = `/`;
-        }}
-      >
-        Return
-      </button> */}
     </div>
   );
 };

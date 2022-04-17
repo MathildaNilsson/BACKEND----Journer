@@ -85,15 +85,21 @@ class City extends Component {
           >
             Exit game
           </Button>
-
-          <Offcanvas placement="end" show={show2} onHide={handleClose2}>
-            <Offcanvas.Header closeButton>
-              <Offcanvas.Title>Sevärdheter</Offcanvas.Title>
-            </Offcanvas.Header>
-            <Offcanvas.Body>
-              <Attraction city={city} attraction={attraction} />
-            </Offcanvas.Body>
-          </Offcanvas>
+          <Modal
+        show={show2}
+        onHide={handleClose2}
+        backdrop="static"
+        keyboard={false}
+      >
+        <Modal.Header closeButton>
+          <Modal.Title className="container-bg"></Modal.Title>
+        </Modal.Header>
+        <Modal.Body className="container-bg">
+        <Attraction city={city} attraction={attraction} />
+        </Modal.Body>
+        <Modal.Footer>
+        </Modal.Footer>
+      </Modal>
 
       <Modal
         show={show3}

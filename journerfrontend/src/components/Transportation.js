@@ -18,10 +18,9 @@ const Transportation = (props) => {
   const checkMoney = (energy, money, city) => {
     if (money > playerMoney) {
       alert("För lite pengar mannen");
-    } else if (energy++ + playerEnergy > 100) {
+    } else if (energy +++ playerEnergy > 100) {
       let energyToFill = 100 - playerEnergy;
       console.log(energyToFill);
-
       addEnergy(energyToFill);
       removeMoney(money);
       setCurrentCity(city);

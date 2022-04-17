@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import { Button } from "react-bootstrap";
+import { useState, useEffect } from "react";
+import { Button, Table } from "react-bootstrap";
+
 
 class NewGameScreen extends Component {
   render() {
@@ -17,7 +19,7 @@ class NewGameScreen extends Component {
           <h1>Välkommen till Journer</h1>
           <p>
             Ditt mål är att besöka så många städer som möjligt, du börjar med
-            20,000 i reskassa
+            15.000 i reskassa
           </p>
           <p>Välj din första destination:</p>
           <Button

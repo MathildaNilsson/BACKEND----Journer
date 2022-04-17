@@ -3,6 +3,7 @@ package se.journer.journer.service;
 import com.sun.jdi.connect.Transport;
 import org.springframework.stereotype.Service;
 import se.journer.journer.dao.GameDAO;
+import se.journer.journer.models.accommodation.Accommodation;
 import se.journer.journer.models.items.Item;
 import se.journer.journer.models.items.Pepperspray;
 import se.journer.journer.models.player.Player;
@@ -76,5 +77,9 @@ public class GameService {
 
     public void removeItemFromBackpack(String item) {
         gameDAO.removeItemFromBackPack(item);
+    }
+
+    public List<Accommodation> displayAccommodation() {
+        return gameDAO.displayAccommodation();
     }
 }

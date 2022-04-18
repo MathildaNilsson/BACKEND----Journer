@@ -45,12 +45,12 @@ const Accomondations = () => {
       addEnergy(energyToFill);
       removeMoney(money);
       window.location.reload(false);
-      alert(`Hoppas du sovit gott, du har nu fått ${energy} extra energi!` );
+      alert(`Hoppas du sovit gott, du har nu fått ${energy -1} extra energi!` );
     } else {
       addEnergy(energy - 1);
       removeMoney(money);
       window.location.reload(false);
-      alert(`Hoppas du sovit gott, du har nu fått ${energy} extra energi!` );
+      alert(`Hoppas du sovit gott, du har nu fått ${energy -1} extra energi!` );
     }
   };
 
@@ -83,7 +83,7 @@ const Accomondations = () => {
                           stay.price
                         );
                       }}
-                      class="btn btn-secondary btn-lg"
+                      className ="btn btn-secondary btn-lg"
                       variant="primary"
                     >
                       Välj

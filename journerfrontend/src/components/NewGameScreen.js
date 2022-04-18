@@ -23,7 +23,7 @@ class NewGameScreen extends Component {
             </p>
             <p>Välj din första destination:</p>
             <Button
-              class="btn btn-secondary btn-lg"
+              className ="btn btn-secondary btn-lg"
               onClick={() => {
                 removeMoney(12000);
                 //setCurrentCity("chicago");
@@ -35,7 +35,7 @@ class NewGameScreen extends Component {
             12000:-
             <br />
             <Button
-              class="btn btn-secondary btn-lg"
+              className ="btn btn-secondary btn-lg"
               onClick={(e) => {
                 //setCurrentCity("bangalore");
                 //removeMoney(10000);
@@ -47,7 +47,7 @@ class NewGameScreen extends Component {
             10000:-
             <br />
             <Button
-              class="btn btn-secondary btn-lg"
+              className ="btn btn-secondary btn-lg"
               onClick={(e) => {
                 //removeMoney(15000);
                 //setCurrentCity("tokyo");

@@ -45,12 +45,12 @@ const Accomondations = () => {
       addEnergy(energyToFill);
       removeMoney(money);
       window.location.reload(false);
-      alert(`Hoppas du sovit gott, du har nu ${playerEnergy} i energi` );
+      alert(`Hoppas du sovit gott, du har nu fått ${energy} extra energi!` );
     } else {
       addEnergy(energy - 1);
       removeMoney(money);
       window.location.reload(false);
-      alert(`Hoppas du sovit gott, du har nu ${playerEnergy} i energi` );
+      alert(`Hoppas du sovit gott, du har nu fått ${energy} extra energi!` );
     }
   };
 

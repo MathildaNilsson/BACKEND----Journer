@@ -25,7 +25,7 @@ const Quiz = (props) => {
   const checkAnswer = (answer) =>{
     if(answer === true){
      removeEnergy(5);
-     addMoney(50);
+     addMoney(100);
      window.location.reload(false)
      alert("Rätt");
     }else{

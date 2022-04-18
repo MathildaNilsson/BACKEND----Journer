@@ -48,122 +48,133 @@ class City extends Component {
       const handleClose5 = () => setShow5(false);
       const handleShow5 = () => setShow5(true);
 
+      const buttonGroup = () => {
+        return (
+          <>
+            <button
+              id="return"
+              onClick={(e) => {
+                e.preventDefault();
+                window.location.href = `/`;
+              }}
+            >
+              Return
+            </button>
+
+            <Button variant="primary" onClick={handleShow2}>
+              Sevärdheter
+            </Button>
+
+            <Button variant="primary" onClick={handleShow3}>
+              Stadsfråga
+            </Button>
+
+            <Button variant="primary" onClick={handleShow4}>
+              Res vidare
+            </Button>
+
+            <Button
+              varitant="primary"
+              onClick={(e) => {
+                e.preventDefault();
+                window.location.href = `/endgamescreen`;
+              }}
+            >
+              Exit game
+            </Button>
+
+            <Button variant="primary" onClick={handleShow5}>
+              Boende
+            </Button>
+
+            <Button variant="primary" onClick={handleShow}>
+              Shop
+            </Button>
+          </>
+        );
+      };
+
       return (
-        <div className="container-bg">
-          <DisplayPlayer />
-          <h1>{city.name}</h1>
-          <p>{city.cityInfo}</p>
-        
-          <button
-            id="return"
-            onClick={(e) => {
-              e.preventDefault();
-              window.location.href = `/`;
-            }}
-          >
-            Return
-          </button>
+        <div className="container">
+          <div className="div1">
+            <DisplayPlayer />
+          </div>
+          <div className="div4">{buttonGroup()}</div>
+          <div className="div5">
+            <div className="container-bg">
+              <h1>{city.name}</h1>
+              <p>{city.cityInfo}</p>
 
-          <Button variant="primary" onClick={handleShow2}>
-            Sevärdheter
-          </Button>
+              <Modal
+                show={show2}
+                onHide={handleClose2}
+                backdrop="static"
+                keyboard={false}
+              >
+                <Modal.Header closeButton>
+                  <Modal.Title className="container-bg"></Modal.Title>
+                </Modal.Header>
+                <Modal.Body className="container-bg">
+                  <Attraction city={city} attraction={attraction} />
+                </Modal.Body>
+                <Modal.Footer></Modal.Footer>
+              </Modal>
 
-          <Button variant="primary" onClick={handleShow3}>
-            Stadsfråga
-          </Button>
+              <Modal
+                show={show3}
+                onHide={handleClose3}
+                backdrop="static"
+                keyboard={false}
+              >
+                <Modal.Header closeButton>
+                  <Modal.Title className="container-bg">Stadsfråga</Modal.Title>
+                </Modal.Header>
+                <Modal.Body className="container-bg">
+                  <Quiz city={city} category={category} />
+                </Modal.Body>
+                <Modal.Footer></Modal.Footer>
+              </Modal>
 
-          <Button variant="primary" onClick={handleShow4}>
-            Res vidare
-          </Button>
+              <Modal
+                show={show5}
+                onHide={handleClose5}
+                backdrop="static"
+                keyboard={false}
+              >
+                <Modal.Header closeButton>
+                  <Modal.Title className="container-bg"></Modal.Title>
+                </Modal.Header>
+                <Modal.Body className="container-bg">
+                  <Accomondations />
+                </Modal.Body>
+                <Modal.Footer></Modal.Footer>
+              </Modal>
 
-          <Button
-            varitant="primary"
-            onClick={(e) => {
-              e.preventDefault();
-              window.location.href = `/endgamescreen`;
-            }}
-          >
-            Exit game
-          </Button>
-          <Modal
-        show={show2}
-        onHide={handleClose2}
-        backdrop="static"
-        keyboard={false}
-      >
-        <Modal.Header closeButton>
-          <Modal.Title className="container-bg"></Modal.Title>
-        </Modal.Header>
-        <Modal.Body className="container-bg">
-        <Attraction city={city} attraction={attraction} />
-        </Modal.Body>
-        <Modal.Footer>
-        </Modal.Footer>
-      </Modal>
+              <Modal
+                show={show}
+                onHide={handleClose}
+                backdrop="static"
+                keyboard={false}
+              >
+                <Modal.Header closeButton>
+                  <Modal.Title className="container-bg"></Modal.Title>
+                </Modal.Header>
+                <Modal.Body className="container-bg">
+                  <Shop souvenir={city.souvenir} cityShop={shop} />
+                </Modal.Body>
+                <Modal.Footer></Modal.Footer>
+              </Modal>
 
-      <Modal
-        show={show3}
-        onHide={handleClose3}
-        backdrop="static"
-        keyboard={false}
-      >
-        <Modal.Header closeButton>
-          <Modal.Title className="container-bg">Stadsfråga</Modal.Title>
-        </Modal.Header>
-        <Modal.Body className="container-bg">
-        <Quiz city={city} category={category}/>
-        </Modal.Body>
-        <Modal.Footer>
-        </Modal.Footer>
-      </Modal>
-
-          <Button variant="primary" onClick={handleShow5}>
-        Boende
-      </Button>
-      <Modal
-        show={show5}
-        onHide={handleClose5}
-        backdrop="static"
-        keyboard={false}
-      >
-        <Modal.Header closeButton>
-          <Modal.Title className="container-bg"></Modal.Title>
-        </Modal.Header>
-        <Modal.Body className="container-bg">
-        <Accomondations/>
-        </Modal.Body>
-        <Modal.Footer>
-        </Modal.Footer>
-      </Modal>
-
-      <Button variant="primary" onClick={handleShow}>
-        Shop
-      </Button>
-
-      <Modal
-        show={show}
-        onHide={handleClose}
-        backdrop="static"
-        keyboard={false}
-      >
-        <Modal.Header closeButton>
-          <Modal.Title className="container-bg"></Modal.Title>
-        </Modal.Header>
-        <Modal.Body className="container-bg">
-        <Shop souvenir={city.souvenir} cityShop={shop} />
-        </Modal.Body>
-        <Modal.Footer>
-        </Modal.Footer>
-      </Modal>
-
-          <Offcanvas placement="end" show={show4} onHide={handleClose4}>
-            <Offcanvas.Header closeButton>
-              <Offcanvas.Title>Res visare</Offcanvas.Title>
-            </Offcanvas.Header>
-            <Offcanvas.Body>
-              <Transportation city={city} />
-            </Offcanvas.Body>
-          </Offcanvas>
+              <Offcanvas placement="end" show={show4} onHide={handleClose4}>
+                <Offcanvas.Header closeButton>
+                  <Offcanvas.Title>Res visare</Offcanvas.Title>
+                </Offcanvas.Header>
+                <Offcanvas.Body>
+                  <Transportation city={city} />
+                </Offcanvas.Body>
+              </Offcanvas>
+            </div>
+          </div>
         </div>
       );
     };

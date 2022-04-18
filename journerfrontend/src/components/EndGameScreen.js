@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { Button } from "react-bootstrap";
 class EndGameScreen extends Component {
   render() {
     const { players: player } = this.state;
@@ -18,16 +19,24 @@ class EndGameScreen extends Component {
 
     return (
       <div className="container">
-        <h1>GAME OVER</h1>
-        <h2>Namn: {player.name}</h2>
-        <h2>Pengar: {player.money}</h2>
-        <h2>Klarade städer: {player.completedCities}</h2>
-        <div>
-          {player.backpack?.map((item) => (
-            <div>{item.name} </div>
-          ))}
+        <div className="div1">
+          <h1>GAME OVER</h1>
         </div>
-        <button onClick={(e) => test()}> spara Highscore</button>
+        <div className="div5">
+          <h2>Namn: {player.name}</h2>
+          <h2>Pengar: {player.money}</h2>
+          <h2>Klarade städer: {player.completedCities}</h2>
+          <div>
+            {player.backpack?.map((item) => (
+              <div>{item.name} </div>
+            ))}
+          </div>
+          <Button onClick={(e) => test()}> Spara Highscore</Button>
+          <Button onClick={(e) => {
+                e.preventDefault();
+                window.location.href = `/`;
+              }}> Tillbaka till start</Button>
+        </div>
       </div>
     );
   }

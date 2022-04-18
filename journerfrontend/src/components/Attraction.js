@@ -4,28 +4,13 @@ import { Button } from "react-bootstrap";
 const Attraction = (props) => {
   const [questionNr, setQuestionNr] = useState(0);
   const [showQuestions, setShowQuestions] = useState(false);
+  const [showAttractions, setShowAttractions] = useState(true);
   const onClick = (number) => {
-    randomizeQuestion(number);
-
+    setQuestionNr(number);
     setShowQuestions(true);
+    setShowAttractions(false);
   };
-
-  const randomizeQuestion = (number) => {
-    if (number === 0) {
-      //number = Math.floor(Math.random() * 3);
-      setQuestionNr(number);
-    } else if (number === 1) {
-      number += 2;
-      //number = Math.floor((Math.random() * 3)+3);
-      setQuestionNr(number);
-    } else if (number === 2) {
-      number += 4;
-      //number = Math.floor((Math.random() * 3)+6);
-      setQuestionNr(number);
-    }
-    return number;
-  };
-
+  
   const addMoney = (money) => {
     fetch(`http://localhost:8080/game/addmoney/${money}`, {
       method: "POST",
@@ -36,11 +21,6 @@ const Attraction = (props) => {
     fetch(`http://localhost:8080/game/removeenergy/${energy}`, {
       method: "POST",
     }).then((response) => response.json());
-  };
-
-  const [showAttractions, setShowAttractions] = useState(true);
-  const onClick2 = () => {
-    setShowAttractions(false);
   };
 
   const checkAnswer = (answer) => {
@@ -61,39 +41,45 @@ const Attraction = (props) => {
     </div>
   );
 
+  const showQuestion = (props) => {
+    return (
+      <span>
+        {shuffleArray(props).map((answer) => (
+          <Button
+            onClick={(e) => (
+              checkAnswer(answer.rightAnswer),
+              setQuestionNr((prevState) => prevState + 1),
+              checkQuestion()
+            )}
+          >
+            {answer.answer}
+          </Button>
+        ))}
+      </span>
+    );
+  };
+
   const checkQuestion = () => {
-    if(questionNr >= 2){
-        setQuestionNr(1)
-        setShowAttractions(true)
-        setShowQuestions(false)
-        
+    if (questionNr === 2) {
+      setQuestionNr(1);
+      setShowAttractions(true);
+      setShowQuestions(false);
+    }else if(questionNr === 5){
+      setQuestionNr(1);
+      setShowAttractions(true);
+      setShowQuestions(false);
+    }else if(questionNr === 8){
+      setQuestionNr(1);
+      setShowAttractions(true);
+      setShowQuestions(false);
     }
-  }
+  };
 
   const shuffleArray = (props) => {
-    
     return props.answerList
-  .map(value => ({ value, sort: Math.random() }))
-  .sort((a, b) => a.sort - b.sort)
-  .map(({ value }) => value)
-  }
-
-  const showQuestion = (props) => {
-      return (
-        <span>
-          {shuffleArray(props).map((answer) => (
-            <Button onClick={(e) =>(
-             checkAnswer(answer.rightAnswer),
-             setQuestionNr((prevState) => prevState +1 ),
-            checkQuestion()
-             
-            )
-             }>
-              {answer.answer}
-            </Button>
-          ))}
-        </span>
-      );
+      .map((value) => ({ value, sort: Math.random() }))
+      .sort((a, b) => a.sort - b.sort)
+      .map(({ value }) => value);
   };
 
   const AttractionButtons = (props) => (
@@ -102,7 +88,6 @@ const Attraction = (props) => {
         variant="primary"
         onClick={(e) => {
           onClick(0);
-          onClick2();
         }}
       >
         {props.city.attractionList[0].name}
@@ -111,8 +96,7 @@ const Attraction = (props) => {
       <Button
         variant="primary"
         onClick={(e) => {
-          onClick(1);
-          onClick2();
+          onClick(3);
         }}
       >
         {props.city.attractionList[1].name}
@@ -121,8 +105,7 @@ const Attraction = (props) => {
       <Button
         variant="primary"
         onClick={(e) => {
-          onClick(2);
-          onClick2();
+          onClick(6);
         }}
       >
         {props.city.attractionList[2].name}

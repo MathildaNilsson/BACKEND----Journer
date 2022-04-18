@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button } from "react-bootstrap";
+import { Button, Table } from "react-bootstrap";
 
 const Attraction = (props) => {
   const [questionNr, setQuestionNr] = useState(0);
@@ -115,9 +115,22 @@ const Attraction = (props) => {
 
   return (
     <div className="container-bg">
+      <Table striped bordered hover>
+            <thead>
+              <tr>
+              
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+              <th>{showQuestions ? <Questions attraction={props.attraction} /> : null}</th>
+            <th>{showAttractions ? <AttractionButtons city={props.city} /> : null}</th>
+            </tr>
+            </tbody>
+          </Table>
       <div>
-        {showQuestions ? <Questions attraction={props.attraction} /> : null}
-        {showAttractions ? <AttractionButtons city={props.city} /> : null}
+        {/* {showQuestions ? <Questions attraction={props.attraction} /> : null} */}
+        {/* {showAttractions ? <AttractionButtons city={props.city} /> : null} */}
       </div>
       <div></div>
     </div>

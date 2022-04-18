@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import { useState, useEffect } from "react";
-import { Button, Table } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 
 class NewGameScreen extends Component {
   render() {
     const { players: player } = this.state;
+    const { cities: randomCity } = this.state;
 
     const NewGameScreen = () => {
       const removeMoney = (money) => {
@@ -13,51 +13,46 @@ class NewGameScreen extends Component {
         }).then((response) => response.json());
       };
 
+      let randomMoney = () => {
+        let money = Math.floor(Math.random() * 6) + 6;
+        return (money *= 1000);
+      };
+
+      const showDestinations = () => {
+        let money = randomMoney();
+        return (
+          <span>
+            {randomCity?.map((city) => (
+              <>
+                <Button
+                  onClick={() => {
+                    removeMoney(money);
+                    this.handleSubmit(`${city.name}`);
+                  }}
+                >
+                  {city.name}
+                </Button>
+                {money}:-
+                <br />
+              </>
+            ))}
+          </span>
+        );
+      };
+
       return (
         <div className="container">
-          <div className="div5">
+          <div className="div1">
             <h1>Välkommen till Journer</h1>
-            <p>
+            <h3>
               Ditt mål är att besöka så många städer som möjligt, du börjar med
-              15.000 i reskassa
-            </p>
-            <p>Välj din första destination:</p>
-            <Button
-              class="btn btn-secondary btn-lg"
-              onClick={() => {
-                removeMoney(12000);
-                //setCurrentCity("chicago");
-                this.handleSubmit("chicago");
-              }}
-            >
-              Chicago
-            </Button>
-            12000:-
-            <br />
-            <Button
-              class="btn btn-secondary btn-lg"
-              onClick={(e) => {
-                //setCurrentCity("bangalore");
-                //removeMoney(10000);
-                this.handleSubmit("bangalore");
-              }}
-            >
-              Bangalore
-            </Button>
-            10000:-
-            <br />
-            <Button
-              class="btn btn-secondary btn-lg"
-              onClick={(e) => {
-                //removeMoney(15000);
-                //setCurrentCity("tokyo");
-                this.handleSubmit("tokyo");
-              }}
-            >
-              Tokyo
-            </Button>
-            15000:-
-            <br />
+              15.000:- i reskassa
+            </h3>
+          </div>
+          <div className="div5">
+            <h4>Välj din första destination:</h4>
+            {showDestinations()}
+
             <Button
               onClick={(e) => {
                 window.location.href = `/City`;
@@ -101,6 +96,9 @@ class NewGameScreen extends Component {
     fetch("/game/getplayer/")
       .then((response) => response.json())
       .then((player) => this.setState({ players: player }));
+    fetch(`/city/random/cities`)
+      .then((response) => response.json())
+      .then((randomCity) => this.setState({ cities: randomCity }));
   }
 }
 export default NewGameScreen;

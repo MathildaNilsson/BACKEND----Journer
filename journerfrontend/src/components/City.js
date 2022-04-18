@@ -60,21 +60,27 @@ class City extends Component {
             >
               Return
             </button>
+            <br/>
 
             <Button variant="primary" onClick={handleShow2}>
               Sevärdheter
             </Button>
 
+            <br/>
+
             <Button variant="primary" onClick={handleShow3}>
               Stadsfråga
             </Button>
 
+            <br/>
+
             <Button variant="primary" onClick={handleShow4}>
               Res vidare
             </Button>
+            <br/>
 
-            <Button
-              varitant="primary"
+            <Button 
+              variant="danger"
               onClick={(e) => {
                 e.preventDefault();
                 window.location.href = `/endgamescreen`;
@@ -82,10 +88,12 @@ class City extends Component {
             >
               Exit game
             </Button>
+            <br/>
 
             <Button variant="primary" onClick={handleShow5}>
               Boende
             </Button>
+            <br/>
 
             <Button variant="primary" onClick={handleShow}>
               Shop

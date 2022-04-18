@@ -674,7 +674,7 @@ SELECT * FROM question;
 --                                                         ('Byggnad med flest våningar',false, 133),
 --                                                         ('Vertikalpumpning av betong',false, 133),
 --                                                         ('57 st',true, 134),
---                                                         ('74 st st',false, 134),
+--                                                         ('74 st',false, 134),
 --                                                         ('112 st',false, 134),
 --                                                         ('För höga temperaturer',true, 135),
 --                                                         ('För många sandstormar',false, 135),
@@ -824,8 +824,8 @@ SELECT * FROM question;
 --                                                         ('Picknick',false, 183),
 --                                                         ('Grilla',false, 183),
 --                                                         ('1906',true, 184),
---                                                         ('1944',true, 184),
---                                                         ('1881',true, 184),
+--                                                         ('1944',false, 184),
+--                                                         ('1881',false, 184),
 --                                                         ('1500',true, 185),
---                                                         ('11 000',true, 185),
---                                                         ('5500',true, 185);
+--                                                         ('11 000',false, 185),
+--                                                         ('5500',false, 185);

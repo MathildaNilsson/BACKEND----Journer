@@ -115,7 +115,7 @@ class City extends Component {
 
       return (
         <div className="container">
-          <div className="div1">
+          <div className="div1" id="displayPlayer">
             <DisplayPlayer />
           </div>
           <div className="div4">{buttonGroup()}</div>

@@ -49,7 +49,7 @@ class Startscreen extends Component {
                 </thead>
                 <tbody>
                   {highscore?.slice(0,5).map((player) => (
-                    <tr>
+                    <tr key={Math.random()}>
                       <td>{player.name}</td>
                       <td>{player.completedCities} st</td>
                       <td>{player.money}:-</td>

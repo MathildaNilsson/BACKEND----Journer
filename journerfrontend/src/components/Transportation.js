@@ -18,7 +18,7 @@ const Transportation = (props) => {
   const checkMoney = (energy, money, city) => {
     if (money > playerMoney) {
       alert("För lite pengar mannen");
-    } else if (energy +++ playerEnergy > 100) {
+    } else if (energy++ + playerEnergy > 100) {
       let energyToFill = 100 - playerEnergy;
       console.log(energyToFill);
       addEnergy(energyToFill);
@@ -35,31 +35,31 @@ const Transportation = (props) => {
     fetch(`/game/station`)
       .then((response) => response.json())
       .then((station) => setStation(station));
-  }, {});
+  }, []);
 
   useEffect(() => {
     fetch(`/game/displayenergy`)
       .then((response) => response.json())
       .then((playerEnergy) => setPlayerEnergy(playerEnergy));
-  }, {});
+  }, []);
 
   useEffect(() => {
     fetch(`/game/displaymoney`)
       .then((response) => response.json())
       .then((playerMoney) => setPlayerMoney(playerMoney));
-  }, {});
+  }, []);
 
   useEffect(() => {
     fetch(`/city/random/cities`)
       .then((response) => response.json())
       .then((randomCity) => setRandomCity(randomCity));
-  }, {});
+  }, []);
 
   useEffect(() => {
     fetch(`/city/random/city`)
       .then((response) => response.json())
       .then((randomCity2) => setRandomCity2(randomCity2));
-  }, {});
+  }, []);
 
   const removeMoney = (money) => {
     fetch(`/game/removemoney/${money}`, {
@@ -89,16 +89,17 @@ const Transportation = (props) => {
             </tr>
           </thead>
           <tbody>
+            <>
             {station &&
               station.map((transport) => (
-                <tr>
+                <tr key={Math.random()}>
                   <td>{transport.name}</td>
                   <td>{transport.price}:-</td>
                   <td>+ {transport.energyToGain}</td>
                   <td>{randomCity2 && randomCity2.name}</td>
                   <td>
                     <Button
-                      className ="btn btn-secondary btn-lg"
+                      className="btn btn-secondary btn-lg"
                       variant="primary"
                       onClick={() => {
                         checkMoney(
@@ -113,17 +114,19 @@ const Transportation = (props) => {
                   </td>
                 </tr>
               ))}
+              </>
           </tbody>
-          <Button
-        className="travel-btn"
-        onClick={(e) => {
-          e.preventDefault();
-          window.location.href = `/City`;
-        }}
-      >
-        Res
-      </Button>
+          
         </Table>
+        <Button
+            className="travel-btn"
+            onClick={(e) => {
+              e.preventDefault();
+              window.location.href = `/City`;
+            }}
+          >
+            Res
+          </Button>
       </div>
     </div>
   );

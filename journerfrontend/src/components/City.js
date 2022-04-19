@@ -33,7 +33,7 @@ class City extends Component {
         fetch(`/game/getplayer/`)
           .then((response) => response.json())
           .then((player) => setPlayer(player));
-      }, {});
+      }, []);
 
       const [show, setShow] = useState(false);
       const handleClose = () => setShow(false);

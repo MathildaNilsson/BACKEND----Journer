@@ -58,7 +58,7 @@ const Attraction = (props) => {
           </thead>
           <tbody>
             {shuffleArray(props).map((answer) => (
-              <tr>
+              <tr key={Math.random()}>
                 <td>{answer.answer}</td>
                 <th>
                   <Button

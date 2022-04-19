@@ -10,19 +10,19 @@ const Accomondations = () => {
     fetch(`/game/accommodation`)
       .then((response) => response.json())
       .then((accommodation) => setAccommodation(accommodation));
-  }, {});
+  }, []);
 
   useEffect(() => {
     fetch(`/game/displayenergy`)
       .then((response) => response.json())
       .then((playerEnergy) => setPlayerEnergy(playerEnergy));
-  }, {});
+  }, []);
 
   useEffect(() => {
     fetch(`/game/displaymoney`)
       .then((response) => response.json())
       .then((playerMoney) => setPlayerMoney(playerMoney));
-  }, {});
+  }, []);
 
 
   const addEnergy = (energyToAdd) => {
@@ -70,9 +70,9 @@ const Accomondations = () => {
             </tr>
           </thead>
           <tbody>
-            {accommodation &&
-              accommodation.map((stay) => (
-                <tr>
+            <>
+            {accommodation && accommodation.map((stay) => (
+                <tr key={Math.random()}>
                   <td>{stay.name}</td>
                   <td>{stay.price}:-</td>
                   <td>+ {stay.energyToGain}</td>
@@ -91,6 +91,7 @@ const Accomondations = () => {
                   </td>
                 </tr>
               ))}
+              </>
           </tbody>
         </Table>
       </div>

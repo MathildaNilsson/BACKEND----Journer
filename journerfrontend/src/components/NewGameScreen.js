@@ -26,7 +26,7 @@ class NewGameScreen extends Component {
             <h3>Pris: {money}:-</h3>
             <br />
             {randomCity?.map((city) => (
-              <>
+              <div key={Math.random()}>
                 <Button
                   onClick={() => {
                     this.handleSubmit(`${city.name}`);
@@ -36,7 +36,7 @@ class NewGameScreen extends Component {
                 </Button>
                 
                 <br />
-              </>
+              </div>
             ))}
           </span>
         );

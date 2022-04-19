@@ -8,7 +8,7 @@ const Quiz = (props) => {
     fetch(`http://localhost:8080/question/random/${props.category}`)
       .then((response) => response.json())
       .then((question) => setQuestion(question));
-  }, {});
+  }, []);
 
   const addMoney = (money) => {
     fetch(`http://localhost:8080/game/addmoney/${money}`, {
@@ -50,7 +50,7 @@ const Quiz = (props) => {
             </thead>
             <tbody>
             {question && question.answerList.map((answer) => (
-              <tr>
+              <tr key={Math.random()}>
                 <td>{answer.answer}</td>
                 <th><Button onClick={e => checkAnswer(answer.rightAnswer)} id={answer.id} > Välj svar</Button></th>
               </tr>

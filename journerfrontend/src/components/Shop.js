@@ -31,7 +31,7 @@ const Shop = (props) => {
     fetch(`/game/displaymoney`)
       .then((response) => response.json())
       .then((playerMoney) => setPlayerMoney(playerMoney));
-  }, {});
+  }, []);
 
   const checkMoneySouvenir = (money, item) => {
     if (money > playerMoney) {
@@ -81,7 +81,7 @@ const Shop = (props) => {
       </Table>
 
       {props.cityShop.map((item) => (
-        <Table striped bordered hover>
+        <Table striped bordered hover key={Math.random()}>
           <thead>
             <tr>
               <th>Namn</th>

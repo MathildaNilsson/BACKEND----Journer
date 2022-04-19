@@ -4,6 +4,7 @@ import se.journer.journer.models.backpack.Backpack;
 import se.journer.journer.models.cities.City;
 import se.journer.journer.models.items.Item;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -75,14 +76,23 @@ public class Player {
     }
 
     public void countCompletedCities() {
-        for(Item item : backpack.getBackpackList()){
-            if( (!item.getName().equalsIgnoreCase("Energydrink")) && (!item.getName().equalsIgnoreCase("Pepperspray")) ){
-                completedCities += 1;
+        List<String> templist = new ArrayList<>();
+
+        for(Item item : backpack.getBackpackList()) {
+            if( (!item.getName().equalsIgnoreCase("Energydrink")) && (!item.getName().equalsIgnoreCase("Pepperspray")) )
+                if(!templist.contains(item.getName())){
+                templist.add(item.getName());
             }
         }
+        completedCities = templist.size();
+//        for(Item item : backpack.getBackpackList()){
+//            if( (!item.getName().equalsIgnoreCase("Energydrink")) && (!item.getName().equalsIgnoreCase("Pepperspray")) ){             }
+//                completedCities += 1;
+//            }
+        }
 
-        this.completedCities = completedCities;
-    }
+        //this.completedCities = completedCities;
+
 
     public int getCompletedCities() {
         return completedCities;

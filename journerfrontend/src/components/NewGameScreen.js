@@ -46,7 +46,6 @@ class NewGameScreen extends Component {
             <h1>Välkommen till Journer</h1>
             <h3>
               Ditt mål är att besöka så många städer som möjligt, du börjar med
-<<<<<<< HEAD
               15.000:- i reskassa
             </h3>
           </div>
@@ -54,47 +53,6 @@ class NewGameScreen extends Component {
             <h4>Välj din första destination:</h4>
             {showDestinations()}
 
-=======
-              15.000 i reskassa
-            </p>
-            <p>Välj din första destination:</p>
-            <Button
-              className ="btn btn-secondary btn-lg"
-              onClick={() => {
-                removeMoney(12000);
-                //setCurrentCity("chicago");
-                this.handleSubmit("chicago");
-              }}
-            >
-              Chicago
-            </Button>
-            12000:-
-            <br />
-            <Button
-              className ="btn btn-secondary btn-lg"
-              onClick={(e) => {
-                //setCurrentCity("bangalore");
-                //removeMoney(10000);
-                this.handleSubmit("bangalore");
-              }}
-            >
-              Bangalore
-            </Button>
-            10000:-
-            <br />
-            <Button
-              className ="btn btn-secondary btn-lg"
-              onClick={(e) => {
-                //removeMoney(15000);
-                //setCurrentCity("tokyo");
-                this.handleSubmit("tokyo");
-              }}
-            >
-              Tokyo
-            </Button>
-            15000:-
-            <br />
->>>>>>> b994e5af83a8bd067d54c9e47fc81cf6b6f16763
             <Button
               onClick={(e) => {
                 window.location.href = `/City`;

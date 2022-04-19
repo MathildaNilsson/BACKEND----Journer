@@ -21,7 +21,6 @@ const Backpack = (props) => {
 
   return (
     <>
-      <h1>Ryggsäck</h1>
       {drinks.map((drink) => (
         <Table striped bordered hover>
           <thead>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Table, Button, Offcanvas } from "react-bootstrap";
+import { Table, Button, Offcanvas, Modal } from "react-bootstrap";
 import Backpack from "./Backpack";
 import React, { Component } from "react";
 
@@ -42,14 +42,20 @@ class DisplayPlayer extends Component {
             </Table>
           </div>
 
-          <Offcanvas show={show} onHide={handleClose}>
-            <Offcanvas.Header closeButton>
-              <Offcanvas.Title>Backpack</Offcanvas.Title>
-            </Offcanvas.Header>
-            <Offcanvas.Body>
-              <Backpack player={player} />
-            </Offcanvas.Body>
-          </Offcanvas>
+          <Modal
+                show={show}
+                onHide={handleClose}
+                backdrop="static"
+                keyboard={false}
+              >
+                <Modal.Header closeButton>
+                  <Modal.Title className="container-bg">Ryggsäck</Modal.Title>
+                </Modal.Header>
+                <Modal.Body className="container-bg">
+                <Backpack player={player} />
+                </Modal.Body>
+                <Modal.Footer></Modal.Footer>
+              </Modal>
         </div>
       );
     };

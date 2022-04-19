@@ -24,6 +24,7 @@ class Startscreen extends Component {
               <Button
                 className="btn btn-secondary btn-lg"
                 variant="primary"
+                size="sm"
                 id="new-game"
                 onClick={(e) => {
                   this.handleSubmit(
@@ -33,7 +34,7 @@ class Startscreen extends Component {
                   window.location.href = `/newgamescreen`;
                 }}
               >
-                New Game
+                Nytt spel
               </Button>{" "}
             </form>
           </Container>
@@ -42,16 +43,16 @@ class Startscreen extends Component {
                 <thead>
                   <tr>
                     <th>Namn</th>
-                    <th>Completed cities</th>
-                    <th>Money</th>
+                    <th>Klarade städer</th>
+                    <th>Pengar</th>
                   </tr>
                 </thead>
                 <tbody>
                   {highscore?.slice(0,5).map((player) => (
                     <tr>
                       <td>{player.name}</td>
-                      <td>{player.completedCities}</td>
-                      <td>{player.money}</td>
+                      <td>{player.completedCities} st</td>
+                      <td>{player.money}:-</td>
                       </tr>
                   ))}
                 </tbody>

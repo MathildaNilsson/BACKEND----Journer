@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Button } from "react-bootstrap";
+import { useState } from "react";
 
 class NewGameScreen extends Component {
   render() {
@@ -17,22 +18,23 @@ class NewGameScreen extends Component {
         let money = Math.floor(Math.random() * 6) + 6;
         return (money *= 1000);
       };
+      let [money, setMoney] = useState(randomMoney());
 
       const showDestinations = () => {
-        let money = randomMoney();
         return (
           <span>
+            <h3>Pris: {money}:-</h3>
+            <br />
             {randomCity?.map((city) => (
               <>
                 <Button
                   onClick={() => {
-                    removeMoney(money);
                     this.handleSubmit(`${city.name}`);
                   }}
                 >
                   {city.name}
                 </Button>
-                {money}:-
+                
                 <br />
               </>
             ))}
@@ -54,21 +56,24 @@ class NewGameScreen extends Component {
             {showDestinations()}
 
             <Button
+            variant="success"
               onClick={(e) => {
+                removeMoney(money);
                 window.location.href = `/City`;
               }}
             >
               Res
             </Button>
-            <button
-              id="new-game"
+            <br />
+            <Button
+              variant="danger"
               onClick={(e) => {
                 e.preventDefault();
                 window.location.href = `/`;
               }}
             >
-              Return
-            </button>
+              Tillbaka
+            </Button>
           </div>
         </div>
       );

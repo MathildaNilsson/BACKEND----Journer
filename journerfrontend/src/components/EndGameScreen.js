@@ -26,13 +26,8 @@ class EndGameScreen extends Component {
           <h2>Namn: {player.name}</h2>
           <h2>Pengar: {player.money}</h2>
           <h2>Klarade städer: {player.completedCities}</h2>
-          <div>
-            {player.backpack?.map((item) => (
-              <div>{item.name} </div>
-            ))}
-          </div>
           <Button onClick={(e) => test()}> Spara Highscore</Button>
-          <Button onClick={(e) => {
+          <Button variant="danger" onClick={(e) => {
                 e.preventDefault();
                 window.location.href = `/`;
               }}> Tillbaka till start</Button>

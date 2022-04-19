@@ -60,16 +60,6 @@ class City extends Component {
       const buttonGroup = () => {
         return (
           <>
-            <button
-              id="return"
-              onClick={(e) => {
-                e.preventDefault();
-                window.location.href = `/`;
-              }}
-            >
-              Return
-            </button>
-            <br/>
 
             <Button variant="primary" onClick=
             
@@ -90,6 +80,15 @@ class City extends Component {
             </Button>
             <br/>
 
+            <Button variant="primary" onClick={handleShow5}>
+              Boende
+            </Button>
+            <br/>
+
+            <Button variant="primary" onClick={handleShow}>
+              Shop
+            </Button>
+            <br/>
             <Button 
               variant="danger"
               onClick={(e) => {
@@ -98,16 +97,6 @@ class City extends Component {
               }}
             >
               Exit game
-            </Button>
-            <br/>
-
-            <Button variant="primary" onClick={handleShow5}>
-              Boende
-            </Button>
-            <br/>
-
-            <Button variant="primary" onClick={handleShow}>
-              Shop
             </Button>
           </>
         );
@@ -122,7 +111,7 @@ class City extends Component {
           <div className="div5">
             <div className="container-bg">
               <h1>{city.name}</h1>
-              <p>{city.cityInfo}</p>
+              <h4>{city.cityInfo}</h4>
 
               <Modal
                 show={show2}

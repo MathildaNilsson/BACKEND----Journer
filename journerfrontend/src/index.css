@@ -15,6 +15,22 @@ h1,h2,h3,p{
   color: black;
 }
 
+
+/* Bootstrap buttons*/
+.btn-primary {
+  background-color: #4579C7;
+  color: white;
+  width: 120px;
+}
+.btn-danger {
+  color: white;
+  width: 120px;
+}
+.btn-success {
+  color: white;
+  width: 120px;
+}
+
 body {
 	background:transparent;
 	min-height:100%; 	
@@ -35,6 +51,8 @@ body {
   left: 10px;
 }
 
+
+/* Grid layout */
 .container {
   display: grid;
   grid-template-columns: 1fr 600px 1fr;

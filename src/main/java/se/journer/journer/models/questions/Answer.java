@@ -25,4 +25,16 @@ public class Answer {
     public boolean isRightAnswer() {
         return rightAnswer;
     }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setAnswer(String answer) {
+        this.answer = answer;
+    }
+
+    public void setRightAnswer(boolean rightAnswer) {
+        this.rightAnswer = rightAnswer;
+    }
 }

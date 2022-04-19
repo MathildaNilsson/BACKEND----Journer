@@ -25,4 +25,16 @@ public class Category {
     public String getSubCategory() {
         return subCategory;
     }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public void setSubCategory(String subCategory) {
+        this.subCategory = subCategory;
+    }
 }

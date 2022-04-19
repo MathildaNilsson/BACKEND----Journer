@@ -49,6 +49,7 @@ class QuestionServiceTest extends MockitoExtension {
         testQuestion.setQuestion("Test fråga?");
         testQuestion.setAnswerList(listOfAnswers);
         testQuestion.setCategoryId(testCategory);
+        testCategory.setSubCategory("city");
         listOfQuestions.add(testQuestion);
     }
 
@@ -109,13 +110,9 @@ class QuestionServiceTest extends MockitoExtension {
         // SET UP
         Mockito.when(questionDAO.getQuestion()).thenReturn(listOfQuestions);
         // TEST
-        List<Question> actualQuestionList = unitUnderTest.getQuestion().stream()
-                .filter(question -> question.getCategoryId().equals(1))
-                .collect(Collectors.toList());
-        Optional<Question> actualQuestion = unitUnderTest.getQuestionByType(1).stream()
-                .skip((int) (actualQuestionList.size() * Math.random())).findAny();
+        Question actualQuestion = unitUnderTest.getRandomQuestion(1);
         // VERIFY
-        assertEquals(1,actualQuestion.orElse(null).getCategoryId());
+        assertEquals(1,actualQuestion.getId());
     }
 
     @Test
@@ -123,9 +120,7 @@ class QuestionServiceTest extends MockitoExtension {
         // SET UP
         Mockito.when(questionDAO.getQuestion()).thenReturn(listOfQuestions);
         // TEST
-        List<Question> actualQuestionList = unitUnderTest.getQuestion().stream()
-                .filter(question -> question.getCategoryId().equals(1))
-                .collect(Collectors.toList());
+        List<Question> actualQuestionList = unitUnderTest.getQuestionByType(1);
         // VERIFY
         assertEquals(1,actualQuestionList.size());
         Mockito.verify(questionDAO, Mockito.times(1)).getQuestion();
@@ -136,9 +131,7 @@ class QuestionServiceTest extends MockitoExtension {
         // SET UP
         Mockito.when(questionDAO.getQuestion()).thenReturn(listOfQuestions);
         // TEST
-        List<Question> actualQuestionList = unitUnderTest.getQuestion().stream()
-                .filter(question -> question.getCategoryName().equalsIgnoreCase("category"))
-                .collect(Collectors.toList());
+        List<Question> actualQuestionList = unitUnderTest.getQuestionByName("category");
         // VERIFY
         assertEquals(1,actualQuestionList.size());
     }
@@ -148,27 +141,43 @@ class QuestionServiceTest extends MockitoExtension {
         // SET UP
         Mockito.when(questionDAO.getQuestionByID(1)).thenReturn(Optional.of(listOfQuestions.get(0)));
         // TEST
-        Optional<Answer> actualAnswer = unitUnderTest.getQuestionById(1).getAnswerList().stream()
-                .filter(answers -> answers.isRightAnswer()).findAny();
+        Answer actualAnswer = unitUnderTest.getRightAnswer(1);
         // VERIFY
-        assertTrue(actualAnswer.orElse(null).isRightAnswer());
+        assertTrue(actualAnswer.isRightAnswer());
     }
 
     @Test
     void getCategoryIdByName() {
         // SET UP
+        List<Category> listOfCategories = new ArrayList<>();
+        Category testCategory = new Category();
+        testCategory.setCategory("testCategoryName");
+        testCategory.setId(1);
+        listOfCategories.add(testCategory);
+
+        Mockito.when(questionDAO.getCategory()).thenReturn(listOfCategories);
 
         // TEST
 
+        Integer categoryId = unitUnderTest.getCategoryIdByName("testCategoryName");
+
         // VERIFY
+
+        assertEquals(1, categoryId);
     }
 
     @Test
     void getAttractionsByCityName() {
         // SET UP
-
+        Mockito.when(questionDAO.getQuestion()).thenReturn(listOfQuestions);
+        
         // TEST
+        List<Question> actualListOfQuestions = unitUnderTest.getAttractionsByCityName("city");
 
         // VERIFY
+
+        assertEquals(1, actualListOfQuestions.size());
     }
+
+
 }

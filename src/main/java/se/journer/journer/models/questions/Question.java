@@ -62,4 +62,6 @@ public class Question {
     public void setCategoryId(Category categoryId) {
         this.categoryId = categoryId;
     }
+
+
 }

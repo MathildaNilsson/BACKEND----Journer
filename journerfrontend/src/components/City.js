@@ -41,15 +41,9 @@ class City extends Component {
 
       const [show2, setShow2] = useState(false);
       const handleClose2 = () => setShow2(false);
-      const handleShow2 = () => {
-        console.log(player && player.energy);
-        if(player && player.energy < 30){
-          alert("För lite Energi mannen");
-        }else{
+      const handleShow2 = () => 
           setShow2(true);
-        }
-        
-      }
+
 
       const [show3, setShow3] = useState(false);
       const handleClose3 = () => setShow3(false);
@@ -140,7 +134,7 @@ class City extends Component {
                   <Modal.Title className="container-bg">Välj en sevärdhet att besöka:</Modal.Title>
                 </Modal.Header>
                 <Modal.Body className="container-bg">
-                  <Attraction city={city} attraction={attraction} />
+                  <Attraction city={city} player={player && player} attraction={attraction} />
                 </Modal.Body>
                 <Modal.Footer></Modal.Footer>
               </Modal>

@@ -6,11 +6,16 @@ const Attraction = (props) => {
   const [showQuestions, setShowQuestions] = useState(false);
   const [showAttractions, setShowAttractions] = useState(true);
   const onClick = (number) => {
-    setQuestionNr(number);
-    setShowQuestions(true);
-    setShowAttractions(false);
+
+      if(props.player && props.player.energy < 30){
+        alert("För lite Energi mannen");
+      }else{
+        setQuestionNr(number);
+        setShowQuestions(true);
+        setShowAttractions(false);
+      }
   };
-  
+
   const addMoney = (money) => {
     fetch(`http://localhost:8080/game/addmoney/${money}`, {
       method: "POST",
@@ -44,31 +49,32 @@ const Attraction = (props) => {
   const showQuestion = (props) => {
     return (
       <span>
-
-<Table striped bordered hover>
-            <thead>
-              <tr>
-                <th>Svar</th>
-                <th>Välj Svar</th>
-              </tr>
-            </thead>
-            <tbody>
-            {shuffleArray(props).map((answer) =>(
+        <Table striped bordered hover>
+          <thead>
+            <tr>
+              <th>Svar</th>
+              <th>Välj Svar</th>
+            </tr>
+          </thead>
+          <tbody>
+            {shuffleArray(props).map((answer) => (
               <tr>
                 <td>{answer.answer}</td>
-                <th><Button
-            onClick={(e) => (
-              checkAnswer(answer.rightAnswer),
-              setQuestionNr((prevState) => prevState + 1),
-              checkQuestion()
-            )}
-          >
-            Välj svar
-          </Button></th>
+                <th>
+                  <Button
+                    onClick={(e) => (
+                      checkAnswer(answer.rightAnswer),
+                      setQuestionNr((prevState) => prevState + 1),
+                      checkQuestion()
+                    )}
+                  >
+                    Välj svar
+                  </Button>
+                </th>
               </tr>
-               ))}
-            </tbody>
-          </Table>
+            ))}
+          </tbody>
+        </Table>
       </span>
     );
   };
@@ -79,12 +85,12 @@ const Attraction = (props) => {
       setShowAttractions(true);
       setShowQuestions(false);
       window.location.reload(false);
-    }else if(questionNr === 5){
+    } else if (questionNr === 5) {
       setQuestionNr(1);
       setShowAttractions(true);
       setShowQuestions(false);
       window.location.reload(false);
-    }else if(questionNr === 8){
+    } else if (questionNr === 8) {
       setQuestionNr(1);
       setShowAttractions(true);
       setShowQuestions(false);
@@ -101,40 +107,46 @@ const Attraction = (props) => {
 
   const AttractionButtons = (props) => (
     <div>
-   <Table striped bordered hover>
-            <thead>
-            </thead>
-            <tbody>
-              <tr>
-              <th> <Button
-        variant="primary"
-        onClick={(e) => {
-          onClick(0);
-        }}
-      >
-        {props.city.attractionList[0].name}
-      </Button>
-      </th>
-            <th> <Button
-        variant="primary"
-        onClick={(e) => {
-          onClick(3);
-        }}
-      >
-        {props.city.attractionList[1].name}
-      </Button></th>
+      <Table striped bordered hover>
+        <thead></thead>
+        <tbody>
+          <tr>
+            <th>
+              {" "}
+              <Button
+                variant="primary"
+                onClick={(e) => {
+                  onClick(0);
+                }}
+              >
+                {props.city.attractionList[0].name}
+              </Button>
+            </th>
+            <th>
+              {" "}
+              <Button
+                variant="primary"
+                onClick={(e) => {
+                  onClick(3);
+                }}
+              >
+                {props.city.attractionList[1].name}
+              </Button>
+            </th>
 
-      <th><Button
-        variant="primary"
-        onClick={(e) => {
-          onClick(6);
-        }}
-      >
-        {props.city.attractionList[2].name}
-      </Button></th>
-            </tr>
-            </tbody>
-          </Table>
+            <th>
+              <Button
+                variant="primary"
+                onClick={(e) => {
+                  onClick(6);
+                }}
+              >
+                {props.city.attractionList[2].name}
+              </Button>
+            </th>
+          </tr>
+        </tbody>
+      </Table>
     </div>
   );
 
@@ -142,7 +154,7 @@ const Attraction = (props) => {
     <div className="container-bg">
       <div>
         {showQuestions ? <Questions attraction={props.attraction} /> : null}
-        {showAttractions ? <AttractionButtons city={props.city} /> : null} 
+        {showAttractions ? <AttractionButtons city={props.city} /> : null}
       </div>
     </div>
   );

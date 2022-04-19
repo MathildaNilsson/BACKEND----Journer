@@ -60,21 +60,27 @@ class City extends Component {
             >
               Return
             </button>
+            <br/>
 
             <Button variant="primary" onClick={handleShow2}>
               Sevärdheter
             </Button>
 
+            <br/>
+
             <Button variant="primary" onClick={handleShow3}>
               Stadsfråga
             </Button>
 
+            <br/>
+
             <Button variant="primary" onClick={handleShow4}>
               Res vidare
             </Button>
+            <br/>
 
-            <Button
-              varitant="primary"
+            <Button 
+              variant="danger"
               onClick={(e) => {
                 e.preventDefault();
                 window.location.href = `/endgamescreen`;
@@ -82,10 +88,12 @@ class City extends Component {
             >
               Exit game
             </Button>
+            <br/>
 
             <Button variant="primary" onClick={handleShow5}>
               Boende
             </Button>
+            <br/>
 
             <Button variant="primary" onClick={handleShow}>
               Shop
@@ -112,7 +120,7 @@ class City extends Component {
                 keyboard={false}
               >
                 <Modal.Header closeButton>
-                  <Modal.Title className="container-bg"></Modal.Title>
+                  <Modal.Title className="container-bg">Välj en sevärdhet att besöka:</Modal.Title>
                 </Modal.Header>
                 <Modal.Body className="container-bg">
                   <Attraction city={city} attraction={attraction} />
@@ -165,14 +173,20 @@ class City extends Component {
                 <Modal.Footer></Modal.Footer>
               </Modal>
 
-              <Offcanvas placement="end" show={show4} onHide={handleClose4}>
-                <Offcanvas.Header closeButton>
-                  <Offcanvas.Title>Res visare</Offcanvas.Title>
-                </Offcanvas.Header>
-                <Offcanvas.Body>
-                  <Transportation city={city} />
-                </Offcanvas.Body>
-              </Offcanvas>
+              <Modal
+                show={show4}
+                onHide={handleClose4}
+                backdrop="static"
+                keyboard={false}
+              >
+                <Modal.Header closeButton>
+                  <Modal.Title className="container-bg"></Modal.Title>
+                </Modal.Header>
+                <Modal.Body className="container-bg">
+                <Transportation city={city} />
+                </Modal.Body>
+                <Modal.Footer></Modal.Footer>
+              </Modal>
             </div>
           </div>
         </div>

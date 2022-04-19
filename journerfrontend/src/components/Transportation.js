@@ -98,7 +98,7 @@ const Transportation = (props) => {
                   <td>{randomCity2 && randomCity2.name}</td>
                   <td>
                     <Button
-                      class="btn btn-secondary btn-lg"
+                      className ="btn btn-secondary btn-lg"
                       variant="primary"
                       onClick={() => {
                         checkMoney(
@@ -114,9 +114,7 @@ const Transportation = (props) => {
                 </tr>
               ))}
           </tbody>
-        </Table>
-      </div>
-      <Button
+          <Button
         className="travel-btn"
         onClick={(e) => {
           e.preventDefault();
@@ -125,6 +123,8 @@ const Transportation = (props) => {
       >
         Res
       </Button>
+        </Table>
+      </div>
     </div>
   );
 };

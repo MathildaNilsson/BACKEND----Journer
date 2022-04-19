@@ -12,7 +12,7 @@ public class Player {
     private String name;
     private int money;
     private int energy;
-    Backpack backpack;
+    private Backpack backpack;
     private int completedCities;
 
 
@@ -85,14 +85,7 @@ public class Player {
             }
         }
         completedCities = templist.size();
-//        for(Item item : backpack.getBackpackList()){
-//            if( (!item.getName().equalsIgnoreCase("Energydrink")) && (!item.getName().equalsIgnoreCase("Pepperspray")) ){             }
-//                completedCities += 1;
-//            }
         }
-
-        //this.completedCities = completedCities;
-
 
     public int getCompletedCities() {
         return completedCities;

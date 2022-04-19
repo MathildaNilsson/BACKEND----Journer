@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Button, Offcanvas, Modal } from "react-bootstrap";
+import { Button, Modal } from "react-bootstrap";
 import React, { Component } from "react";
 import DisplayPlayer from "./DisplayPlayer";
 import Shop from "./Shop";
@@ -15,6 +15,7 @@ class City extends Component {
     const City = () => {
       let [attraction, setAttraction] = useState(null);
       let [category, setCategory] = useState(null);
+      let [player, setPlayer] = useState(null);
 
       useEffect(() => {
         fetch("question/attractionsbycityname/" + city.name)
@@ -28,13 +29,27 @@ class City extends Component {
           .then((category) => setCategory(category));
       }, []);
 
+      useEffect(() => {
+        fetch(`/game/getplayer/`)
+          .then((response) => response.json())
+          .then((player) => setPlayer(player));
+      }, {});
+
       const [show, setShow] = useState(false);
       const handleClose = () => setShow(false);
       const handleShow = () => setShow(true);
 
       const [show2, setShow2] = useState(false);
       const handleClose2 = () => setShow2(false);
-      const handleShow2 = () => setShow2(true);
+      const handleShow2 = () => {
+        console.log(player && player.energy);
+        if(player && player.energy < 30){
+          alert("För lite Energi mannen");
+        }else{
+          setShow2(true);
+        }
+        
+      }
 
       const [show3, setShow3] = useState(false);
       const handleClose3 = () => setShow3(false);
@@ -62,7 +77,9 @@ class City extends Component {
             </button>
             <br/>
 
-            <Button variant="primary" onClick={handleShow2}>
+            <Button variant="primary" onClick=
+            
+            {handleShow2}>
               Sevärdheter
             </Button>
 

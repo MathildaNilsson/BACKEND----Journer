@@ -26,7 +26,11 @@ class EndGameScreen extends Component {
           <h2>Namn: {player.name}</h2>
           <h2>Pengar: {player.money}</h2>
           <h2>Klarade städer: {player.completedCities}</h2>
-          <Button onClick={(e) => test()}> Spara Highscore</Button>
+          <Button onClick={(e) =>{ test()
+          alert("Ditt highscore är sparat!");
+          window.location.href = `/`
+          
+          }}> Spara Highscore</Button>
           <Button variant="danger" onClick={(e) => {
                 e.preventDefault();
                 window.location.href = `/`;

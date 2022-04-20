@@ -91,6 +91,78 @@ const Transportation = (props) => {
           <tbody>
             <>
             {station &&
+              station.slice(0,1).map((transport) => (
+                <tr key={Math.random()}>
+                  <td>{transport.name}</td>
+                  <td>{transport.price}:-</td>
+                  <td>+ {transport.energyToGain}</td>
+                  <td>{randomCity && randomCity[0].name}</td>
+                  <td>
+                    <Button
+                      className="btn btn-secondary btn-lg"
+                      variant="primary"
+                      onClick={() => {
+                        checkMoney(
+                          transport.energyToGain,
+                          transport.price,
+                          randomCity[0].name
+                        );
+                      }}
+                    >
+                      Välj
+                    </Button>
+                  </td>
+                </tr>
+              ))}
+              {station &&
+              station.slice(1,2).map((transport) => (
+                <tr key={Math.random()}>
+                  <td>{transport.name}</td>
+                  <td>{transport.price}:-</td>
+                  <td>+ {transport.energyToGain}</td>
+                  <td>{randomCity && randomCity[1].name}</td>
+                  <td>
+                    <Button
+                      className="btn btn-secondary btn-lg"
+                      variant="primary"
+                      onClick={() => {
+                        checkMoney(
+                          transport.energyToGain,
+                          transport.price,
+                          randomCity[1].name
+                        );
+                      }}
+                    >
+                      Välj
+                    </Button>
+                  </td>
+                </tr>
+              ))}
+              {station &&
+              station.slice(2,3).map((transport) => (
+                <tr key={Math.random()}>
+                  <td>{transport.name}</td>
+                  <td>{transport.price}:-</td>
+                  <td>+ {transport.energyToGain}</td>
+                  <td>{randomCity && randomCity[2].name}</td>
+                  <td>
+                    <Button
+                      className="btn btn-secondary btn-lg"
+                      variant="primary"
+                      onClick={() => {
+                        checkMoney(
+                          transport.energyToGain,
+                          transport.price,
+                          randomCity[2].name
+                        );
+                      }}
+                    >
+                      Välj
+                    </Button>
+                  </td>
+                </tr>
+              ))}
+{/*             {station &&
               station.map((transport) => (
                 <tr key={Math.random()}>
                   <td>{transport.name}</td>
@@ -113,7 +185,10 @@ const Transportation = (props) => {
                     </Button>
                   </td>
                 </tr>
-              ))}
+              ))} */}
+
+
+              
               </>
           </tbody>
           

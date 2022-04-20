@@ -10,8 +10,8 @@ import java.util.List;
 
 public class Shop {
     private int peppersprayPrice = 250;
-    private int energyDrinkPrice = 500;
-    private int souvenirPrice = 2000;
+    private int energyDrinkPrice = 250;
+    private int souvenirPrice = 1000;
     private int energyByDrink = 20;
     private List<Item> shopList;
 

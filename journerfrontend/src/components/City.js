@@ -47,7 +47,14 @@ class City extends Component {
 
       const [show3, setShow3] = useState(false);
       const handleClose3 = () => setShow3(false);
-      const handleShow3 = () => setShow3(true);
+      const handleShow3 = () => {
+
+        if(player && player.energy < 10){
+          alert("För lite Energi mannen");
+        }else{
+          setShow3(true);
+        }
+    };
 
       const [show4, setShow4] = useState(false);
       const handleClose4 = () => setShow4(false);

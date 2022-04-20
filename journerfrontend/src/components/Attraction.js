@@ -31,7 +31,7 @@ const Attraction = (props) => {
   const checkAnswer = (answer) => {
     if (answer === true) {
       removeEnergy(10);
-      addMoney(2000);
+      addMoney(1000);
       alert("Rätt");
     } else {
       removeEnergy(10);

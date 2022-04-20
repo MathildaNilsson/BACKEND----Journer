@@ -22,14 +22,20 @@ const Quiz = (props) => {
     }).then((response) => response.json());
   };
 
+  let randomMoney = () => {
+    let money = Math.floor(Math.random() * 1) + 1;
+    return (money *= 1000);
+  };
+  let [money, setMoney] = useState(randomMoney());
+
   const checkAnswer = (answer) =>{
     if(answer === true){
-     removeEnergy(5);
-     addMoney(100);
+     removeEnergy(10);
+     addMoney(money);
      window.location.reload(false)
      alert("Rätt");
     }else{
-     removeEnergy(5);
+     removeEnergy(10);
      window.location.reload(false)
      alert(`Fel`);
    

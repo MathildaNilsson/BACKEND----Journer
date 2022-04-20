@@ -8,10 +8,13 @@ class NewGameScreen extends Component {
     const { cities: randomCity } = this.state;
 
     const NewGameScreen = () => {
+      
       const removeMoney = (money) => {
         fetch(`http://localhost:8080/game/removemoney/${money}`, {
           method: "POST",
         }).then((response) => response.json());
+        window.location.reload(false);
+        alert(`Ha en trevlig resa!`);
       };
 
       let randomMoney = () => {

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Station {
-    private final int airplanePrice = 15000;
+    private final int airplanePrice = 14000;
     private final int trainPrice = 12000;
     private final int busPrice = 10000 ;
     private final int energyToGainAirplane = 100;

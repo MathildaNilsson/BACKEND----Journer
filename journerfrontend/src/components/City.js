@@ -120,7 +120,7 @@ class City extends Component {
                 keyboard={false}
               >
                 <Modal.Header closeButton>
-                  <Modal.Title className="container-bg">Välj en sevärdhet att besöka:</Modal.Title>
+                  <Modal.Title className="container-bg">Sevärdheter</Modal.Title>
                 </Modal.Header>
                 <Modal.Body className="container-bg">
                   <Attraction city={city} player={player && player} attraction={attraction} />

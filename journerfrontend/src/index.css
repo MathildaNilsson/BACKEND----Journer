@@ -13,6 +13,7 @@ h1,h2,h3,p{
 
 .container-bg{
   color: black;
+  background-color: #fff;
 }
 
 
@@ -59,7 +60,7 @@ body {
   grid-template-rows: 200px 200px 200px;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
-  background-color: #F9F9F7;
+  background-color: #fff;
   color: black;
   border-radius: 40px;
   box-shadow: 0 10px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.4);

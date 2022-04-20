@@ -1,5 +1,20 @@
 import { Table, Button } from "react-bootstrap";
+import { useState, useEffect } from "react";
 const Backpack = (props) => {
+  let [playerEnergy, setPlayerEnergy] = useState("");
+
+  useEffect(() => {
+    fetch(`/game/displayenergy`)
+      .then((response) => response.json())
+      .then((playerEnergy) => setPlayerEnergy(playerEnergy));
+  }, []);
+
+  const addEnergy = (energyToAdd) => {
+    fetch(`/game/addenergy/${energyToAdd}`, {
+      method: "POST",
+    }).then((response) => response.json());
+  };
+
   let drinks = props.player.backpack.filter(
     (drink) => drink.name == "Energydrink"
   );
@@ -17,6 +32,16 @@ const Backpack = (props) => {
     }).then((response) => response.json());
     window.location.reload(false);
     alert(`Du har nu använt din ${item}`);
+  };
+
+  const checkEnergy = (energy) => {
+    if (energy +++ playerEnergy > 100) {
+      let energyToFill = 100 - playerEnergy;
+      addEnergy(energyToFill);
+      window.location.reload(false);
+    } else {
+      addEnergy(energy -1);
+    }
   };
 
   return (
@@ -38,6 +63,7 @@ const Backpack = (props) => {
                 <Button
                   onClick={() => {
                     removeItem(drink.name);
+                    checkEnergy(35);
                   }}
                 >
                   Use

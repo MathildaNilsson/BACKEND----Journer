@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BookAccommodation {
-    private final int streetPrice = 100;
+    private final int streetPrice = 500;
     private final int hostelPrice = 1500;
     private final int hotelPrice = 2500;
-    private final int energyToGainStreet = 25;
+    private final int energyToGainStreet = 10;
     private final int energyToGainHostel = 50;
     private final int energyToGainHotel = 100;
     List<Accommodation> accommodationList;

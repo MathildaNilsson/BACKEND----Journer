@@ -58,12 +58,12 @@ const Backpack = (props) => {
           <tbody>
             <tr>
               <td>{drink.name}</td>
-              <td> + 35</td>
+              <td> + 20</td>
               <td>
                 <Button
                   onClick={() => {
                     removeItem(drink.name);
-                    checkEnergy(35);
+                    checkEnergy(20);
                   }}
                 >
                   Use
